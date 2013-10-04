@@ -82,11 +82,7 @@ namespace WinForm_Image_Editor
 
         private void preview_btn_Click(object sender, EventArgs e)
         {
-            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
-            previewBitmap = deepCopyBitmap(controlBitmap);
-            previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
-
-            mainParentForm.setMainPicture(previewBitmap);
+            setMainBitmap();
          }
 
         private void setMainBitmap()

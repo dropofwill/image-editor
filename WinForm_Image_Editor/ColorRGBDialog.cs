@@ -45,9 +45,9 @@ namespace WinForm_Image_Editor
         private void CreateColorBSL()
         {
             this.myColorBSLControl = new WinForm_Image_Editor.ColorBSLControl(parentForm, this);
-            this.myColorBSLControl.Location = new System.Drawing.Point(13, 13);
+            this.myColorBSLControl.Location = new System.Drawing.Point(5, 5);
             this.myColorBSLControl.Name = "recolor1";
-            this.myColorBSLControl.Size = new System.Drawing.Size(378, 362);
+            this.myColorBSLControl.Size = new System.Drawing.Size(380, 550);
             this.myColorBSLControl.TabIndex = 0;
             this.Controls.Add(this.myColorBSLControl);
         }
