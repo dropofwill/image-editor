@@ -157,8 +157,11 @@ namespace WinForm_Image_Editor
         {
             if (mainPictureBox.Image != null)
             {
-                RecolorForm recolorF = new RecolorForm(this);
-                recolorF.Show();
+                ColorRGBDialog colorRGB = new ColorRGBDialog(this, "ColorRGB");
+                colorRGB.Show();
+                
+              // RecolorForm recolorF = new RecolorForm(this);
+              // recolorF.Show();
             }
         }
 

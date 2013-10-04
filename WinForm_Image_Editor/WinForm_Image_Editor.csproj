@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorRGBDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorRGBDialog.Designer.cs">
+      <DependentUpon>ColorRGBDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorRGBControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ColorRGBControl.Designer.cs">
+      <DependentUpon>ColorRGBControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Image_Editor_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +77,12 @@
     <Compile Include="RecolorForm.Designer.cs">
       <DependentUpon>RecolorForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ColorRGBDialog.resx">
+      <DependentUpon>ColorRGBDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorRGBControl.resx">
+      <DependentUpon>ColorRGBControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Image_Editor_Main.resx">
       <DependentUpon>Image_Editor_Main.cs</DependentUpon>
     </EmbeddedResource>

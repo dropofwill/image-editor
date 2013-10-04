@@ -8,3 +8,6 @@ C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\ob
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.csproj.GenerateResource.Cache
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.exe
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.pdb
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.csprojResolveAssemblyReference.cache
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.ColorRGBControl.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.ColorRGBDialog.resources
