@@ -22,7 +22,7 @@ namespace WinForm_Image_Editor
         /// 
         /// </summary>
         /// <param name="pf">Current Form</param>
-        /// <param name="tOC">Accepted Values "ColorRGB", "ColorBSL", "CustomGrey"</param>
+        /// <param name="tOC">Accepted Values "ColorRGB", "ColorBSL", "CustomGrey", "CustomMatrix"</param>
         public ColorRGBDialog(Image_Editor_Main pf, String tOC)
         {
             parentForm = pf;
@@ -36,21 +36,27 @@ namespace WinForm_Image_Editor
             if (typeOfControl == "ColorRGB")
             {
                 CreateColorRGB();
+                this.ClientSize = new Size(myColorRGBControl.Width + 26, myColorRGBControl.Height + 26);
             }
             else if (typeOfControl == "ColorBSL")
             {
                 CreateColorBSL();
+                this.ClientSize = new Size(myColorBSLControl.Width + 26, myColorBSLControl.Height + 26);
             }
             else if (typeOfControl == "CustomGrey")
             {
                 CreateCustomGrey();
+                this.ClientSize = new Size(myCustomGreyControl.Width + 26, myCustomGreyControl.Height + 26);
+            }
+            else if (typeOfControl == "CustomMatrix")
+            {
             }
         }
 
         private void CreateColorBSL()
         {
             this.myColorBSLControl = new WinForm_Image_Editor.ColorBSLControl(parentForm, this);
-            this.myColorBSLControl.Location = new System.Drawing.Point(5, 5);
+            this.myColorBSLControl.Location = new System.Drawing.Point(13, 13);
             this.myColorBSLControl.Name = "recolor1";
             this.myColorBSLControl.Size = new System.Drawing.Size(380, 550);
             this.myColorBSLControl.TabIndex = 0;
