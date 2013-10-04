@@ -218,5 +218,10 @@ namespace WinForm_Image_Editor
         {
             mainPictureBox.Image = originalPicture;
         }
+
+        private void colorModifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

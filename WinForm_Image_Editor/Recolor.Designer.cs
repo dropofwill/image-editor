@@ -56,6 +56,7 @@
             this.redTrackBar.TabIndex = 0;
             this.redTrackBar.TickFrequency = 10;
             this.redTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.redTrackBar.Scroll += new System.EventHandler(this.redTrackBar_Scroll);
             // 
             // redLabel
             // 

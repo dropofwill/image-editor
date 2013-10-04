@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace WinForm_Image_Editor
 {
-    public partial class Recolor : UserControl
+    public partial class RecolorForm : Form
     {
-        public Recolor()
+        public RecolorForm()
         {
             InitializeComponent();
         }
-
-        private void redTrackBar_Scroll(object sender, EventArgs e)
-        {
-            redLabel.Text = "" + redTrackBar.Value;
-        }
-
     }
 }
