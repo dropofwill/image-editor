@@ -28,85 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.redTrackBar = new System.Windows.Forms.TrackBar();
-            this.redLabel = new System.Windows.Forms.Label();
-            this.greenLabel = new System.Windows.Forms.Label();
-            this.greenTrackBar = new System.Windows.Forms.TrackBar();
-            this.blueLabel = new System.Windows.Forms.Label();
-            this.blueTrackBar = new System.Windows.Forms.TrackBar();
+            this.brightTrackBar = new System.Windows.Forms.TrackBar();
+            this.brightLabel = new System.Windows.Forms.Label();
+            this.satLabel = new System.Windows.Forms.Label();
+            this.satTrackBar = new System.Windows.Forms.TrackBar();
+            this.conLabel = new System.Windows.Forms.Label();
+            this.conTrackBar = new System.Windows.Forms.TrackBar();
             this.preview_btn = new System.Windows.Forms.Button();
             this.apply_btn = new System.Windows.Forms.Button();
             this.cancel_btn = new System.Windows.Forms.Button();
-            this.redValue = new System.Windows.Forms.Label();
-            this.greenValue = new System.Windows.Forms.Label();
-            this.blueValue = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.redTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.greenTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.blueTrackBar)).BeginInit();
+            this.brightValue = new System.Windows.Forms.Label();
+            this.satValue = new System.Windows.Forms.Label();
+            this.conValue = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.brightTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.satTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
-            // redTrackBar
+            // brightTrackBar
             // 
-            this.redTrackBar.Location = new System.Drawing.Point(19, 46);
-            this.redTrackBar.Maximum = 100;
-            this.redTrackBar.Name = "redTrackBar";
-            this.redTrackBar.Size = new System.Drawing.Size(317, 45);
-            this.redTrackBar.SmallChange = 10;
-            this.redTrackBar.TabIndex = 0;
-            this.redTrackBar.TickFrequency = 10;
-            this.redTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.redTrackBar.Scroll += new System.EventHandler(this.redTrackBar_Scroll);
+            this.brightTrackBar.Location = new System.Drawing.Point(19, 46);
+            this.brightTrackBar.Maximum = 100;
+            this.brightTrackBar.Name = "brightTrackBar";
+            this.brightTrackBar.Size = new System.Drawing.Size(317, 45);
+            this.brightTrackBar.SmallChange = 10;
+            this.brightTrackBar.TabIndex = 0;
+            this.brightTrackBar.TickFrequency = 10;
+            this.brightTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.brightTrackBar.Scroll += new System.EventHandler(this.redTrackBar_Scroll);
             // 
-            // redLabel
+            // brightLabel
             // 
-            this.redLabel.AutoSize = true;
-            this.redLabel.Location = new System.Drawing.Point(28, 30);
-            this.redLabel.Name = "redLabel";
-            this.redLabel.Size = new System.Drawing.Size(27, 13);
-            this.redLabel.TabIndex = 3;
-            this.redLabel.Text = "Red";
+            this.brightLabel.AutoSize = true;
+            this.brightLabel.Location = new System.Drawing.Point(28, 30);
+            this.brightLabel.Name = "brightLabel";
+            this.brightLabel.Size = new System.Drawing.Size(56, 13);
+            this.brightLabel.TabIndex = 3;
+            this.brightLabel.Text = "Brightness";
             // 
-            // greenLabel
+            // satLabel
             // 
-            this.greenLabel.AutoSize = true;
-            this.greenLabel.Location = new System.Drawing.Point(28, 123);
-            this.greenLabel.Name = "greenLabel";
-            this.greenLabel.Size = new System.Drawing.Size(36, 13);
-            this.greenLabel.TabIndex = 5;
-            this.greenLabel.Text = "Green";
+            this.satLabel.AutoSize = true;
+            this.satLabel.Location = new System.Drawing.Point(28, 123);
+            this.satLabel.Name = "satLabel";
+            this.satLabel.Size = new System.Drawing.Size(55, 13);
+            this.satLabel.TabIndex = 5;
+            this.satLabel.Text = "Saturation";
             // 
-            // greenTrackBar
+            // satTrackBar
             // 
-            this.greenTrackBar.Location = new System.Drawing.Point(19, 139);
-            this.greenTrackBar.Maximum = 100;
-            this.greenTrackBar.Name = "greenTrackBar";
-            this.greenTrackBar.Size = new System.Drawing.Size(317, 45);
-            this.greenTrackBar.SmallChange = 10;
-            this.greenTrackBar.TabIndex = 4;
-            this.greenTrackBar.TickFrequency = 10;
-            this.greenTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.greenTrackBar.Scroll += new System.EventHandler(this.greenTrackBar_Scroll);
+            this.satTrackBar.Location = new System.Drawing.Point(19, 139);
+            this.satTrackBar.Maximum = 100;
+            this.satTrackBar.Name = "satTrackBar";
+            this.satTrackBar.Size = new System.Drawing.Size(317, 45);
+            this.satTrackBar.SmallChange = 10;
+            this.satTrackBar.TabIndex = 4;
+            this.satTrackBar.TickFrequency = 10;
+            this.satTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.satTrackBar.Scroll += new System.EventHandler(this.greenTrackBar_Scroll);
             // 
-            // blueLabel
+            // conLabel
             // 
-            this.blueLabel.AutoSize = true;
-            this.blueLabel.Location = new System.Drawing.Point(28, 219);
-            this.blueLabel.Name = "blueLabel";
-            this.blueLabel.Size = new System.Drawing.Size(28, 13);
-            this.blueLabel.TabIndex = 7;
-            this.blueLabel.Text = "Blue";
+            this.conLabel.AutoSize = true;
+            this.conLabel.Location = new System.Drawing.Point(28, 219);
+            this.conLabel.Name = "conLabel";
+            this.conLabel.Size = new System.Drawing.Size(46, 13);
+            this.conLabel.TabIndex = 7;
+            this.conLabel.Text = "Contrast";
             // 
-            // blueTrackBar
+            // conTrackBar
             // 
-            this.blueTrackBar.Location = new System.Drawing.Point(19, 235);
-            this.blueTrackBar.Maximum = 100;
-            this.blueTrackBar.Name = "blueTrackBar";
-            this.blueTrackBar.Size = new System.Drawing.Size(317, 45);
-            this.blueTrackBar.SmallChange = 10;
-            this.blueTrackBar.TabIndex = 6;
-            this.blueTrackBar.TickFrequency = 10;
-            this.blueTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.blueTrackBar.Scroll += new System.EventHandler(this.blueTrackBar_Scroll);
+            this.conTrackBar.Location = new System.Drawing.Point(19, 235);
+            this.conTrackBar.Maximum = 100;
+            this.conTrackBar.Name = "conTrackBar";
+            this.conTrackBar.Size = new System.Drawing.Size(317, 45);
+            this.conTrackBar.SmallChange = 10;
+            this.conTrackBar.TabIndex = 6;
+            this.conTrackBar.TickFrequency = 10;
+            this.conTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.conTrackBar.Scroll += new System.EventHandler(this.blueTrackBar_Scroll);
             // 
             // preview_btn
             // 
@@ -138,60 +138,60 @@
             this.cancel_btn.UseVisualStyleBackColor = true;
             this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
-            // redValue
+            // brightValue
             // 
-            this.redValue.AutoSize = true;
-            this.redValue.Location = new System.Drawing.Point(323, 30);
-            this.redValue.Name = "redValue";
-            this.redValue.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.redValue.Size = new System.Drawing.Size(13, 13);
-            this.redValue.TabIndex = 11;
-            this.redValue.Text = "0";
-            this.redValue.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.brightValue.AutoSize = true;
+            this.brightValue.Location = new System.Drawing.Point(323, 30);
+            this.brightValue.Name = "brightValue";
+            this.brightValue.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.brightValue.Size = new System.Drawing.Size(13, 13);
+            this.brightValue.TabIndex = 11;
+            this.brightValue.Text = "0";
+            this.brightValue.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // greenValue
+            // satValue
             // 
-            this.greenValue.AutoSize = true;
-            this.greenValue.Location = new System.Drawing.Point(323, 123);
-            this.greenValue.Name = "greenValue";
-            this.greenValue.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.greenValue.Size = new System.Drawing.Size(13, 13);
-            this.greenValue.TabIndex = 12;
-            this.greenValue.Text = "0";
-            this.greenValue.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.satValue.AutoSize = true;
+            this.satValue.Location = new System.Drawing.Point(323, 123);
+            this.satValue.Name = "satValue";
+            this.satValue.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.satValue.Size = new System.Drawing.Size(13, 13);
+            this.satValue.TabIndex = 12;
+            this.satValue.Text = "0";
+            this.satValue.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // blueValue
+            // conValue
             // 
-            this.blueValue.AutoSize = true;
-            this.blueValue.Location = new System.Drawing.Point(323, 219);
-            this.blueValue.Name = "blueValue";
-            this.blueValue.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.blueValue.Size = new System.Drawing.Size(13, 13);
-            this.blueValue.TabIndex = 13;
-            this.blueValue.Text = "0";
-            this.blueValue.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.conValue.AutoSize = true;
+            this.conValue.Location = new System.Drawing.Point(323, 219);
+            this.conValue.Name = "conValue";
+            this.conValue.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.conValue.Size = new System.Drawing.Size(13, 13);
+            this.conValue.TabIndex = 13;
+            this.conValue.Text = "0";
+            this.conValue.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // Recolor
+            // ColorBSLControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.blueValue);
-            this.Controls.Add(this.greenValue);
-            this.Controls.Add(this.redValue);
+            this.Controls.Add(this.conValue);
+            this.Controls.Add(this.satValue);
+            this.Controls.Add(this.brightValue);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.apply_btn);
             this.Controls.Add(this.preview_btn);
-            this.Controls.Add(this.blueLabel);
-            this.Controls.Add(this.blueTrackBar);
-            this.Controls.Add(this.greenLabel);
-            this.Controls.Add(this.greenTrackBar);
-            this.Controls.Add(this.redLabel);
-            this.Controls.Add(this.redTrackBar);
-            this.Name = "Recolor";
+            this.Controls.Add(this.conLabel);
+            this.Controls.Add(this.conTrackBar);
+            this.Controls.Add(this.satLabel);
+            this.Controls.Add(this.satTrackBar);
+            this.Controls.Add(this.brightLabel);
+            this.Controls.Add(this.brightTrackBar);
+            this.Name = "ColorBSLControl";
             this.Size = new System.Drawing.Size(378, 362);
-            ((System.ComponentModel.ISupportInitialize)(this.redTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.greenTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.blueTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.satTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,17 +199,17 @@
 
         #endregion
 
-        private System.Windows.Forms.TrackBar redTrackBar;
-        private System.Windows.Forms.Label redLabel;
-        private System.Windows.Forms.Label greenLabel;
-        private System.Windows.Forms.TrackBar greenTrackBar;
-        private System.Windows.Forms.Label blueLabel;
-        private System.Windows.Forms.TrackBar blueTrackBar;
+        private System.Windows.Forms.TrackBar brightTrackBar;
+        private System.Windows.Forms.Label brightLabel;
+        private System.Windows.Forms.Label satLabel;
+        private System.Windows.Forms.TrackBar satTrackBar;
+        private System.Windows.Forms.Label conLabel;
+        private System.Windows.Forms.TrackBar conTrackBar;
         private System.Windows.Forms.Button preview_btn;
         private System.Windows.Forms.Button apply_btn;
         private System.Windows.Forms.Button cancel_btn;
-        private System.Windows.Forms.Label redValue;
-        private System.Windows.Forms.Label greenValue;
-        private System.Windows.Forms.Label blueValue;
+        private System.Windows.Forms.Label brightValue;
+        private System.Windows.Forms.Label satValue;
+        private System.Windows.Forms.Label conValue;
     }
 }

@@ -18,9 +18,9 @@ namespace WinForm_Image_Editor
         private Bitmap controlBitmap;
         private Bitmap previewBitmap;
         private Image anImage;
-        private float redV;
-        private float greenV;
-        private float blueV;
+        private float brightV;
+        private float satV;
+        private float conV;
 
         /// <summary>
         /// User interface for changing the red/green/blue channels individually for an image
@@ -38,23 +38,65 @@ namespace WinForm_Image_Editor
 
         private void redTrackBar_Scroll(object sender, EventArgs e)
         {
-            redV = ((float)redTrackBar.Value / (float)100);
-            redValue.Text = "" + redV;
+            brightV = ((float)brightTrackBar.Value / (float)100);
+            brightValue.Text = "" + brightV;
         }
 
         private void greenTrackBar_Scroll(object sender, EventArgs e)
         {
-            greenV = ((float)greenTrackBar.Value / (float)100);
-            greenValue.Text = "" + greenV;
+            satV = ((float)satTrackBar.Value / (float)100);
+            satValue.Text = "" + satV;
         }
 
         private void blueTrackBar_Scroll(object sender, EventArgs e)
         {
-            blueV = ((float)blueTrackBar.Value / (float)100);
-            blueValue.Text = "" + blueV;
+            conV = ((float)conTrackBar.Value / (float)100);
+            conValue.Text = "" + conV;
         }
 
         private ColorMatrix createColorMatrix(float rV, float gV, float bV)
+        {
+            ColorMatrix cMatrix = new ColorMatrix(
+                new float[][]
+                {
+                    new float[] {1, 0, 0, 0, 0},
+                    new float[] {0, 1, 0, 0, gV},
+                    new float[] {0, 0, 1, 0, 0},
+                    new float[] {0, 0, 0, 1, 0},
+                    new float[] {rV, gV, bV, 0, 1}
+                });
+            return cMatrix;
+        }
+
+        private ColorMatrix createBrightnessMatrix(float bV)
+        {
+            ColorMatrix cMatrix = new ColorMatrix(
+                new float[][]
+                {
+                    new float[] {1, 0, 0, 0, 0},
+                    new float[] {0, 1, 0, 0, 0},
+                    new float[] {0, 0, 1, 0, 0},
+                    new float[] {0, 0, 0, 1, 0},
+                    new float[] {bV, bV, bV, 0, 1}
+                });
+            return cMatrix;
+        }
+
+        private ColorMatrix createContrastMatrix(float rV, float gV, float bV)
+        {
+            ColorMatrix cMatrix = new ColorMatrix(
+                new float[][]
+                {
+                    new float[] {1, 0, 0, 0, 0},
+                    new float[] {0, 1, 0, 0, gV},
+                    new float[] {0, 0, 1, 0, 0},
+                    new float[] {0, 0, 0, 1, 0},
+                    new float[] {rV, gV, bV, 0, 1}
+                });
+            return cMatrix;
+        }
+
+        private ColorMatrix createSaturationMatrix(float rV, float gV, float bV)
         {
             ColorMatrix cMatrix = new ColorMatrix(
                 new float[][]
@@ -82,7 +124,7 @@ namespace WinForm_Image_Editor
 
         private void preview_btn_Click(object sender, EventArgs e)
         {
-            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
+            ColorMatrix cMatrix = createColorMatrix(brightV, satV, conV);
             previewBitmap = deepCopyBitmap(controlBitmap);
             previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
 
@@ -91,7 +133,7 @@ namespace WinForm_Image_Editor
 
         private void setMainBitmap()
         {
-            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
+            ColorMatrix cMatrix = createColorMatrix(brightV, satV, conV);
             previewBitmap = deepCopyBitmap(controlBitmap);
             previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
 
