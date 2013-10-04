@@ -68,13 +68,13 @@ namespace WinForm_Image_Editor
 
         private void cancel_btn_Click(object sender, EventArgs e)
         {
-
+            parentForm.setMainPicture(recolorBitmap);
         }
 
         private void preview_btn_Click(object sender, EventArgs e)
         {
             ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
-            previewBitmap = new Bitmap(anImage);
+            previewBitmap = deepCopyBitmap(recolorBitmap);
             previewBitmap = parentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
 
             parentForm.setMainPicture(previewBitmap);

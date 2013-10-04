@@ -144,6 +144,8 @@ namespace WinForm_Image_Editor
         private void discardChangesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             setMainPicture(originalPicture);
+            currentPicture = originalPicture;
+            
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)

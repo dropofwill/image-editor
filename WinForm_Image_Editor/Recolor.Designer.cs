@@ -55,7 +55,6 @@
             this.redTrackBar.TabIndex = 0;
             this.redTrackBar.TickFrequency = 10;
             this.redTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.redTrackBar.Value = 100;
             this.redTrackBar.Scroll += new System.EventHandler(this.redTrackBar_Scroll);
             // 
             // redLabel
@@ -86,7 +85,6 @@
             this.greenTrackBar.TabIndex = 4;
             this.greenTrackBar.TickFrequency = 10;
             this.greenTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.greenTrackBar.Value = 100;
             this.greenTrackBar.Scroll += new System.EventHandler(this.greenTrackBar_Scroll);
             // 
             // blueLabel
@@ -108,7 +106,6 @@
             this.blueTrackBar.TabIndex = 6;
             this.blueTrackBar.TickFrequency = 10;
             this.blueTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.blueTrackBar.Value = 100;
             this.blueTrackBar.Scroll += new System.EventHandler(this.blueTrackBar_Scroll);
             // 
             // preview_btn
