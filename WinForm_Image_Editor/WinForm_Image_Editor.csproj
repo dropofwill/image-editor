@@ -57,6 +57,12 @@
     <Compile Include="ColorRGBControl.Designer.cs">
       <DependentUpon>ColorRGBControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColorBSLControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ColorBSLControl.Designer.cs">
+      <DependentUpon>ColorBSLControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Image_Editor_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ColorRGBControl.resx">
       <DependentUpon>ColorRGBControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorBSLControl.resx">
+      <DependentUpon>ColorBSLControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Image_Editor_Main.resx">
       <DependentUpon>Image_Editor_Main.cs</DependentUpon>

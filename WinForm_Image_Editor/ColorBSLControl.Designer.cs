@@ -1,6 +1,6 @@
 ﻿namespace WinForm_Image_Editor
 {
-    partial class ColorRGBControl
+    partial class ColorBSLControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -49,7 +49,6 @@
             // 
             this.redTrackBar.Location = new System.Drawing.Point(19, 46);
             this.redTrackBar.Maximum = 100;
-            this.redTrackBar.Minimum = -100;
             this.redTrackBar.Name = "redTrackBar";
             this.redTrackBar.Size = new System.Drawing.Size(317, 45);
             this.redTrackBar.SmallChange = 10;
@@ -80,7 +79,6 @@
             // 
             this.greenTrackBar.Location = new System.Drawing.Point(19, 139);
             this.greenTrackBar.Maximum = 100;
-            this.greenTrackBar.Minimum = -100;
             this.greenTrackBar.Name = "greenTrackBar";
             this.greenTrackBar.Size = new System.Drawing.Size(317, 45);
             this.greenTrackBar.SmallChange = 10;
@@ -102,7 +100,6 @@
             // 
             this.blueTrackBar.Location = new System.Drawing.Point(19, 235);
             this.blueTrackBar.Maximum = 100;
-            this.blueTrackBar.Minimum = -100;
             this.blueTrackBar.Name = "blueTrackBar";
             this.blueTrackBar.Size = new System.Drawing.Size(317, 45);
             this.blueTrackBar.SmallChange = 10;
@@ -174,7 +171,7 @@
             this.blueValue.Text = "0";
             this.blueValue.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // ColorRGBControl
+            // Recolor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,7 +187,7 @@
             this.Controls.Add(this.greenTrackBar);
             this.Controls.Add(this.redLabel);
             this.Controls.Add(this.redTrackBar);
-            this.Name = "ColorRGBControl";
+            this.Name = "Recolor";
             this.Size = new System.Drawing.Size(378, 362);
             ((System.ComponentModel.ISupportInitialize)(this.redTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenTrackBar)).EndInit();

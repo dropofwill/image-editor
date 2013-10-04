@@ -9,3 +9,4 @@ C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\ob
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.csprojResolveAssemblyReference.cache
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.ColorRGBControl.resources
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.ColorRGBDialog.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.ColorBSLControl.resources

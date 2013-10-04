@@ -162,15 +162,19 @@ namespace WinForm_Image_Editor
             }
         }
 
+        private void bSLModifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mainPictureBox.Image != null)
+            {
+                ColorRGBDialog colorRGB = new ColorRGBDialog(this, "ColorBSL");
+                colorRGB.Show();
+            }
+        }
+
         public Bitmap CurrentPicture
         {
             get { return currentPicture; }
             set { currentPicture = value; }
-        }
-
-        private void bSLModifierToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
