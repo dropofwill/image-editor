@@ -60,7 +60,7 @@ namespace WinForm_Image_Editor
                 new float[][]
                 {
                     new float[] {1, 0, 0, 0, 0},
-                    new float[] {0, 1, 0, 0, gV},
+                    new float[] {0, 1, 0, 0, 0},
                     new float[] {0, 0, 1, 0, 0},
                     new float[] {0, 0, 0, 1, 0},
                     new float[] {rV, gV, bV, 0, 1}
