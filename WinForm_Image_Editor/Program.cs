@@ -16,7 +16,7 @@ namespace WinForm_Image_Editor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Image_Editor_Main());
         }
     }
 }
