@@ -38,11 +38,13 @@
             this.effectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bSLModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.invertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grayscaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainPictureBox = new System.Windows.Forms.PictureBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.customGreyscaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customMatrixTransformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -112,6 +114,8 @@
             this.effectsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.colorModifierToolStripMenuItem,
             this.bSLModifierToolStripMenuItem,
+            this.customGreyscaleToolStripMenuItem,
+            this.customMatrixTransformationToolStripMenuItem,
             this.grayscaleToolStripMenuItem,
             this.invertToolStripMenuItem});
             this.effectsToolStripMenuItem.Name = "effectsToolStripMenuItem";
@@ -123,7 +127,7 @@
             this.colorModifierToolStripMenuItem.Name = "colorModifierToolStripMenuItem";
             this.colorModifierToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.R)));
-            this.colorModifierToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.colorModifierToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.colorModifierToolStripMenuItem.Text = "RGB Modifier";
             this.colorModifierToolStripMenuItem.Click += new System.EventHandler(this.recolorToolStripMenuItem_Click);
             // 
@@ -132,25 +136,25 @@
             this.bSLModifierToolStripMenuItem.Name = "bSLModifierToolStripMenuItem";
             this.bSLModifierToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.B)));
-            this.bSLModifierToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.bSLModifierToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.bSLModifierToolStripMenuItem.Text = "BSL Modifier";
             this.bSLModifierToolStripMenuItem.Click += new System.EventHandler(this.bSLModifierToolStripMenuItem_Click);
-            // 
-            // invertToolStripMenuItem
-            // 
-            this.invertToolStripMenuItem.Name = "invertToolStripMenuItem";
-            this.invertToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.invertToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.invertToolStripMenuItem.Text = "Invert";
-            this.invertToolStripMenuItem.Click += new System.EventHandler(this.invertToolStripMenuItem_Click);
             // 
             // grayscaleToolStripMenuItem
             // 
             this.grayscaleToolStripMenuItem.Name = "grayscaleToolStripMenuItem";
             this.grayscaleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.grayscaleToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.grayscaleToolStripMenuItem.Text = "Greyscale";
+            this.grayscaleToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.grayscaleToolStripMenuItem.Text = "Optimized Greyscale";
             this.grayscaleToolStripMenuItem.Click += new System.EventHandler(this.grayscaleToolStripMenuItem_Click);
+            // 
+            // invertToolStripMenuItem
+            // 
+            this.invertToolStripMenuItem.Name = "invertToolStripMenuItem";
+            this.invertToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.invertToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.invertToolStripMenuItem.Text = "Invert";
+            this.invertToolStripMenuItem.Click += new System.EventHandler(this.invertToolStripMenuItem_Click);
             // 
             // mainPictureBox
             // 
@@ -167,6 +171,24 @@
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog";
+            // 
+            // customGreyscaleToolStripMenuItem
+            // 
+            this.customGreyscaleToolStripMenuItem.Name = "customGreyscaleToolStripMenuItem";
+            this.customGreyscaleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.G)));
+            this.customGreyscaleToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.customGreyscaleToolStripMenuItem.Text = "Custom Greyscale";
+            this.customGreyscaleToolStripMenuItem.Click += new System.EventHandler(this.customGreyscaleToolStripMenuItem_Click);
+            // 
+            // customMatrixTransformationToolStripMenuItem
+            // 
+            this.customMatrixTransformationToolStripMenuItem.Name = "customMatrixTransformationToolStripMenuItem";
+            this.customMatrixTransformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.T)));
+            this.customMatrixTransformationToolStripMenuItem.Size = new System.Drawing.Size(301, 22);
+            this.customMatrixTransformationToolStripMenuItem.Text = "Custom Matrix Transformation";
+            this.customMatrixTransformationToolStripMenuItem.Click += new System.EventHandler(this.customMatrixTransformationToolStripMenuItem_Click);
             // 
             // Image_Editor_Main
             // 
@@ -205,6 +227,8 @@
         private System.Windows.Forms.ToolStripMenuItem discardChangesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorModifierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bSLModifierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customGreyscaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customMatrixTransformationToolStripMenuItem;
     }
 }
 

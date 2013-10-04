@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // colorRGBDialog
+            // ColorRGBDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 541);
+            this.ClientSize = new System.Drawing.Size(464, 566);
             this.ControlBox = false;
-            this.Name = "colorRGBDialog";
+            this.Name = "ColorRGBDialog";
             this.Text = "colorRGBDialog";
             this.ResumeLayout(false);
 

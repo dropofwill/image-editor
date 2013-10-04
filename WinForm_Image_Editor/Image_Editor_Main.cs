@@ -30,9 +30,9 @@ namespace WinForm_Image_Editor
         private ColorMatrix invertConMatrix = new ColorMatrix(
            new float[][]
             {
-                new float[] { -1,   0,   0,  0,  255},
-                new float[] {  0,  -1,   0,  0,  255},
-                new float[] {  0,   0,  -1,  0,  255},
+                new float[] { -1,   0,   0,  0,  1},
+                new float[] {  0,  -1,   0,  0,  1},
+                new float[] {  0,   0,  -1,  0,  1},
                 new float[] {  0,   0,   0,  1,  0},
                 new float[] {  1,   1,   1,  0,  1}
             });
@@ -80,26 +80,9 @@ namespace WinForm_Image_Editor
 
 
 
-        private void invertToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (currentPicture != null)
-            {
-                currentPicture = MatrixConvertBitmap(currentPicture, invertConMatrix);
-                setMainPicture(currentPicture);
-            }
-        }
-
-        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (currentPicture != null)
-            {
-                currentPicture = MatrixConvertBitmap(currentPicture, greyscaleConMatrix);
-                setMainPicture(currentPicture);
-            }
-        }
 
         /// <summary>
-        /// 
+        /// Applies a color matrix to the pixels of a bitmap
         /// </summary>
         /// <param name="original">Bitmap to be converted</param>
         /// <param name="cM">ColorMatrix which does the changing</param>
@@ -139,8 +122,6 @@ namespace WinForm_Image_Editor
         }
 
 
-
-
         private void discardChangesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             setMainPicture(originalPicture);
@@ -153,23 +134,85 @@ namespace WinForm_Image_Editor
             Environment.Exit(0);
         }
 
-        private void recolorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void invertToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (mainPictureBox.Image != null)
+            try
             {
-                ColorRGBDialog colorRGB = new ColorRGBDialog(this, "ColorRGB");
-                colorRGB.Show();
+                currentPicture = MatrixConvertBitmap(currentPicture, invertConMatrix);
+                setMainPicture(currentPicture);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No Picture, please open a a picture to edit it");
+            }
+        }
+
+        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                currentPicture = MatrixConvertBitmap(currentPicture, greyscaleConMatrix);
+                setMainPicture(currentPicture);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No Picture, please open a a picture to edit it");
             }
         }
 
         private void bSLModifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (mainPictureBox.Image != null)
+            try
             {
                 ColorRGBDialog colorRGB = new ColorRGBDialog(this, "ColorBSL");
                 colorRGB.Show();
             }
+            catch (Exception)
+            {
+                MessageBox.Show("No Picture, please open a a picture to edit it");
+            }
         }
+
+        private void recolorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ColorRGBDialog colorRGB = new ColorRGBDialog(this, "ColorRGB");
+                colorRGB.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No Picture, please open a a picture to edit it");
+            }
+        }
+
+        private void customGreyscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ColorRGBDialog colorRGB = new ColorRGBDialog(this, "CustomGrey");
+                colorRGB.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No Picture, please open a a picture to edit it");
+            }
+        }
+
+        private void customMatrixTransformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ColorRGBDialog colorRGB = new ColorRGBDialog(this, "CustomMatrix");
+                colorRGB.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No Picture, please open a a picture to edit it");
+            }
+        }
+
+
 
         public Bitmap CurrentPicture
         {

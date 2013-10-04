@@ -16,12 +16,13 @@ namespace WinForm_Image_Editor
         private String typeOfControl;
         private ColorRGBControl myColorRGBControl;
         private ColorBSLControl myColorBSLControl;
+        private CustomGreyControl myCustomGreyControl;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pf">Current Form</param>
-        /// <param name="tOC">Accepted Values "ColorRGB", "ColorBSL"</param>
+        /// <param name="tOC">Accepted Values "ColorRGB", "ColorBSL", "CustomGrey"</param>
         public ColorRGBDialog(Image_Editor_Main pf, String tOC)
         {
             parentForm = pf;
@@ -39,6 +40,10 @@ namespace WinForm_Image_Editor
             else if (typeOfControl == "ColorBSL")
             {
                 CreateColorBSL();
+            }
+            else if (typeOfControl == "CustomGrey")
+            {
+                CreateCustomGrey();
             }
         }
 
@@ -60,6 +65,16 @@ namespace WinForm_Image_Editor
             this.myColorRGBControl.Size = new System.Drawing.Size(378, 362);
             this.myColorRGBControl.TabIndex = 0;
             this.Controls.Add(this.myColorRGBControl);
+        }
+
+        private void CreateCustomGrey()
+        {
+            this.myCustomGreyControl = new WinForm_Image_Editor.CustomGreyControl(parentForm, this);
+            this.myCustomGreyControl.Location = new System.Drawing.Point(13, 13);
+            this.myCustomGreyControl.Name = "recolor1";
+            this.myCustomGreyControl.Size = new System.Drawing.Size(378, 362);
+            this.myCustomGreyControl.TabIndex = 0;
+            this.Controls.Add(this.myCustomGreyControl);
         }
     }
 }
