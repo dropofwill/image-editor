@@ -159,9 +159,6 @@ namespace WinForm_Image_Editor
             {
                 ColorRGBDialog colorRGB = new ColorRGBDialog(this, "ColorRGB");
                 colorRGB.Show();
-                
-              // RecolorForm recolorF = new RecolorForm(this);
-              // recolorF.Show();
             }
         }
 
@@ -169,6 +166,11 @@ namespace WinForm_Image_Editor
         {
             get { return currentPicture; }
             set { currentPicture = value; }
+        }
+
+        private void bSLModifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

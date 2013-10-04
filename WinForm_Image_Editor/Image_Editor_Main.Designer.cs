@@ -38,10 +38,11 @@
             this.effectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grayscaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainPictureBox = new System.Windows.Forms.PictureBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.colorModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bSLModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -109,9 +110,10 @@
             // effectsToolStripMenuItem
             // 
             this.effectsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.colorModifierToolStripMenuItem,
+            this.bSLModifierToolStripMenuItem,
             this.invertToolStripMenuItem,
-            this.grayscaleToolStripMenuItem,
-            this.colorModifierToolStripMenuItem});
+            this.grayscaleToolStripMenuItem});
             this.effectsToolStripMenuItem.Name = "effectsToolStripMenuItem";
             this.effectsToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.effectsToolStripMenuItem.Text = "&Effects";
@@ -119,16 +121,27 @@
             // invertToolStripMenuItem
             // 
             this.invertToolStripMenuItem.Name = "invertToolStripMenuItem";
-            this.invertToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.invertToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.invertToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.invertToolStripMenuItem.Text = "Invert";
             this.invertToolStripMenuItem.Click += new System.EventHandler(this.invertToolStripMenuItem_Click);
             // 
             // grayscaleToolStripMenuItem
             // 
             this.grayscaleToolStripMenuItem.Name = "grayscaleToolStripMenuItem";
-            this.grayscaleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.grayscaleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+            this.grayscaleToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.grayscaleToolStripMenuItem.Text = "Grayscale";
             this.grayscaleToolStripMenuItem.Click += new System.EventHandler(this.grayscaleToolStripMenuItem_Click);
+            // 
+            // colorModifierToolStripMenuItem
+            // 
+            this.colorModifierToolStripMenuItem.Name = "colorModifierToolStripMenuItem";
+            this.colorModifierToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.R)));
+            this.colorModifierToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.colorModifierToolStripMenuItem.Text = "RGB Modifier";
+            this.colorModifierToolStripMenuItem.Click += new System.EventHandler(this.recolorToolStripMenuItem_Click);
             // 
             // mainPictureBox
             // 
@@ -146,12 +159,12 @@
             // 
             this.openFileDialog.FileName = "openFileDialog";
             // 
-            // colorModifierToolStripMenuItem
+            // bSLModifierToolStripMenuItem
             // 
-            this.colorModifierToolStripMenuItem.Name = "colorModifierToolStripMenuItem";
-            this.colorModifierToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.colorModifierToolStripMenuItem.Text = "Color Modifier";
-            this.colorModifierToolStripMenuItem.Click += new System.EventHandler(this.recolorToolStripMenuItem_Click);
+            this.bSLModifierToolStripMenuItem.Name = "bSLModifierToolStripMenuItem";
+            this.bSLModifierToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.bSLModifierToolStripMenuItem.Text = "BSL Modifier";
+            this.bSLModifierToolStripMenuItem.Click += new System.EventHandler(this.bSLModifierToolStripMenuItem_Click);
             // 
             // Image_Editor_Main
             // 
@@ -189,6 +202,7 @@
         private System.Windows.Forms.ToolStripMenuItem grayscaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem discardChangesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorModifierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bSLModifierToolStripMenuItem;
     }
 }
 
