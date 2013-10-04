@@ -12,8 +12,11 @@ namespace WinForm_Image_Editor
 {
     public partial class RecolorForm : Form
     {
-        public RecolorForm()
+        private Image_Editor_Main parentForm;
+
+        public RecolorForm(Image_Editor_Main pF)
         {
+            parentForm = pF;
             InitializeComponent();
         }
     }

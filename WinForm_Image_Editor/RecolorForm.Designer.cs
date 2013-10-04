@@ -28,11 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.recolor1 = new WinForm_Image_Editor.Recolor(parentForm);
+            this.SuspendLayout();
+            // 
+            // recolor1
+            // 
+            this.recolor1.Location = new System.Drawing.Point(13, 13);
+            this.recolor1.Name = "recolor1";
+            this.recolor1.Size = new System.Drawing.Size(378, 362);
+            this.recolor1.TabIndex = 0;
+            // 
+            // RecolorForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "RecolorForm";
+            this.ClientSize = new System.Drawing.Size(398, 384);
+            this.Controls.Add(this.recolor1);
+            this.Name = "RecolorForm";
+            this.Text = "Recolor Image";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Recolor recolor1;
     }
 }

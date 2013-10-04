@@ -38,8 +38,8 @@
             this.apply_btn = new System.Windows.Forms.Button();
             this.cancel_btn = new System.Windows.Forms.Button();
             this.redValue = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.greenValue = new System.Windows.Forms.Label();
+            this.blueValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.redTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueTrackBar)).BeginInit();
@@ -49,13 +49,13 @@
             // 
             this.redTrackBar.Location = new System.Drawing.Point(19, 46);
             this.redTrackBar.Maximum = 100;
-            this.redTrackBar.Minimum = -100;
             this.redTrackBar.Name = "redTrackBar";
             this.redTrackBar.Size = new System.Drawing.Size(317, 45);
             this.redTrackBar.SmallChange = 10;
             this.redTrackBar.TabIndex = 0;
             this.redTrackBar.TickFrequency = 10;
             this.redTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.redTrackBar.Value = 100;
             this.redTrackBar.Scroll += new System.EventHandler(this.redTrackBar_Scroll);
             // 
             // redLabel
@@ -80,13 +80,14 @@
             // 
             this.greenTrackBar.Location = new System.Drawing.Point(19, 139);
             this.greenTrackBar.Maximum = 100;
-            this.greenTrackBar.Minimum = -100;
             this.greenTrackBar.Name = "greenTrackBar";
             this.greenTrackBar.Size = new System.Drawing.Size(317, 45);
             this.greenTrackBar.SmallChange = 10;
             this.greenTrackBar.TabIndex = 4;
             this.greenTrackBar.TickFrequency = 10;
             this.greenTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.greenTrackBar.Value = 100;
+            this.greenTrackBar.Scroll += new System.EventHandler(this.greenTrackBar_Scroll);
             // 
             // blueLabel
             // 
@@ -101,13 +102,14 @@
             // 
             this.blueTrackBar.Location = new System.Drawing.Point(19, 235);
             this.blueTrackBar.Maximum = 100;
-            this.blueTrackBar.Minimum = -100;
             this.blueTrackBar.Name = "blueTrackBar";
             this.blueTrackBar.Size = new System.Drawing.Size(317, 45);
             this.blueTrackBar.SmallChange = 10;
             this.blueTrackBar.TabIndex = 6;
             this.blueTrackBar.TickFrequency = 10;
             this.blueTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.blueTrackBar.Value = 100;
+            this.blueTrackBar.Scroll += new System.EventHandler(this.blueTrackBar_Scroll);
             // 
             // preview_btn
             // 
@@ -117,6 +119,7 @@
             this.preview_btn.TabIndex = 8;
             this.preview_btn.Text = "Preview";
             this.preview_btn.UseVisualStyleBackColor = true;
+            this.preview_btn.Click += new System.EventHandler(this.preview_btn_Click);
             // 
             // apply_btn
             // 
@@ -126,6 +129,7 @@
             this.apply_btn.TabIndex = 9;
             this.apply_btn.Text = "Apply";
             this.apply_btn.UseVisualStyleBackColor = true;
+            this.apply_btn.Click += new System.EventHandler(this.apply_btn_Click);
             // 
             // cancel_btn
             // 
@@ -135,6 +139,7 @@
             this.cancel_btn.TabIndex = 10;
             this.cancel_btn.Text = "Cancel";
             this.cancel_btn.UseVisualStyleBackColor = true;
+            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
             // redValue
             // 
@@ -147,34 +152,34 @@
             this.redValue.Text = "0";
             this.redValue.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label1
+            // greenValue
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(323, 123);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(13, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "0";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.greenValue.AutoSize = true;
+            this.greenValue.Location = new System.Drawing.Point(323, 123);
+            this.greenValue.Name = "greenValue";
+            this.greenValue.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.greenValue.Size = new System.Drawing.Size(13, 13);
+            this.greenValue.TabIndex = 12;
+            this.greenValue.Text = "0";
+            this.greenValue.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label2
+            // blueValue
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(323, 219);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(13, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "0";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.blueValue.AutoSize = true;
+            this.blueValue.Location = new System.Drawing.Point(323, 219);
+            this.blueValue.Name = "blueValue";
+            this.blueValue.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.blueValue.Size = new System.Drawing.Size(13, 13);
+            this.blueValue.TabIndex = 13;
+            this.blueValue.Text = "0";
+            this.blueValue.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Recolor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.blueValue);
+            this.Controls.Add(this.greenValue);
             this.Controls.Add(this.redValue);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.apply_btn);
@@ -207,7 +212,7 @@
         private System.Windows.Forms.Button apply_btn;
         private System.Windows.Forms.Button cancel_btn;
         private System.Windows.Forms.Label redValue;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label greenValue;
+        private System.Windows.Forms.Label blueValue;
     }
 }

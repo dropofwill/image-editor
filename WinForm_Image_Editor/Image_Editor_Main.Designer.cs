@@ -151,7 +151,7 @@
             this.colorModifierToolStripMenuItem.Name = "colorModifierToolStripMenuItem";
             this.colorModifierToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.colorModifierToolStripMenuItem.Text = "Color Modifier";
-            this.colorModifierToolStripMenuItem.Click += new System.EventHandler(this.colorModifierToolStripMenuItem_Click);
+            this.colorModifierToolStripMenuItem.Click += new System.EventHandler(this.recolorToolStripMenuItem_Click);
             // 
             // Image_Editor_Main
             // 
