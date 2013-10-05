@@ -26,15 +26,6 @@ namespace WinForm_Image_Editor
                         v30=0, v31=0, v32=0, v33=1, v34=0,
                         v40=0, v41=0, v42=0, v43=0, v44=1;
 
-        private string[] presetDictKeys = { "Greyscale",
-                                            "Black and White",
-                                            "Invert",
-                                            "Sepia",
-                                            "Polaroid",
-                                            "RGB Mapped to BGR"};
-
-        //private Dictionary<String, ColorMatrix> presetMatrixDict;
-
         /// <summary>
         /// User interface for changing the red/green/blue channels individually for an image
         /// </summary>
@@ -48,10 +39,23 @@ namespace WinForm_Image_Editor
             controlBitmap = new Bitmap(anImage);
                      
             InitializeComponent();
-            presetsComboBox.Items.AddRange(presetDictKeys);
+            SetComboBox();
         }
 
+        /// <summary>
+        /// Loads each matrix's key into the combo box
+        /// </summary>
+        private void SetComboBox()
+        {
+            foreach (string key in matrixDict.Keys)
+            {
+                presetsComboBox.Items.Add(key);
+            }
+        }
 
+        /// <summary>
+        /// A dictionary storing all the matricies with a name for their key
+        /// </summary>
         private static Dictionary<String, ColorMatrix> matrixDict = new Dictionary<string, ColorMatrix>
         {
             {"Greyscale", new ColorMatrix(
@@ -102,8 +106,85 @@ namespace WinForm_Image_Editor
                                    new float[] {0, 0, 0, 1, 0},
                                    new float[] {0, 0, 0, 0, 1}})
             },
+            {"RGB Mapped to GBR", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            },
+            {"RGB Mapped to BRG", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            },
+            {"RGB Mapped to GBR", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            },
+            {"Brighten", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0.5f, 0.5f, 0.5f, 0, 1}})
+            },
+            {"Darken", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {-0.5f, -0.5f, -0.5f, 0, 1}})
+            },
+            {"Saturate", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            },
+            {"Desaturate", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            },
+            {"Add Contrast", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            },
+            {"Remove Contrast", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            }
         };
 
+        /// <summary>
+        /// Builds a color matrix with whatever values are currently selected
+        /// in the number boxes
+        /// </summary>
+        /// <returns>A color matrix</returns>
         private ColorMatrix createColorMatrix()
         {
             ColorMatrix cMatrix = new ColorMatrix(
@@ -118,23 +199,11 @@ namespace WinForm_Image_Editor
             return cMatrix;
         }
 
-        private void apply_btn_Click(object sender, EventArgs e)
-        {
-            setMainBitmap();
-            parentForm.Dispose();
-        }
 
-        private void cancel_btn_Click(object sender, EventArgs e)
-        {
-            mainParentForm.setMainPicture(controlBitmap);
-            parentForm.Dispose();
-        }
-
-        private void preview_btn_Click(object sender, EventArgs e)
-        {
-            setMainBitmap();
-         }
-
+        /// <summary>
+        /// Creates a color matrix (using createColorMatrix() ) and applies it to the main
+        /// window
+        /// </summary>
         private void setMainBitmap()
         {
             ColorMatrix cMatrix = createColorMatrix();
@@ -144,6 +213,11 @@ namespace WinForm_Image_Editor
             mainParentForm.setMainPicture(previewBitmap);
         }
 
+        /// <summary>
+        /// Copies a given bitmap, not just adding another reference to it
+        /// </summary>
+        /// <param name="aBitmap">A bitmap to deep copy</param>
+        /// <returns>A different bitmap that looks the same as the input</returns>
         private Bitmap deepCopyBitmap(Bitmap aBitmap)
         {
             Bitmap copy = new Bitmap(aBitmap.Width, aBitmap.Height);
@@ -159,6 +233,44 @@ namespace WinForm_Image_Editor
 
         #region event_handlers
 
+        /// <summary>
+        /// Sets the main form's bitmap without closing the current dialog
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void preview_btn_Click(object sender, EventArgs e)
+        {
+            setMainBitmap();
+        }
+
+        /// <summary>
+        /// Sets the main form's bitmap and closes the current dialog
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void apply_btn_Click(object sender, EventArgs e)
+        {
+            setMainBitmap();
+            parentForm.Dispose();
+        }
+
+        /// <summary>
+        /// Resets the main form's bitmap to the original and closes the current dialog
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cancel_btn_Click(object sender, EventArgs e)
+        {
+            mainParentForm.setMainPicture(controlBitmap);
+            parentForm.Dispose();
+        }
+
+        /// <summary>
+        /// Applies the selected preset matrix to the picture box and sets the current
+        /// values displayed to match it
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void presetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -203,6 +315,12 @@ namespace WinForm_Image_Editor
             }   
         }
 
+
+        /// <summary>
+        /// Changing matricies variables whenever a number box's value changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void iV00_ValueChanged(object sender, EventArgs e)
         {
             v00 = (float)iV00.Value;

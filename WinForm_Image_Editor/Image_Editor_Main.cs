@@ -207,9 +207,9 @@ namespace WinForm_Image_Editor
                 ColorRGBDialog colorRGB = new ColorRGBDialog(this, "CustomMatrix");
                 colorRGB.Show();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("No Picture, please open a a picture to edit it");
+                MessageBox.Show("No Picture, please open a a picture to edit it" + ex.Message);
             }
         }
 
