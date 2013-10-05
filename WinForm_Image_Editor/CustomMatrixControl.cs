@@ -48,9 +48,20 @@ namespace WinForm_Image_Editor
             controlBitmap = new Bitmap(anImage);
                      
             InitializeComponent();
-            presetsComboBox.Items.AddRange(presetDictKeys);
+            //presetsComboBox.Items.AddRange(presetDictKeys);
+            SetComboBox();
         }
 
+        /// <summary>
+        /// Loads each matrix's key into the combo box
+        /// </summary>
+        private void SetComboBox()
+        {
+            foreach (string key in matrixDict.Keys)
+            {
+                presetsComboBox.Items.Add(key);
+            }
+        }
 
         private static Dictionary<String, ColorMatrix> matrixDict = new Dictionary<string, ColorMatrix>
         {
@@ -102,6 +113,70 @@ namespace WinForm_Image_Editor
                                    new float[] {0, 0, 0, 1, 0},
                                    new float[] {0, 0, 0, 0, 1}})
             },
+            {"RGB Mapped to BRG", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            },
+            {"RGB Mapped to GBR", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            },
+            {"Brighten", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0.5f, 0.5f, 0.5f, 0, 1}})
+            },
+            {"Darken", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {-0.5f, -0.5f, -0.5f, 0, 1}})
+            },
+            {"Saturate", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {1.346f, -0.154f, -0.154f, 0, 0},
+                                   new float[] {-0.305f, 1.1953f, -0.305f, 0, 0},
+                                   new float[] {-0.041f, -0.041f, 1.459f, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            },
+            {"Desaturate", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0.654f, 0.154f, 0.154f, 0, 0},
+                                   new float[] {0.305f, 0.805f, 0.305f, 0, 0},
+                                   new float[] {0.041f, 0.041f, 0.541f, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
+            },
+            {"More Contrast", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {1.5f, 0, 0, 0, 0},
+                                   new float[] {0, 1.5f, 0, 0, 0},
+                                   new float[] {0, 0, 1.5f, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {-0.25f, -0.25f, -0.25f, 0, 1}})
+            },
+            {"Less Contrast", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0.5f, 0, 0, 0, 0},
+                                   new float[] {0, 0.5f, 0, 0, 0},
+                                   new float[] {0, 0, 0.5f, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0.25f, 0.25f, 0.25f, 0, 1}})
+            }
         };
 
         private ColorMatrix createColorMatrix()
@@ -137,11 +212,18 @@ namespace WinForm_Image_Editor
 
         private void setMainBitmap()
         {
-            ColorMatrix cMatrix = createColorMatrix();
-            previewBitmap = deepCopyBitmap(controlBitmap);
-            previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
+            try
+            {
+                ColorMatrix cMatrix = createColorMatrix();
+                previewBitmap = deepCopyBitmap(controlBitmap);
+                previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
 
-            mainParentForm.setMainPicture(previewBitmap);
+                mainParentForm.setMainPicture(previewBitmap);
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
         }
 
         private Bitmap deepCopyBitmap(Bitmap aBitmap)
