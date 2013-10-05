@@ -67,6 +67,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.presetsComboBox = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.matrixGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iV43)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iV42)).BeginInit();
@@ -173,6 +175,11 @@
             this.iV43.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV43.DecimalPlaces = 2;
             this.iV43.Location = new System.Drawing.Point(217, 199);
+            this.iV43.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV43.Name = "iV43";
             this.iV43.Size = new System.Drawing.Size(48, 20);
             this.iV43.TabIndex = 46;
@@ -183,6 +190,11 @@
             this.iV42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV42.DecimalPlaces = 2;
             this.iV42.Location = new System.Drawing.Point(160, 199);
+            this.iV42.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV42.Name = "iV42";
             this.iV42.Size = new System.Drawing.Size(48, 20);
             this.iV42.TabIndex = 45;
@@ -193,6 +205,11 @@
             this.iV41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV41.DecimalPlaces = 2;
             this.iV41.Location = new System.Drawing.Point(103, 199);
+            this.iV41.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV41.Name = "iV41";
             this.iV41.Size = new System.Drawing.Size(48, 20);
             this.iV41.TabIndex = 44;
@@ -203,6 +220,11 @@
             this.iV40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV40.DecimalPlaces = 2;
             this.iV40.Location = new System.Drawing.Point(46, 199);
+            this.iV40.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV40.Name = "iV40";
             this.iV40.Size = new System.Drawing.Size(48, 20);
             this.iV40.TabIndex = 43;
@@ -213,6 +235,11 @@
             this.iV34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV34.DecimalPlaces = 2;
             this.iV34.Location = new System.Drawing.Point(271, 166);
+            this.iV34.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV34.Name = "iV34";
             this.iV34.Size = new System.Drawing.Size(48, 20);
             this.iV34.TabIndex = 42;
@@ -223,6 +250,11 @@
             this.iV32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV32.DecimalPlaces = 2;
             this.iV32.Location = new System.Drawing.Point(160, 166);
+            this.iV32.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV32.Name = "iV32";
             this.iV32.Size = new System.Drawing.Size(48, 20);
             this.iV32.TabIndex = 41;
@@ -232,7 +264,12 @@
             // 
             this.iV31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV31.DecimalPlaces = 2;
-            this.iV31.Location = new System.Drawing.Point(103, 164);
+            this.iV31.Location = new System.Drawing.Point(103, 166);
+            this.iV31.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV31.Name = "iV31";
             this.iV31.Size = new System.Drawing.Size(48, 20);
             this.iV31.TabIndex = 40;
@@ -242,7 +279,12 @@
             // 
             this.iV30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV30.DecimalPlaces = 2;
-            this.iV30.Location = new System.Drawing.Point(46, 164);
+            this.iV30.Location = new System.Drawing.Point(46, 166);
+            this.iV30.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV30.Name = "iV30";
             this.iV30.Size = new System.Drawing.Size(48, 20);
             this.iV30.TabIndex = 39;
@@ -253,6 +295,11 @@
             this.iV24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV24.DecimalPlaces = 2;
             this.iV24.Location = new System.Drawing.Point(271, 131);
+            this.iV24.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV24.Name = "iV24";
             this.iV24.Size = new System.Drawing.Size(48, 20);
             this.iV24.TabIndex = 38;
@@ -263,6 +310,11 @@
             this.iV23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV23.DecimalPlaces = 2;
             this.iV23.Location = new System.Drawing.Point(217, 131);
+            this.iV23.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV23.Name = "iV23";
             this.iV23.Size = new System.Drawing.Size(48, 20);
             this.iV23.TabIndex = 37;
@@ -273,6 +325,11 @@
             this.iV21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV21.DecimalPlaces = 2;
             this.iV21.Location = new System.Drawing.Point(103, 131);
+            this.iV21.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV21.Name = "iV21";
             this.iV21.Size = new System.Drawing.Size(48, 20);
             this.iV21.TabIndex = 36;
@@ -283,6 +340,11 @@
             this.iV20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV20.DecimalPlaces = 2;
             this.iV20.Location = new System.Drawing.Point(48, 131);
+            this.iV20.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV20.Name = "iV20";
             this.iV20.Size = new System.Drawing.Size(48, 20);
             this.iV20.TabIndex = 35;
@@ -293,6 +355,11 @@
             this.iV14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV14.DecimalPlaces = 2;
             this.iV14.Location = new System.Drawing.Point(271, 96);
+            this.iV14.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV14.Name = "iV14";
             this.iV14.Size = new System.Drawing.Size(48, 20);
             this.iV14.TabIndex = 34;
@@ -303,6 +370,11 @@
             this.iV13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV13.DecimalPlaces = 2;
             this.iV13.Location = new System.Drawing.Point(217, 96);
+            this.iV13.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV13.Name = "iV13";
             this.iV13.Size = new System.Drawing.Size(48, 20);
             this.iV13.TabIndex = 33;
@@ -313,6 +385,11 @@
             this.iV12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV12.DecimalPlaces = 2;
             this.iV12.Location = new System.Drawing.Point(160, 96);
+            this.iV12.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV12.Name = "iV12";
             this.iV12.Size = new System.Drawing.Size(48, 20);
             this.iV12.TabIndex = 32;
@@ -322,7 +399,12 @@
             // 
             this.iV10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV10.DecimalPlaces = 2;
-            this.iV10.Location = new System.Drawing.Point(49, 94);
+            this.iV10.Location = new System.Drawing.Point(49, 96);
+            this.iV10.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV10.Name = "iV10";
             this.iV10.Size = new System.Drawing.Size(48, 20);
             this.iV10.TabIndex = 31;
@@ -333,6 +415,11 @@
             this.iV04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV04.DecimalPlaces = 2;
             this.iV04.Location = new System.Drawing.Point(271, 61);
+            this.iV04.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV04.Name = "iV04";
             this.iV04.Size = new System.Drawing.Size(48, 20);
             this.iV04.TabIndex = 30;
@@ -343,6 +430,11 @@
             this.iV03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV03.DecimalPlaces = 2;
             this.iV03.Location = new System.Drawing.Point(217, 61);
+            this.iV03.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV03.Name = "iV03";
             this.iV03.Size = new System.Drawing.Size(48, 20);
             this.iV03.TabIndex = 29;
@@ -353,6 +445,11 @@
             this.iV02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV02.DecimalPlaces = 2;
             this.iV02.Location = new System.Drawing.Point(160, 61);
+            this.iV02.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV02.Name = "iV02";
             this.iV02.Size = new System.Drawing.Size(48, 20);
             this.iV02.TabIndex = 28;
@@ -363,6 +460,11 @@
             this.iV01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV01.DecimalPlaces = 2;
             this.iV01.Location = new System.Drawing.Point(103, 61);
+            this.iV01.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV01.Name = "iV01";
             this.iV01.Size = new System.Drawing.Size(48, 20);
             this.iV01.TabIndex = 27;
@@ -373,6 +475,11 @@
             this.iV44.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV44.DecimalPlaces = 2;
             this.iV44.Location = new System.Drawing.Point(271, 199);
+            this.iV44.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV44.Name = "iV44";
             this.iV44.Size = new System.Drawing.Size(48, 20);
             this.iV44.TabIndex = 26;
@@ -388,6 +495,11 @@
             this.iV33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV33.DecimalPlaces = 2;
             this.iV33.Location = new System.Drawing.Point(217, 166);
+            this.iV33.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV33.Name = "iV33";
             this.iV33.Size = new System.Drawing.Size(48, 20);
             this.iV33.TabIndex = 25;
@@ -403,6 +515,11 @@
             this.iV22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV22.DecimalPlaces = 2;
             this.iV22.Location = new System.Drawing.Point(160, 131);
+            this.iV22.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV22.Name = "iV22";
             this.iV22.Size = new System.Drawing.Size(48, 20);
             this.iV22.TabIndex = 24;
@@ -417,7 +534,12 @@
             // 
             this.iV11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iV11.DecimalPlaces = 2;
-            this.iV11.Location = new System.Drawing.Point(103, 94);
+            this.iV11.Location = new System.Drawing.Point(103, 96);
+            this.iV11.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.iV11.Name = "iV11";
             this.iV11.Size = new System.Drawing.Size(48, 20);
             this.iV11.TabIndex = 23;
@@ -553,10 +675,30 @@
             this.label5.Text = "Offset";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // presetsComboBox
+            // 
+            this.presetsComboBox.FormattingEnabled = true;
+            this.presetsComboBox.Location = new System.Drawing.Point(175, 29);
+            this.presetsComboBox.Name = "presetsComboBox";
+            this.presetsComboBox.Size = new System.Drawing.Size(176, 21);
+            this.presetsComboBox.TabIndex = 12;
+            this.presetsComboBox.SelectedIndexChanged += new System.EventHandler(this.presetsComboBox_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(125, 32);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Presets:";
+            // 
             // CustomMatrixControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.presetsComboBox);
             this.Controls.Add(this.matrixGroupBox);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.apply_btn);
@@ -591,6 +733,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iV11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iV00)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -635,5 +778,7 @@
         private System.Windows.Forms.NumericUpDown iV22;
         private System.Windows.Forms.NumericUpDown iV11;
         private System.Windows.Forms.NumericUpDown iV00;
+        private System.Windows.Forms.ComboBox presetsComboBox;
+        private System.Windows.Forms.Label label11;
     }
 }

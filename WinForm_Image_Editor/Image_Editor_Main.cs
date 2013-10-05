@@ -68,6 +68,7 @@ namespace WinForm_Image_Editor
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    originalPicture = new Bitmap(mainPictureBox.Image);
                     mainPictureBox.Image.Save(saveFileDialog.FileName);
                     this.Text = saveFileDialog.FileName;
                 }

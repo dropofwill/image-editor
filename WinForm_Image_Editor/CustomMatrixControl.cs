@@ -26,6 +26,15 @@ namespace WinForm_Image_Editor
                         v30=0, v31=0, v32=0, v33=1, v34=0,
                         v40=0, v41=0, v42=0, v43=0, v44=1;
 
+        private string[] presetDictKeys = { "Greyscale",
+                                            "Black and White",
+                                            "Invert",
+                                            "Sepia",
+                                            "Polaroid",
+                                            "RGB Mapped to BGR"};
+
+        //private Dictionary<String, ColorMatrix> presetMatrixDict;
+
         /// <summary>
         /// User interface for changing the red/green/blue channels individually for an image
         /// </summary>
@@ -37,9 +46,63 @@ namespace WinForm_Image_Editor
             parentForm = pF;
             anImage = mainParentForm.CurrentPicture;
             controlBitmap = new Bitmap(anImage);
+                     
             InitializeComponent();
+            presetsComboBox.Items.AddRange(presetDictKeys);
         }
 
+
+        private static Dictionary<String, ColorMatrix> matrixDict = new Dictionary<string, ColorMatrix>
+        {
+            {"Greyscale", new ColorMatrix(
+                               new float[][]
+                               {    new float[] {.22f,.22f,.22f, 0, 0},
+                                    new float[] {.59f,.59f,.59f, 0, 0},
+                                    new float[] {.11f,.11f,.11f, 0, 0},
+                                    new float[] {  0,   0,   0,  1, 0},
+                                    new float[] {  0,   0,   0,  0, 1}})
+            },
+            {"Black and White", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {1.5f, 1.5f, 1.5f, 0, 0},
+                                   new float[] {1.5f, 1.5f, 1.5f, 0, 0},
+                                   new float[] {1.5f, 1.5f, 1.5f, 0, 0},
+                                   new float[] { 0,    0,    0,  1, 0},
+                                   new float[] {-1,  -1,  -1, 0, 1}})
+            },
+            {"Invert", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {-1f, 0, 0, 0, 0},
+                                   new float[] {0, -1f, 0, 0, 0},
+                                   new float[] {0,  0, -1f, 0, 0},
+                                   new float[] {0,  0,  0, 1f, 0},
+                                   new float[] {1f, 1f, 1f, 0, 1f}})
+            },
+            {"Sepia", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0}})
+            },
+            {"Polaroid", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0}})
+            },
+            {"RGB Mapped to BGR", new ColorMatrix(
+                               new float[][]
+                               {   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 0, 0}})
+            },
+        };
 
         private ColorMatrix createColorMatrix()
         {
@@ -92,6 +155,52 @@ namespace WinForm_Image_Editor
             }
 
             return copy;
+        }
+
+
+
+        private void presetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                String selected = presetsComboBox.SelectedItem.ToString();
+                ColorMatrix cMatrix = matrixDict[selected];
+
+                previewBitmap = deepCopyBitmap(controlBitmap);
+                previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
+
+                mainParentForm.setMainPicture(previewBitmap);
+
+                iV00.Value = (decimal)cMatrix.Matrix00;
+                iV01.Value = (decimal)cMatrix.Matrix01;
+                iV02.Value = (decimal)cMatrix.Matrix02;
+                iV03.Value = (decimal)cMatrix.Matrix03;
+                iV04.Value = (decimal)cMatrix.Matrix04;
+                iV10.Value = (decimal)cMatrix.Matrix00;
+                iV11.Value = (decimal)cMatrix.Matrix11;
+                iV12.Value = (decimal)cMatrix.Matrix12;
+                iV13.Value = (decimal)cMatrix.Matrix13;
+                iV14.Value = (decimal)cMatrix.Matrix14;
+                iV20.Value = (decimal)cMatrix.Matrix10;
+                iV21.Value = (decimal)cMatrix.Matrix21;
+                iV22.Value = (decimal)cMatrix.Matrix22;
+                iV23.Value = (decimal)cMatrix.Matrix23;
+                iV24.Value = (decimal)cMatrix.Matrix24;
+                iV30.Value = (decimal)cMatrix.Matrix20;
+                iV31.Value = (decimal)cMatrix.Matrix31;
+                iV32.Value = (decimal)cMatrix.Matrix32;
+                iV33.Value = (decimal)cMatrix.Matrix33;
+                iV34.Value = (decimal)cMatrix.Matrix34;
+                iV40.Value = (decimal)cMatrix.Matrix40;
+                iV41.Value = (decimal)cMatrix.Matrix41;
+                iV42.Value = (decimal)cMatrix.Matrix42;
+                iV43.Value = (decimal)cMatrix.Matrix43;
+                iV44.Value = (decimal)cMatrix.Matrix44;
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }   
         }
 
         private void iV00_ValueChanged(object sender, EventArgs e)
