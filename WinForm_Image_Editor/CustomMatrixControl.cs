@@ -41,16 +41,16 @@ namespace WinForm_Image_Editor
         }
 
 
-        private ColorMatrix createColorMatrix(float rV, float gV, float bV)
+        private ColorMatrix createColorMatrix()
         {
             ColorMatrix cMatrix = new ColorMatrix(
                 new float[][]
                 {
-                    new float[] {1, 0, 0, 0, 0},
-                    new float[] {0, 1, 0, 0, 0},
-                    new float[] {0, 0, 1, 0, 0},
-                    new float[] {0, 0, 0, 1, 0},
-                    new float[] {rV, gV, bV, 0, 1}
+                    new float[] {v00, v01, v02, v03, v04},
+                    new float[] {v10, v11, v12, v13, v14},
+                    new float[] {v20, v21, v22, v23, v24},
+                    new float[] {v30, v31, v32, v33, v34},
+                    new float[] {v40, v41, v42, v43, v44}
                 });
             return cMatrix;
         }
@@ -74,11 +74,11 @@ namespace WinForm_Image_Editor
 
         private void setMainBitmap()
         {
-            //ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
-            //previewBitmap = deepCopyBitmap(controlBitmap);
-            //previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
+            ColorMatrix cMatrix = createColorMatrix();
+            previewBitmap = deepCopyBitmap(controlBitmap);
+            previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
 
-            //mainParentForm.setMainPicture(previewBitmap);
+            mainParentForm.setMainPicture(previewBitmap);
         }
 
         private Bitmap deepCopyBitmap(Bitmap aBitmap)
@@ -94,6 +94,129 @@ namespace WinForm_Image_Editor
             return copy;
         }
 
-        
+        private void iV00_ValueChanged(object sender, EventArgs e)
+        {
+            v00 = (float)iV00.Value;
+        }
+
+        private void iV01_ValueChanged(object sender, EventArgs e)
+        {
+            v01 = (float)iV01.Value;
+        }
+
+        private void iV02_ValueChanged(object sender, EventArgs e)
+        {
+            v02 = (float)iV02.Value;
+        }
+
+        private void iV03_ValueChanged(object sender, EventArgs e)
+        {
+            v03 = (float)iV03.Value;
+        }
+
+        private void iV04_ValueChanged(object sender, EventArgs e)
+        {
+            v04 = (float)iV04.Value;
+        }
+
+        private void iV10_ValueChanged(object sender, EventArgs e)
+        {
+            v10 = (float)iV10.Value;
+        }
+
+        private void iV11_ValueChanged(object sender, EventArgs e)
+        {
+            v11 = (float)iV11.Value;
+        }
+
+        private void iV12_ValueChanged(object sender, EventArgs e)
+        {
+            v12 = (float)iV12.Value;
+        }
+
+        private void iV13_ValueChanged(object sender, EventArgs e)
+        {
+            v13 = (float)iV13.Value;
+        }
+
+        private void iV14_ValueChanged(object sender, EventArgs e)
+        {
+            v14 = (float)iV14.Value;
+        }
+
+        private void iV20_ValueChanged(object sender, EventArgs e)
+        {
+            v20 = (float)iV20.Value;
+        }
+
+        private void iV21_ValueChanged(object sender, EventArgs e)
+        {
+            v21 = (float)iV21.Value;
+        }
+
+        private void iV22_ValueChanged(object sender, EventArgs e)
+        {
+            v22 = (float)iV22.Value;
+        }
+
+        private void iV23_ValueChanged(object sender, EventArgs e)
+        {
+            v23 = (float)iV23.Value;
+        }
+
+        private void iV24_ValueChanged(object sender, EventArgs e)
+        {
+            v24 = (float)iV24.Value;
+        }
+
+        private void iV30_ValueChanged(object sender, EventArgs e)
+        {
+            v30 = (float)iV30.Value;
+        }
+
+        private void iV31_ValueChanged(object sender, EventArgs e)
+        {
+            v31 = (float)iV31.Value;
+        }
+
+        private void iV32_ValueChanged(object sender, EventArgs e)
+        {
+            v32 = (float)iV32.Value;
+        }
+
+        private void iV33_ValueChanged(object sender, EventArgs e)
+        {
+            v33 = (float)iV33.Value;
+        }
+
+        private void iV34_ValueChanged(object sender, EventArgs e)
+        {
+            v34 = (float)iV34.Value;
+        }
+
+        private void iV40_ValueChanged(object sender, EventArgs e)
+        {
+            v40 = (float)iV40.Value;
+        }
+
+        private void iV41_ValueChanged(object sender, EventArgs e)
+        {
+            v41 = (float)iV41.Value;
+        }
+
+        private void iV42_ValueChanged(object sender, EventArgs e)
+        {
+            v42 = (float)iV42.Value;
+        }
+
+        private void iV43_ValueChanged(object sender, EventArgs e)
+        {
+            v43 = (float)iV43.Value;
+        }
+
+        private void iV44_ValueChanged(object sender, EventArgs e)
+        {
+            v44 = (float)iV44.Value;
+        }
     }
 }

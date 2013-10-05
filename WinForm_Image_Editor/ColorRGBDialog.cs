@@ -17,6 +17,7 @@ namespace WinForm_Image_Editor
         private ColorRGBControl myColorRGBControl;
         private ColorBSLControl myColorBSLControl;
         private CustomGreyControl myCustomGreyControl;
+        private CustomMatrixControl myCustomMatrixControl;
 
         /// <summary>
         /// 
@@ -53,7 +54,8 @@ namespace WinForm_Image_Editor
             }
             else if (typeOfControl == "CustomMatrix")
             {
-
+                CreateCustomMatrix();
+                this.ClientSize = new Size(myCustomMatrixControl.Width + 26, myCustomMatrixControl.Height + 26);
                 this.Text = "Custom Color Matrix Transform";
             }
         }
@@ -62,7 +64,7 @@ namespace WinForm_Image_Editor
         {
             this.myColorBSLControl = new WinForm_Image_Editor.ColorBSLControl(parentForm, this);
             this.myColorBSLControl.Location = new System.Drawing.Point(13, 13);
-            this.myColorBSLControl.Name = "recolor1";
+            this.myColorBSLControl.Name = "Custom BSL Control";
             this.myColorBSLControl.Size = new System.Drawing.Size(380, 550);
             this.myColorBSLControl.TabIndex = 0;
             this.Controls.Add(this.myColorBSLControl);
@@ -72,7 +74,7 @@ namespace WinForm_Image_Editor
         {
             this.myColorRGBControl = new WinForm_Image_Editor.ColorRGBControl(parentForm, this);
             this.myColorRGBControl.Location = new System.Drawing.Point(13, 13);
-            this.myColorRGBControl.Name = "recolor1";
+            this.myColorRGBControl.Name = "Custom RGBControl";
             this.myColorRGBControl.Size = new System.Drawing.Size(378, 362);
             this.myColorRGBControl.TabIndex = 0;
             this.Controls.Add(this.myColorRGBControl);
@@ -82,10 +84,20 @@ namespace WinForm_Image_Editor
         {
             this.myCustomGreyControl = new WinForm_Image_Editor.CustomGreyControl(parentForm, this);
             this.myCustomGreyControl.Location = new System.Drawing.Point(13, 13);
-            this.myCustomGreyControl.Name = "recolor1";
+            this.myCustomGreyControl.Name = "Custom Grey Control";
             this.myCustomGreyControl.Size = new System.Drawing.Size(378, 362);
             this.myCustomGreyControl.TabIndex = 0;
             this.Controls.Add(this.myCustomGreyControl);
+        }
+
+        private void CreateCustomMatrix()
+        {
+            this.myCustomMatrixControl = new WinForm_Image_Editor.CustomMatrixControl(parentForm, this);
+            this.myCustomMatrixControl.Location = new System.Drawing.Point(13, 13);
+            this.myCustomMatrixControl.Name = "Custom Matrix Control";
+            this.myCustomMatrixControl.Size = new System.Drawing.Size(378, 362);
+            this.myCustomMatrixControl.TabIndex = 0;
+            this.Controls.Add(this.myCustomMatrixControl);
         }
     }
 }
