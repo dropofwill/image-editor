@@ -157,7 +157,7 @@ namespace WinForm_Image_Editor
             return copy;
         }
 
-
+        #region event_handlers
 
         private void presetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -176,17 +176,17 @@ namespace WinForm_Image_Editor
                 iV02.Value = (decimal)cMatrix.Matrix02;
                 iV03.Value = (decimal)cMatrix.Matrix03;
                 iV04.Value = (decimal)cMatrix.Matrix04;
-                iV10.Value = (decimal)cMatrix.Matrix00;
+                iV10.Value = (decimal)cMatrix.Matrix10;
                 iV11.Value = (decimal)cMatrix.Matrix11;
                 iV12.Value = (decimal)cMatrix.Matrix12;
                 iV13.Value = (decimal)cMatrix.Matrix13;
                 iV14.Value = (decimal)cMatrix.Matrix14;
-                iV20.Value = (decimal)cMatrix.Matrix10;
+                iV20.Value = (decimal)cMatrix.Matrix20;
                 iV21.Value = (decimal)cMatrix.Matrix21;
                 iV22.Value = (decimal)cMatrix.Matrix22;
                 iV23.Value = (decimal)cMatrix.Matrix23;
                 iV24.Value = (decimal)cMatrix.Matrix24;
-                iV30.Value = (decimal)cMatrix.Matrix20;
+                iV30.Value = (decimal)cMatrix.Matrix30;
                 iV31.Value = (decimal)cMatrix.Matrix31;
                 iV32.Value = (decimal)cMatrix.Matrix32;
                 iV33.Value = (decimal)cMatrix.Matrix33;
@@ -327,5 +327,7 @@ namespace WinForm_Image_Editor
         {
             v44 = (float)iV44.Value;
         }
+
+        #endregion
     }
 }

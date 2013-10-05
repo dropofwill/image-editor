@@ -173,7 +173,7 @@
             // iV43
             // 
             this.iV43.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV43.DecimalPlaces = 2;
+            this.iV43.DecimalPlaces = 3;
             this.iV43.Location = new System.Drawing.Point(217, 199);
             this.iV43.Minimum = new decimal(new int[] {
             100,
@@ -188,7 +188,7 @@
             // iV42
             // 
             this.iV42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV42.DecimalPlaces = 2;
+            this.iV42.DecimalPlaces = 3;
             this.iV42.Location = new System.Drawing.Point(160, 199);
             this.iV42.Minimum = new decimal(new int[] {
             100,
@@ -203,7 +203,7 @@
             // iV41
             // 
             this.iV41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV41.DecimalPlaces = 2;
+            this.iV41.DecimalPlaces = 3;
             this.iV41.Location = new System.Drawing.Point(103, 199);
             this.iV41.Minimum = new decimal(new int[] {
             100,
@@ -218,7 +218,7 @@
             // iV40
             // 
             this.iV40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV40.DecimalPlaces = 2;
+            this.iV40.DecimalPlaces = 3;
             this.iV40.Location = new System.Drawing.Point(46, 199);
             this.iV40.Minimum = new decimal(new int[] {
             100,
@@ -233,7 +233,7 @@
             // iV34
             // 
             this.iV34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV34.DecimalPlaces = 2;
+            this.iV34.DecimalPlaces = 3;
             this.iV34.Location = new System.Drawing.Point(271, 166);
             this.iV34.Minimum = new decimal(new int[] {
             100,
@@ -248,7 +248,7 @@
             // iV32
             // 
             this.iV32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV32.DecimalPlaces = 2;
+            this.iV32.DecimalPlaces = 3;
             this.iV32.Location = new System.Drawing.Point(160, 166);
             this.iV32.Minimum = new decimal(new int[] {
             100,
@@ -263,7 +263,7 @@
             // iV31
             // 
             this.iV31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV31.DecimalPlaces = 2;
+            this.iV31.DecimalPlaces = 3;
             this.iV31.Location = new System.Drawing.Point(103, 166);
             this.iV31.Minimum = new decimal(new int[] {
             100,
@@ -278,7 +278,7 @@
             // iV30
             // 
             this.iV30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV30.DecimalPlaces = 2;
+            this.iV30.DecimalPlaces = 3;
             this.iV30.Location = new System.Drawing.Point(46, 166);
             this.iV30.Minimum = new decimal(new int[] {
             100,
@@ -293,7 +293,7 @@
             // iV24
             // 
             this.iV24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV24.DecimalPlaces = 2;
+            this.iV24.DecimalPlaces = 3;
             this.iV24.Location = new System.Drawing.Point(271, 131);
             this.iV24.Minimum = new decimal(new int[] {
             100,
@@ -308,7 +308,7 @@
             // iV23
             // 
             this.iV23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV23.DecimalPlaces = 2;
+            this.iV23.DecimalPlaces = 3;
             this.iV23.Location = new System.Drawing.Point(217, 131);
             this.iV23.Minimum = new decimal(new int[] {
             100,
@@ -323,7 +323,7 @@
             // iV21
             // 
             this.iV21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV21.DecimalPlaces = 2;
+            this.iV21.DecimalPlaces = 3;
             this.iV21.Location = new System.Drawing.Point(103, 131);
             this.iV21.Minimum = new decimal(new int[] {
             100,
@@ -338,7 +338,7 @@
             // iV20
             // 
             this.iV20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV20.DecimalPlaces = 2;
+            this.iV20.DecimalPlaces = 3;
             this.iV20.Location = new System.Drawing.Point(48, 131);
             this.iV20.Minimum = new decimal(new int[] {
             100,
@@ -353,7 +353,7 @@
             // iV14
             // 
             this.iV14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV14.DecimalPlaces = 2;
+            this.iV14.DecimalPlaces = 3;
             this.iV14.Location = new System.Drawing.Point(271, 96);
             this.iV14.Minimum = new decimal(new int[] {
             100,
@@ -368,7 +368,7 @@
             // iV13
             // 
             this.iV13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV13.DecimalPlaces = 2;
+            this.iV13.DecimalPlaces = 3;
             this.iV13.Location = new System.Drawing.Point(217, 96);
             this.iV13.Minimum = new decimal(new int[] {
             100,
@@ -383,7 +383,7 @@
             // iV12
             // 
             this.iV12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV12.DecimalPlaces = 2;
+            this.iV12.DecimalPlaces = 3;
             this.iV12.Location = new System.Drawing.Point(160, 96);
             this.iV12.Minimum = new decimal(new int[] {
             100,
@@ -398,7 +398,7 @@
             // iV10
             // 
             this.iV10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV10.DecimalPlaces = 2;
+            this.iV10.DecimalPlaces = 3;
             this.iV10.Location = new System.Drawing.Point(49, 96);
             this.iV10.Minimum = new decimal(new int[] {
             100,
@@ -413,7 +413,7 @@
             // iV04
             // 
             this.iV04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV04.DecimalPlaces = 2;
+            this.iV04.DecimalPlaces = 3;
             this.iV04.Location = new System.Drawing.Point(271, 61);
             this.iV04.Minimum = new decimal(new int[] {
             100,
@@ -428,7 +428,7 @@
             // iV03
             // 
             this.iV03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV03.DecimalPlaces = 2;
+            this.iV03.DecimalPlaces = 3;
             this.iV03.Location = new System.Drawing.Point(217, 61);
             this.iV03.Minimum = new decimal(new int[] {
             100,
@@ -443,7 +443,7 @@
             // iV02
             // 
             this.iV02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV02.DecimalPlaces = 2;
+            this.iV02.DecimalPlaces = 3;
             this.iV02.Location = new System.Drawing.Point(160, 61);
             this.iV02.Minimum = new decimal(new int[] {
             100,
@@ -458,7 +458,7 @@
             // iV01
             // 
             this.iV01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV01.DecimalPlaces = 2;
+            this.iV01.DecimalPlaces = 3;
             this.iV01.Location = new System.Drawing.Point(103, 61);
             this.iV01.Minimum = new decimal(new int[] {
             100,
@@ -473,7 +473,7 @@
             // iV44
             // 
             this.iV44.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV44.DecimalPlaces = 2;
+            this.iV44.DecimalPlaces = 3;
             this.iV44.Location = new System.Drawing.Point(271, 199);
             this.iV44.Minimum = new decimal(new int[] {
             100,
@@ -493,7 +493,7 @@
             // iV33
             // 
             this.iV33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV33.DecimalPlaces = 2;
+            this.iV33.DecimalPlaces = 3;
             this.iV33.Location = new System.Drawing.Point(217, 166);
             this.iV33.Minimum = new decimal(new int[] {
             100,
@@ -513,7 +513,7 @@
             // iV22
             // 
             this.iV22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV22.DecimalPlaces = 2;
+            this.iV22.DecimalPlaces = 3;
             this.iV22.Location = new System.Drawing.Point(160, 131);
             this.iV22.Minimum = new decimal(new int[] {
             100,
@@ -533,7 +533,7 @@
             // iV11
             // 
             this.iV11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV11.DecimalPlaces = 2;
+            this.iV11.DecimalPlaces = 3;
             this.iV11.Location = new System.Drawing.Point(103, 96);
             this.iV11.Minimum = new decimal(new int[] {
             100,
@@ -553,7 +553,7 @@
             // iV00
             // 
             this.iV00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iV00.DecimalPlaces = 2;
+            this.iV00.DecimalPlaces = 3;
             this.iV00.Location = new System.Drawing.Point(48, 61);
             this.iV00.Minimum = new decimal(new int[] {
             100,
@@ -682,6 +682,7 @@
             this.presetsComboBox.Name = "presetsComboBox";
             this.presetsComboBox.Size = new System.Drawing.Size(176, 21);
             this.presetsComboBox.TabIndex = 12;
+            this.presetsComboBox.Text = "<Choose a Preset Matrix>";
             this.presetsComboBox.SelectedIndexChanged += new System.EventHandler(this.presetsComboBox_SelectedIndexChanged);
             // 
             // label11
