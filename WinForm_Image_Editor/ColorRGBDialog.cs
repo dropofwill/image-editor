@@ -37,19 +37,24 @@ namespace WinForm_Image_Editor
             {
                 CreateColorRGB();
                 this.ClientSize = new Size(myColorRGBControl.Width + 26, myColorRGBControl.Height + 26);
+                this.Text = "Red, Green, and Blue Channel Modifier";
             }
             else if (typeOfControl == "ColorBSL")
             {
                 CreateColorBSL();
                 this.ClientSize = new Size(myColorBSLControl.Width + 26, myColorBSLControl.Height + 26);
+                this.Text = "Brightness, Saturation, and Contrast Modifier";
             }
             else if (typeOfControl == "CustomGrey")
             {
                 CreateCustomGrey();
                 this.ClientSize = new Size(myCustomGreyControl.Width + 26, myCustomGreyControl.Height + 26);
+                this.Text = "Custom Grayscale Filter";
             }
             else if (typeOfControl == "CustomMatrix")
             {
+
+                this.Text = "Custom Color Matrix Transform";
             }
         }
 

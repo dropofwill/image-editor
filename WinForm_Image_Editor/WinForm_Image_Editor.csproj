@@ -63,6 +63,12 @@
     <Compile Include="ColorBSLControl.Designer.cs">
       <DependentUpon>ColorBSLControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomMatrixControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomMatrixControl.Designer.cs">
+      <DependentUpon>CustomMatrixControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomGreyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ColorBSLControl.resx">
       <DependentUpon>ColorBSLControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomMatrixControl.resx">
+      <DependentUpon>CustomMatrixControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomGreyControl.resx">
       <DependentUpon>CustomGreyControl.cs</DependentUpon>
