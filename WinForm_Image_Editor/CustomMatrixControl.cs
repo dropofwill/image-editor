@@ -80,27 +80,27 @@ namespace WinForm_Image_Editor
             },
             {"Sepia", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0}})
+                               {   new float[] {0.393f, 0.349f, 0.272f, 0, 0},
+                                   new float[] {0.769f, 0.686f, 0.534f, 0, 0},
+                                   new float[] {0.189f, 0.168f, 0.131f, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
             },
             {"Polaroid", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0}})
+                               {   new float[] {1.438f, -0.062f, -0.062f, 0, 0},
+                                   new float[] {-0.122f, 1.378f, -0.122f, 0, 0},
+                                   new float[] {-0.016f, -0.016f, 1.483f, 0, 0},
+                                   new float[] {   0,      0,      0,     1, 0},
+                                   new float[] {-.03f,   0.05f,   -0.02f, 0, 1}})
             },
             {"RGB Mapped to BGR", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0},
-                                   new float[] {0, 0, 0, 0, 0}})
+                               {   new float[] {0, 0, 1, 0, 0},
+                                   new float[] {0, 1, 0, 0, 0},
+                                   new float[] {1, 0, 0, 0, 0},
+                                   new float[] {0, 0, 0, 1, 0},
+                                   new float[] {0, 0, 0, 0, 1}})
             },
         };
 
