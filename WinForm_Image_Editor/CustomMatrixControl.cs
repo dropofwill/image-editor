@@ -13,6 +13,9 @@ namespace WinForm_Image_Editor
 {
     public partial class CustomMatrixControl : UserControl
     {
+
+        #region Fields
+
         private Image_Editor_Main mainParentForm;
         private ColorRGBDialog parentForm;
         private Bitmap controlBitmap;
@@ -25,33 +28,6 @@ namespace WinForm_Image_Editor
                         v20=0, v21=0, v22=1, v23=0, v24=0,
                         v30=0, v31=0, v32=0, v33=1, v34=0,
                         v40=0, v41=0, v42=0, v43=0, v44=1;
-
-        /// <summary>
-        /// User interface for changing the red/green/blue channels individually for an image
-        /// </summary>
-        /// <param name="mPF">The Image_Editor_Main that spawned the dialog</param>
-        /// <param name="pF">The ColorRGBDialog that spawned this control</param>
-        public CustomMatrixControl(Image_Editor_Main mPF, ColorRGBDialog pF)
-        {
-            mainParentForm = mPF;
-            parentForm = pF;
-            anImage = mainParentForm.CurrentPicture;
-            controlBitmap = new Bitmap(anImage);
-                     
-            InitializeComponent();
-            SetComboBox();
-        }
-
-        /// <summary>
-        /// Loads each matrix's key into the combo box
-        /// </summary>
-        private void SetComboBox()
-        {
-            foreach (string key in matrixDict.Keys)
-            {
-                presetsComboBox.Items.Add(key);
-            }
-        }
 
         /// <summary>
         /// A dictionary storing all the matricies with a name for their key
@@ -122,14 +98,6 @@ namespace WinForm_Image_Editor
                                    new float[] {0, 0, 0, 1, 0},
                                    new float[] {0, 0, 0, 0, 1}})
             },
-            {"RGB Mapped to GBR", new ColorMatrix(
-                               new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
-                                   new float[] {0, 1, 0, 0, 0},
-                                   new float[] {0, 0, 0, 1, 0},
-                                   new float[] {0, 0, 0, 0, 1}})
-            },
             {"Brighten", new ColorMatrix(
                                new float[][]
                                {   new float[] {0, 0, 1, 0, 0},
@@ -140,17 +108,17 @@ namespace WinForm_Image_Editor
             },
             {"Darken", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
+                               {   new float[] {1, 0, 0, 0, 0},
                                    new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 1, 0, 0},
                                    new float[] {0, 0, 0, 1, 0},
                                    new float[] {-0.5f, -0.5f, -0.5f, 0, 1}})
             },
             {"Saturate", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
-                                   new float[] {0, 1, 0, 0, 0},
+                               {   new float[] {1.346f, -0.154f, -0.154f, 0, 0},
+                                   new float[] {-0.305f, 1.1953f, -0.305f, 0, 0},
+                                   new float[] {-0.041f, -0.041f, 1.459f, 0, 0},
                                    new float[] {0, 0, 0, 1, 0},
                                    new float[] {0, 0, 0, 0, 1}})
             },
@@ -180,11 +148,35 @@ namespace WinForm_Image_Editor
             }
         };
 
+        #endregion
+
         /// <summary>
-        /// Builds a color matrix with whatever values are currently selected
-        /// in the number boxes
+        /// User interface for changing the red/green/blue channels individually for an image
         /// </summary>
-        /// <returns>A color matrix</returns>
+        /// <param name="mPF">The Image_Editor_Main that spawned the dialog</param>
+        /// <param name="pF">The ColorRGBDialog that spawned this control</param>
+        public CustomMatrixControl(Image_Editor_Main mPF, ColorRGBDialog pF)
+        {
+            mainParentForm = mPF;
+            parentForm = pF;
+            anImage = mainParentForm.CurrentPicture;
+            controlBitmap = new Bitmap(anImage);
+                     
+            InitializeComponent();
+            SetComboBox();
+        }
+
+        /// <summary>
+        /// Loads each matrix's key into the combo box
+        /// </summary>
+        private void SetComboBox()
+        {
+            foreach (string key in matrixDict.Keys)
+            {
+                presetsComboBox.Items.Add(key);
+            }
+        }
+
         private ColorMatrix createColorMatrix()
         {
             ColorMatrix cMatrix = new ColorMatrix(
@@ -206,11 +198,18 @@ namespace WinForm_Image_Editor
         /// </summary>
         private void setMainBitmap()
         {
-            ColorMatrix cMatrix = createColorMatrix();
-            previewBitmap = deepCopyBitmap(controlBitmap);
-            previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
+            try
+            {
+                ColorMatrix cMatrix = createColorMatrix();
+                previewBitmap = deepCopyBitmap(controlBitmap);
+                previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
 
-            mainParentForm.setMainPicture(previewBitmap);
+                mainParentForm.setMainPicture(previewBitmap);
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
         }
 
         /// <summary>
@@ -265,12 +264,6 @@ namespace WinForm_Image_Editor
             parentForm.Dispose();
         }
 
-        /// <summary>
-        /// Applies the selected preset matrix to the picture box and sets the current
-        /// values displayed to match it
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void presetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
