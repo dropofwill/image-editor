@@ -65,7 +65,7 @@ namespace WinForm_Image_Editor
         /// <param name="bV"></param>
         /// <param name="sV"></param>
         /// <param name="cV"></param>
-        /// <returns></returns>
+        /// <returns>Returns a ColorMatrix that change Brightness, Contrast, and Saturation</returns>
         private ColorMatrix createTransformMatrix(float bV, float sV, float cV)
         {
             float lumR, lumG, lumB, sR, sG, sB, tV;
@@ -114,6 +114,11 @@ namespace WinForm_Image_Editor
             return sMatrix;
         }
 
+        /// <summary>
+        /// Creates a Color Matrix that adjusts brightness by whatever value passed in
+        /// </summary>
+        /// <param name="bV"></param>
+        /// <returns>A ColorMatrix that adjusts brightness</returns>
         private ColorMatrix createBrightnessMatrix(float bV)
         {
             ColorMatrix cMatrix = new ColorMatrix(
@@ -128,6 +133,11 @@ namespace WinForm_Image_Editor
             return cMatrix;
         }
 
+        /// <summary>
+        /// Creates a Color Matrix that adjusts the contrast by whatever value is passed in
+        /// </summary>
+        /// <param name="cV"></param>
+        /// <returns>A ColorMatrix adjusts brightness</returns>
         private ColorMatrix createContrastMatrix(float cV)
         {
             float tV = (float)((1.0 - cV) / 2.0);
@@ -144,6 +154,11 @@ namespace WinForm_Image_Editor
             return cMatrix;
         }
 
+        /// <summary>
+        /// Creates a Color Matrix that adjusts the saturation by whatever value is passed in
+        /// </summary>
+        /// <param name="sV"></param>
+        /// <returns>A ColorMatrix adjusts saturation</returns>
         private ColorMatrix createSaturationMatrix(float sV)
         {
             float lumR, lumG, lumB, sR, sG, sB;

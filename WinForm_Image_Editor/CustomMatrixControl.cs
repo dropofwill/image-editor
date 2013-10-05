@@ -13,6 +13,9 @@ namespace WinForm_Image_Editor
 {
     public partial class CustomMatrixControl : UserControl
     {
+
+        #region Fields
+
         private Image_Editor_Main mainParentForm;
         private ColorRGBDialog parentForm;
         private Bitmap controlBitmap;
@@ -25,44 +28,9 @@ namespace WinForm_Image_Editor
                         v20=0, v21=0, v22=1, v23=0, v24=0,
                         v30=0, v31=0, v32=0, v33=1, v34=0,
                         v40=0, v41=0, v42=0, v43=0, v44=1;
-
-        private string[] presetDictKeys = { "Greyscale",
-                                            "Black and White",
-                                            "Invert",
-                                            "Sepia",
-                                            "Polaroid",
-                                            "RGB Mapped to BGR"};
-
-        //private Dictionary<String, ColorMatrix> presetMatrixDict;
-
         /// <summary>
-        /// User interface for changing the red/green/blue channels individually for an image
+        /// Dictionary that contains the preset color Matricies with their names as key values
         /// </summary>
-        /// <param name="mPF">The Image_Editor_Main that spawned the dialog</param>
-        /// <param name="pF">The ColorRGBDialog that spawned this control</param>
-        public CustomMatrixControl(Image_Editor_Main mPF, ColorRGBDialog pF)
-        {
-            mainParentForm = mPF;
-            parentForm = pF;
-            anImage = mainParentForm.CurrentPicture;
-            controlBitmap = new Bitmap(anImage);
-                     
-            InitializeComponent();
-            //presetsComboBox.Items.AddRange(presetDictKeys);
-            SetComboBox();
-        }
-
-        /// <summary>
-        /// Loads each matrix's key into the combo box
-        /// </summary>
-        private void SetComboBox()
-        {
-            foreach (string key in matrixDict.Keys)
-            {
-                presetsComboBox.Items.Add(key);
-            }
-        }
-
         private static Dictionary<String, ColorMatrix> matrixDict = new Dictionary<string, ColorMatrix>
         {
             {"Greyscale", new ColorMatrix(
@@ -179,6 +147,36 @@ namespace WinForm_Image_Editor
             }
         };
 
+        #endregion
+
+        /// <summary>
+        /// User interface for changing the red/green/blue channels individually for an image
+        /// </summary>
+        /// <param name="mPF">The Image_Editor_Main that spawned the dialog</param>
+        /// <param name="pF">The ColorRGBDialog that spawned this control</param>
+        public CustomMatrixControl(Image_Editor_Main mPF, ColorRGBDialog pF)
+        {
+            mainParentForm = mPF;
+            parentForm = pF;
+            anImage = mainParentForm.CurrentPicture;
+            controlBitmap = new Bitmap(anImage);
+                     
+            InitializeComponent();
+            SetComboBox();
+        }
+
+        /// <summary>
+        /// Loads each matrix's key into the combo box
+        /// </summary>
+        private void SetComboBox()
+        {
+            foreach (string key in matrixDict.Keys)
+            {
+                presetsComboBox.Items.Add(key);
+            }
+        }
+
+
         private ColorMatrix createColorMatrix()
         {
             ColorMatrix cMatrix = new ColorMatrix(
@@ -193,22 +191,6 @@ namespace WinForm_Image_Editor
             return cMatrix;
         }
 
-        private void apply_btn_Click(object sender, EventArgs e)
-        {
-            setMainBitmap();
-            parentForm.Dispose();
-        }
-
-        private void cancel_btn_Click(object sender, EventArgs e)
-        {
-            mainParentForm.setMainPicture(controlBitmap);
-            parentForm.Dispose();
-        }
-
-        private void preview_btn_Click(object sender, EventArgs e)
-        {
-            setMainBitmap();
-         }
 
         private void setMainBitmap()
         {
@@ -240,6 +222,23 @@ namespace WinForm_Image_Editor
         }
 
         #region event_handlers
+
+        private void apply_btn_Click(object sender, EventArgs e)
+        {
+            setMainBitmap();
+            parentForm.Dispose();
+        }
+
+        private void cancel_btn_Click(object sender, EventArgs e)
+        {
+            mainParentForm.setMainPicture(controlBitmap);
+            parentForm.Dispose();
+        }
+
+        private void preview_btn_Click(object sender, EventArgs e)
+        {
+            setMainBitmap();
+        }
 
         private void presetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
