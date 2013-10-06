@@ -29,6 +29,7 @@ namespace WPF_Image_Editor
     {
         private Bitmap originalPicture;
         private Bitmap currentPicture;
+        private BitmapImage exportPicture;
 
         private ColorMatrix greyscaleConMatrix = new ColorMatrix(
             new float[][]
@@ -69,10 +70,34 @@ namespace WPF_Image_Editor
                 originalPicture = new Bitmap(openFileDialog.FileName);
                 currentPicture = new Bitmap(openFileDialog.FileName);
                 setMainPicture(currentPicture);
-
-                //this.Text = openFileDialog.FileName;
+                this.Title = openFileDialog.FileName;
             }
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "JPEG Compressed Image (*.jpg)|*.jpg|GIF Image(*.gif)|*.gif|Bitmap Image(*.bmp)|*.bmp|PNG Image (*.png)|*.png";
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.RestoreDirectory = true;
+
+            Nullable<bool> result = saveFileDialog.ShowDialog();
+
+            try
+            {
+                if (result == true)
+                {
+                    exportPicture = mainImage;
+                    mainImage.Image.Save(saveFileDialog.FileName);
+                    this.Text = saveFileDialog.FileName;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Could not write file to disk. Original error: " + ex.Message);
+            }
+        }
+        
 
         private void setMainPicture(Bitmap aBitmap)
         {
@@ -80,7 +105,7 @@ namespace WPF_Image_Editor
         }
 
 
-        private Bitmap BitmapImage2Bitmap(BitmapImage bitmapImage)
+        private Bitmap BitmapImageToBitmap(BitmapImage bitmapImage)
         {
             using (MemoryStream outStream = new MemoryStream())
             {
@@ -89,7 +114,6 @@ namespace WPF_Image_Editor
                 enc.Save(outStream);
                 System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(outStream);
 
-                // return bitmap; <-- leads to problems, stream is closed/closing ...
                 return new Bitmap(bitmap);
             }
         }
@@ -98,7 +122,6 @@ namespace WPF_Image_Editor
         public static BitmapSource BitmapToBitmapSource(Bitmap source)
         {
             BitmapSource bitSrc = null;
-
             var hBitmap = source.GetHbitmap();
 
             try
@@ -117,7 +140,6 @@ namespace WPF_Image_Editor
             {
                 NativeMethods.DeleteObject(hBitmap);
             }
-
             return bitSrc;
         }
 
