@@ -4,21 +4,22 @@
         Title="MainWindow" Height="769" Width="1024">
        <DockPanel>
             <Menu x:Name="menuBar" DockPanel.Dock="Top" Width="Auto" Height="20" VerticalAlignment="Top">
-                <MenuItem Header="_File" >
-                    <MenuItem Header="_Open" />
-                    <MenuItem Header="_Save" />
-                    <MenuItem Header="_Discard Changes" />
-                    <MenuItem Header="_Quit" />
+                <MenuItem Header="File" >
+                    <MenuItem Header="Open" Click="open_FileDialog"/>
+                    <MenuItem Header="Save" />
+                    <MenuItem Header="Discard Changes" />
+                    <Separator/>
+                    <MenuItem Header="Quit" />
                 </MenuItem>
-                <MenuItem Header="_Effects" >
-                    <MenuItem Header="_RGB Modifier" />
-                    <MenuItem Header="_BSL Modifier" />
-                    <MenuItem Header="_Custom Greyscale" />
-                    <MenuItem Header="_Custom Matrix Transform" />
-                    <MenuItem Header="_Optimized Greyscale" />
+                <MenuItem Header="Effects" >
+                    <MenuItem Header="RGB Modifier" />
+                    <MenuItem Header="BSL Modifier" />
+                    <MenuItem Header="Custom Greyscale" />
+                    <MenuItem Header="Custom Matrix Transform" />
+                    <MenuItem Header="Optimized Greyscale" />
                     <MenuItem Header="Invert" />
                 </MenuItem>
             </Menu>
-            <Image />
+            <Image x:Name="mainImage" />
     </DockPanel>
 </Window>
