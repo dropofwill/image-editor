@@ -57,6 +57,9 @@
     <Compile Include="BSC.xaml.cs">
       <DependentUpon>BSC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GreyCustom.xaml.cs">
+      <DependentUpon>GreyCustom.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RGB.xaml.cs">
       <DependentUpon>RGB.xaml</DependentUpon>
     </Compile>
@@ -65,6 +68,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BSC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GreyCustom.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

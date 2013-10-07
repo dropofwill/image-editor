@@ -240,7 +240,8 @@ namespace WPF_Image_Editor
 
         private void Grey_item_Click_1(object sender, RoutedEventArgs e)
         {
-
+            WPF_Image_Editor.ColorDialog greyWindow = new WPF_Image_Editor.ColorDialog(this, "Grey");
+            greyWindow.Show();
         }
 
         private void Custom_item_Click_1(object sender, RoutedEventArgs e)

@@ -23,7 +23,13 @@ namespace WPF_Image_Editor
         private String controlType;
         private RGB rgbControl;
         private BSC bscControl;
+        private GreyCustom greyControl;
 
+        /// <summary>
+        /// Initialize a Color Dialog
+        /// </summary>
+        /// <param name="parentWindow">Parent Window, probably this</param>
+        /// <param name="cT">A string either: "RGB", "BSC", "Grey", "Matrix"</param>
         public ColorDialog(MainWindow parentWindow, String cT)
         {
             myParentWindow = parentWindow;
@@ -33,6 +39,7 @@ namespace WPF_Image_Editor
             InitControl();
         }
 
+       
         private void InitControl()
         {
             if (controlType == "RGB")
@@ -51,8 +58,9 @@ namespace WPF_Image_Editor
             }
             else if (controlType == "Grey")
             {
-                //CreateCustomGrey();
-                //this.ClientSize = new Size(myCustomGreyControl.Width + 26, myCustomGreyControl.Height + 26);
+                CreateCustomGrey();
+                this.Width = greyControl.Width + 26;
+                this.Height = greyControl.Height + 26;
                 this.Title = "Custom Grayscale Filter";
             }
             else if (controlType == "Matrix")
@@ -73,6 +81,12 @@ namespace WPF_Image_Editor
         {
             rgbControl = new WPF_Image_Editor.RGB(myParentWindow, this);
             this.Content = rgbControl;
+        }
+
+        private void CreateCustomGrey()
+        {
+            greyControl = new WPF_Image_Editor.GreyCustom(myParentWindow, this);
+            this.Content = greyControl;
         }
     }
 }
