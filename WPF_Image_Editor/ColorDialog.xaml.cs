@@ -38,6 +38,8 @@ namespace WPF_Image_Editor
             if (controlType == "RGB")
             {
                 CreateRGB();
+                this.Width = rgbControl.Width;
+                this.Height = rgbControl.Height + 26;
                 this.Title = "Red, Green, and Blue Channel Modifier";
             }
             else if (controlType == "BSC")
@@ -62,7 +64,7 @@ namespace WPF_Image_Editor
 
         private void CreateRGB()
         {
-            rgbControl = new WPF_Image_Editor.RGB();
+            rgbControl = new WPF_Image_Editor.RGB(myParentWindow, this);
             this.Content = rgbControl;
         }
     }

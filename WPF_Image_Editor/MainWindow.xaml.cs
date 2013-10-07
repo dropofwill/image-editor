@@ -28,10 +28,8 @@ namespace WPF_Image_Editor
     public partial class MainWindow : Window
     {
         private Bitmap originalPicture;
-        private Bitmap currentPicture;
         private List<Bitmap> bitmapList = new List<Bitmap>();
-        private int currentBitmap = 0;
-
+        private int currentBitmap = -1;
         private ColorMatrix greyscaleConMatrix = new ColorMatrix(
             new float[][]
             {
@@ -69,16 +67,14 @@ namespace WPF_Image_Editor
             if (result == true)
             {
                 originalPicture = new Bitmap(openFileDialog.FileName);
-                currentPicture = new Bitmap(openFileDialog.FileName);
 
-                bitmapList.Add(originalPicture);
-
+                addPicture(originalPicture);
                 setMainPicture(currentBitmap);
                 this.Title = openFileDialog.FileName;
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Save_item_Click_1(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "JPEG Compressed Image (*.jpg)|*.jpg|GIF Image(*.gif)|*.gif|Bitmap Image(*.bmp)|*.bmp|PNG Image (*.png)|*.png";
@@ -101,12 +97,58 @@ namespace WPF_Image_Editor
                 MessageBox.Show("Error: Could not write file to disk. Original error: " + ex.Message);
             }
         }
-        
 
+
+        private void addPicture(Bitmap aBitmap)
+        {
+            bitmapList.Add(aBitmap);
+            currentBitmap++;
+            Console.WriteLine(currentBitmap);
+            Console.WriteLine(bitmapList.Count);
+        }
+
+        /// <summary>
+        /// This changes the main image to a bitmap from the array of bitmaps
+        /// Bitmap class for manipulation needs to be converted to bitmap source
+        /// to be displayed by WPF
+        /// </summary>
+        /// <param name="currentState"></param>
         private void setMainPicture(int currentState)
         {
             mainImage.Source = BitmapToBitmapSource(bitmapList[currentBitmap]);
         }
+
+        /// <summary>
+        /// Applies a color matrix to the pixels of a bitmap
+        /// </summary>
+        /// <param name="original">Bitmap to be converted</param>
+        /// <param name="cM">ColorMatrix which does the changing</param>
+        /// <returns>Converted Bitmap</returns>
+        public Bitmap MatrixConvertBitmap(Bitmap original, ColorMatrix cM)
+        {
+            Bitmap aBitmap = new Bitmap(original.Width, original.Height);
+            Graphics g = Graphics.FromImage(aBitmap);
+
+            ColorMatrix colorMatrix = cM;
+
+            // Set an image attribute to our color matrix so that we can apply it to a bitmap
+            ImageAttributes attr = new ImageAttributes();
+            attr.SetColorMatrix(colorMatrix);
+
+            //Uses graphics class to redraw the bitmap with our Color matrix applied
+            g.DrawImage(original,                                               // Bitmap
+                            new Rectangle(0, 0, original.Width, original.Height),   // Contains the image
+                            0,                                                      // x, y, width, and height
+                            0,
+                            original.Width,
+                            original.Height,
+                            GraphicsUnit.Pixel,                                     // Unit of measure
+                            attr);                                                  // Our ColorMatrix being applied
+            g.Dispose();
+
+            return aBitmap;
+        }
+
 
         /// <summary>
         /// Bitmap -> BitmapSource
@@ -203,19 +245,39 @@ namespace WPF_Image_Editor
 
         }
 
-        private void Save_item_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Sets the picture window to the first state
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Discard_item_Click_1(object sender, RoutedEventArgs e)
         {
-
+            setMainPicture(0);
         }
 
+        /// <summary>
+        /// Quits the program cleanly
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Quit_item_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Environment.Exit(0);
         }
+
+
+        public List<Bitmap> BitmapList
+        {
+            get { return bitmapList; }
+            set { bitmapList = value; }
+        }
+
+        public int CurrentBitmap
+        {
+            get { return currentBitmap; }
+            set { currentBitmap = value; }
+        }
+
+
     }
 }
