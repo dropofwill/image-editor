@@ -27,7 +27,7 @@ namespace WPF_Image_Editor
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Bitmap originalPicture;
+        private Bitmap currentPicture;
         private List<Bitmap> bitmapList = new List<Bitmap>();
         private int currentBitmap = 0;
         private ColorMatrix greyscaleConMatrix = new ColorMatrix(
@@ -195,9 +195,9 @@ namespace WPF_Image_Editor
 
             if (result == true)
             {
-                originalPicture = new Bitmap(openFileDialog.FileName);
+                currentPicture = new Bitmap(openFileDialog.FileName);
 
-                addPicture(originalPicture);
+                addPicture(currentPicture);
                 this.Title = openFileDialog.FileName;
             }
         }
@@ -228,35 +228,119 @@ namespace WPF_Image_Editor
 
         private void RGB_item_Click_1(object sender, RoutedEventArgs e)
         {
-            WPF_Image_Editor.ColorDialog rgbWindow = new WPF_Image_Editor.ColorDialog(this, "RGB");
-            rgbWindow.Show();
+            try
+            {
+                if (bitmapList.Count > 0)
+                {
+                    WPF_Image_Editor.ColorDialog rgbWindow = new WPF_Image_Editor.ColorDialog(this, "RGB");
+                    rgbWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No Picture, please open a a picture to edit it");
+                }
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
         }
 
         private void BSC_item_Click_1(object sender, RoutedEventArgs e)
         {
-            WPF_Image_Editor.ColorDialog bscWindow = new WPF_Image_Editor.ColorDialog(this, "BSC");
-            bscWindow.Show();
+            try
+            {
+                if (bitmapList.Count > 0)
+                {
+                    WPF_Image_Editor.ColorDialog bscWindow = new WPF_Image_Editor.ColorDialog(this, "BSC");
+                    bscWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No Picture, please open a a picture to edit it");
+                }
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
         }
 
         private void Grey_item_Click_1(object sender, RoutedEventArgs e)
         {
-            WPF_Image_Editor.ColorDialog greyWindow = new WPF_Image_Editor.ColorDialog(this, "Grey");
-            greyWindow.Show();
+            try
+            {
+                if (bitmapList.Count > 0)
+                {
+                WPF_Image_Editor.ColorDialog greyWindow = new WPF_Image_Editor.ColorDialog(this, "Grey");
+                greyWindow.Show();
+            }
+                else
+                {
+                    MessageBox.Show("No Picture, please open a a picture to edit it");
+                }
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
         }
 
         private void Custom_item_Click_1(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                if (bitmapList.Count > 0)
+                {
+                }  
+                else
+                {
+                    MessageBox.Show("No Picture, please open a a picture to edit it");
+                }
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
         }
 
         private void Op_grey_item_Click_1(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                if (bitmapList.Count > 0)
+                {
+                    currentPicture = MatrixConvertBitmap(currentPicture, greyscaleConMatrix);
+                    addPicture(currentPicture);
+                }
+                else
+                {
+                    MessageBox.Show("No Picture, please open a a picture to edit it");
+                }
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
         }
 
         private void Invert_item_Click_1(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (bitmapList.Count > 0)
+                {
 
+                }
+                else
+                {
+                    MessageBox.Show("No Picture, please open a a picture to edit it");
+                }
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
         }
 
         private void Undo_item_Click_1(object sender, RoutedEventArgs e)
