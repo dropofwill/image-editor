@@ -1,0 +1,8 @@
+﻿<Window x:Class="WPF_Image_Editor.ColorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ColorDialog" Height="600" Width="480">
+    <Grid>
+        
+    </Grid>
+</Window>
