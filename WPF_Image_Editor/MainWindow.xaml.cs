@@ -103,11 +103,6 @@ namespace WPF_Image_Editor
         }
         
 
-     //   private void setMainPicture(Bitmap aBitmap)
-     //   {
-     //       mainImage.Source = BitmapToBitmapSource(aBitmap);
-     //   }
-
         private void setMainPicture(int currentState)
         {
             mainImage.Source = BitmapToBitmapSource(bitmapList[currentBitmap]);
@@ -165,6 +160,62 @@ namespace WPF_Image_Editor
             [DllImport("gdi32.dll")]
             [return: MarshalAs(UnmanagedType.Bool)]
             internal static extern bool DeleteObject(IntPtr hObject);
+        }
+
+        private void RGB_item_Click_1(object sender, RoutedEventArgs e)
+        {
+            WPF_Image_Editor.ColorDialog rgbWindow = new WPF_Image_Editor.ColorDialog(this, "RGB");
+            rgbWindow.Show();
+        }
+
+        private void BSC_item_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Grey_item_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Custom_item_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Op_grey_item_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Invert_item_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Undo_item_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Redo_item_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Save_item_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Discard_item_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Quit_item_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

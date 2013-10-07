@@ -21,6 +21,7 @@ namespace WPF_Image_Editor
     {
         private MainWindow myParentWindow;
         private String controlType;
+        private RGB rgbControl;
 
         public ColorDialog(MainWindow parentWindow, String cT)
         {
@@ -29,7 +30,7 @@ namespace WPF_Image_Editor
 
             InitializeComponent();
             InitControl();
-            this.SizeToContent = SizeToContent.WidthAndHeight;
+            //this.SizeToContent = SizeToContent.WidthAndHeight;
         }
 
         private void InitControl()
@@ -61,7 +62,7 @@ namespace WPF_Image_Editor
 
         private void CreateRGB()
         {
-            WPF_Image_Editor.RGB rgbControl = new WPF_Image_Editor.RGB();
+            rgbControl = new WPF_Image_Editor.RGB();
             this.Content = rgbControl;
         }
     }

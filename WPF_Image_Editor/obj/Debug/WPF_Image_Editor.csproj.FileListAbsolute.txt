@@ -26,3 +26,5 @@ C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\De
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.pdb
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\ColorDialog.baml
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\ColorDialog.g.cs
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\RGB.baml
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\RGB.g.cs

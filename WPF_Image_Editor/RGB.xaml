@@ -10,21 +10,21 @@
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
 
-        <Slider x:Name="RedSlider" HorizontalAlignment="Left" Margin="40,65,0,0" VerticalAlignment="Top" Width="320" Maximum="100" Minimum="-100" SmallChange="1" TickFrequency="10"/>
+        <Slider x:Name="RedSlider" ValueChanged="RedSlider_ValueChanged_1" HorizontalAlignment="Left" Margin="40,65,0,0" VerticalAlignment="Top" Width="320" Maximum="100" Minimum="-100" SmallChange="1" TickFrequency="10"/>
         <Label x:Name="RedLabel" Content="Red" HorizontalAlignment="Left" Margin="40,34,0,0" VerticalAlignment="Top"/>
         <Label x:Name="RedValue" Content="0" HorizontalAlignment="Right" Margin="0,34,34,0" VerticalAlignment="Top"/>
         
-        <Slider x:Name="BlueSlider" HorizontalAlignment="Left" Margin="40,165,0,0" VerticalAlignment="Top" Width="320" Maximum="100" Minimum="-100" SmallChange="1" TickFrequency="10"/>
+        <Slider x:Name="BlueSlider" ValueChanged="BlueSlider_ValueChanged_1" HorizontalAlignment="Left" Margin="40,165,0,0" VerticalAlignment="Top" Width="320" Maximum="100" Minimum="-100" SmallChange="1" TickFrequency="10"/>
         <Label x:Name="BlueLabel" Content="Blue" HorizontalAlignment="Left" Margin="40,134,0,0" VerticalAlignment="Top"/>
         <Label x:Name="BlueValue" Content="0" HorizontalAlignment="Right" Margin="0,134,34,0" VerticalAlignment="Top"/>
         
-        <Slider x:Name="GreenSlider" HorizontalAlignment="Left" Margin="40,273,0,0" VerticalAlignment="Top" Width="320" Maximum="100" Minimum="-100" SmallChange="1" TickFrequency="10"/>
+        <Slider x:Name="GreenSlider" ValueChanged="GreenSlider_ValueChanged_1" HorizontalAlignment="Left" Margin="40,273,0,0" VerticalAlignment="Top" Width="320" Maximum="100" Minimum="-100" SmallChange="1" TickFrequency="10"/>
         <Label x:Name="GreenLabel" Content="Green" HorizontalAlignment="Left" Margin="40,242,0,0" VerticalAlignment="Top"/>
         <Label x:Name="GreenValue" Content="0" HorizontalAlignment="Right" Margin="0,242,34,0" VerticalAlignment="Top"/>
         
-        <Button x:Name="Preview_btn" Content="Preview" HorizontalAlignment="Left" Margin="40,345,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Apply_btn" Content="Apply" HorizontalAlignment="Left" Margin="291,345,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="201,345,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Preview_btn" Click="Preview_btn_Click_1" Content="Preview" HorizontalAlignment="Left" Margin="40,345,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Apply_btn" Click="Apply_btn_Click_1" Content="Apply" HorizontalAlignment="Left" Margin="291,345,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Cancel_btn" Click="Cancel_btn_Click_1" Content="Cancel" HorizontalAlignment="Left" Margin="201,345,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </UserControl>

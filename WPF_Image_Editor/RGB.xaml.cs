@@ -25,6 +25,36 @@ namespace WPF_Image_Editor
             InitializeComponent();
         }
 
+        private void RedSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void BlueSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void GreenSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void Preview_btn_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Apply_btn_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Cancel_btn_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
     }
 }
