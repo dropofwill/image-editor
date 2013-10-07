@@ -214,16 +214,17 @@ namespace WinForm_Image_Editor
 
         private void cancel_btn_Click(object sender, EventArgs e)
         {
-            mainParentForm.setMainPicture(controlBitmap);
-            parentForm.Dispose();
+            mainParentForm.currentState();
+           // mainParentForm.setMainPicture(controlBitmap);
+           parentForm.Dispose();
         }
 
         private void preview_btn_Click(object sender, EventArgs e)
         {
-            setMainBitmap();
+            setMainBitmap(false);
          }
 
-        private void setMainBitmap()
+        private void setMainBitmap(Boolean keepChanges=true)
         {
             ColorMatrix tMatrix = createTransformMatrix(brightV, satV, conV);
             
@@ -231,7 +232,7 @@ namespace WinForm_Image_Editor
 
             previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, tMatrix);
 
-            mainParentForm.setMainPicture(previewBitmap);
+            mainParentForm.setMainPicture(previewBitmap, keepChanges);
         }
 
         private Bitmap deepCopyBitmap(Bitmap aBitmap)

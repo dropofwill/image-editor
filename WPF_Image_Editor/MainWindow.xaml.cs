@@ -83,13 +83,17 @@ namespace WPF_Image_Editor
 
             Nullable<bool> result = saveFileDialog.ShowDialog();
 
+
+
             try
             {
+
+
                 if (result == true)
                 {
-                    exportPicture = mainImage;
-                    mainImage.Image.Save(saveFileDialog.FileName);
-                    this.Text = saveFileDialog.FileName;
+                    //exportPicture = (mainImage);
+                    //mainImage.Source.Save(saveFileDialog.FileName);
+                    this.Title = saveFileDialog.FileName;
                 }
             }
             catch (Exception ex)
@@ -105,6 +109,11 @@ namespace WPF_Image_Editor
         }
 
 
+        /// <summary>
+        /// BitmapImage -> Bitmap
+        /// </summary>
+        /// <param name="bitmapImage"></param>
+        /// <returns></returns>
         private Bitmap BitmapImageToBitmap(BitmapImage bitmapImage)
         {
             using (MemoryStream outStream = new MemoryStream())
@@ -118,7 +127,11 @@ namespace WPF_Image_Editor
             }
         }
 
-
+        /// <summary>
+        /// Bitmap -> BitmapSource
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
         public static BitmapSource BitmapToBitmapSource(Bitmap source)
         {
             BitmapSource bitSrc = null;
@@ -142,7 +155,6 @@ namespace WPF_Image_Editor
             }
             return bitSrc;
         }
-
 
         internal static class NativeMethods
         {

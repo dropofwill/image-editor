@@ -42,13 +42,10 @@ namespace WinForm_Image_Editor
             });
 
 
-
         public Image_Editor_Main()
         {
             InitializeComponent();
         }
-
-
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -60,8 +57,8 @@ namespace WinForm_Image_Editor
             {
                 originalPicture = new Bitmap(openFileDialog.FileName);
                 currentPicture = new Bitmap(openFileDialog.FileName);
-                setMainPicture(currentPicture);
                 resetState();
+                setMainPicture(currentPicture);
 
                 this.Text = openFileDialog.FileName;
             }
@@ -88,14 +85,23 @@ namespace WinForm_Image_Editor
             }
         }
 
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentStateCounter > 0)
+                previousState();
+        }
 
-        public void resetState(Bitmap aBitmap = null)
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentStateCounter <= previousStatesList.Count)
+                nextState();
+        }
+
+        public void resetState(Bitmap aBitmap=null)
         {
             previousStatesList.Clear();
-            currentStateCounter = 0;
-
-         //  if (aBitmap != null)
-         //      previousStatesList.Add(aBitmap);
+            currentStateCounter = -1;
+            previousStatesList.Add(aBitmap);
 
             Console.WriteLine(currentStateCounter);
         }
@@ -121,6 +127,19 @@ namespace WinForm_Image_Editor
             Console.WriteLine(currentStateCounter);
         }
 
+        public void currentState()
+        {
+            try
+            {
+                setMainPicture(previousStatesList[currentStateCounter]);
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
+            Console.WriteLine(currentStateCounter);
+        }
+
         public void nextState()
         {
             try
@@ -133,6 +152,18 @@ namespace WinForm_Image_Editor
                 MessageBox.Show(except.Message);
             }
             Console.WriteLine(currentStateCounter);
+        }
+
+        /// <summary>
+        /// Set the main picture from outside
+        /// </summary>
+        /// <param name="aBitmap">a Bitmap object that will be displayed</param>
+        public void setMainPicture(Bitmap aBitmap, Boolean keepChange = true)
+        {
+            mainPictureBox.Image = aBitmap;
+
+            if (keepChange)
+                addState(aBitmap);
         }
 
         /// <summary>
@@ -165,19 +196,6 @@ namespace WinForm_Image_Editor
 
             return aBitmap;
         }
-
-        /// <summary>
-        /// Set the main picture from outside
-        /// </summary>
-        /// <param name="aBitmap">a Bitmap object that will be displayed</param>
-        public void setMainPicture(Bitmap aBitmap, Boolean keepChange=true)
-        {
-            mainPictureBox.Image = aBitmap;
-            
-            if (keepChange)
-                addState(aBitmap);
-        }
-
 
         private void discardChangesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -267,17 +285,6 @@ namespace WinForm_Image_Editor
                 MessageBox.Show("No Picture, please open a a picture to edit it" + ex.Message);
             }
         }
-
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            previousState();
-        }
-
-        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            nextState();
-        }
-
 
 
         public Bitmap CurrentPicture
