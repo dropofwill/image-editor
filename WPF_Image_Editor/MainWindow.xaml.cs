@@ -29,7 +29,8 @@ namespace WPF_Image_Editor
     {
         private Bitmap originalPicture;
         private Bitmap currentPicture;
-        private BitmapImage exportPicture;
+        private List<Bitmap> bitmapList = new List<Bitmap>();
+        private int currentBitmap = 0;
 
         private ColorMatrix greyscaleConMatrix = new ColorMatrix(
             new float[][]
@@ -69,7 +70,10 @@ namespace WPF_Image_Editor
             {
                 originalPicture = new Bitmap(openFileDialog.FileName);
                 currentPicture = new Bitmap(openFileDialog.FileName);
-                setMainPicture(currentPicture);
+
+                bitmapList.Add(originalPicture);
+
+                setMainPicture(currentBitmap);
                 this.Title = openFileDialog.FileName;
             }
         }
@@ -83,16 +87,12 @@ namespace WPF_Image_Editor
 
             Nullable<bool> result = saveFileDialog.ShowDialog();
 
-
-
             try
             {
-
-
                 if (result == true)
                 {
-                    //exportPicture = (mainImage);
-                    //mainImage.Source.Save(saveFileDialog.FileName);
+                    Bitmap exportPicture = bitmapList[currentBitmap];
+                    exportPicture.Save(saveFileDialog.FileName);
                     this.Title = saveFileDialog.FileName;
                 }
             }
@@ -103,28 +103,14 @@ namespace WPF_Image_Editor
         }
         
 
-        private void setMainPicture(Bitmap aBitmap)
+     //   private void setMainPicture(Bitmap aBitmap)
+     //   {
+     //       mainImage.Source = BitmapToBitmapSource(aBitmap);
+     //   }
+
+        private void setMainPicture(int currentState)
         {
-            mainImage.Source = BitmapToBitmapSource(aBitmap);
-        }
-
-
-        /// <summary>
-        /// BitmapImage -> Bitmap
-        /// </summary>
-        /// <param name="bitmapImage"></param>
-        /// <returns></returns>
-        private Bitmap BitmapImageToBitmap(BitmapImage bitmapImage)
-        {
-            using (MemoryStream outStream = new MemoryStream())
-            {
-                BitmapEncoder enc = new BmpBitmapEncoder();
-                enc.Frames.Add(BitmapFrame.Create(bitmapImage));
-                enc.Save(outStream);
-                System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(outStream);
-
-                return new Bitmap(bitmap);
-            }
+            mainImage.Source = BitmapToBitmapSource(bitmapList[currentBitmap]);
         }
 
         /// <summary>
@@ -154,6 +140,24 @@ namespace WPF_Image_Editor
                 NativeMethods.DeleteObject(hBitmap);
             }
             return bitSrc;
+        }
+
+        /// <summary>
+        /// BitmapImage -> Bitmap
+        /// </summary>
+        /// <param name="bitmapImage"></param>
+        /// <returns></returns>
+        private Bitmap BitmapImageToBitmap(BitmapImage bitmapImage)
+        {
+            using (MemoryStream outStream = new MemoryStream())
+            {
+                BitmapEncoder enc = new BmpBitmapEncoder();
+                enc.Frames.Add(BitmapFrame.Create(bitmapImage));
+                enc.Save(outStream);
+                System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(outStream);
+
+                return new Bitmap(bitmap);
+            }
         }
 
         internal static class NativeMethods
