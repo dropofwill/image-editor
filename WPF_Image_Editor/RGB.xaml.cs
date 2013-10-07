@@ -80,30 +80,44 @@ namespace WPF_Image_Editor
 
         private void setMainBitmap()
         {
+            // Create 
             ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
+            
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
+            
             previewBitmap = myParentWindow.MatrixConvertBitmap(previewBitmap, cMatrix);
 
             myParentWindow.addPicture(previewBitmap);
         }
 
+        private void setTempBitmap()
+        {
+            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
+
+            previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
+
+            previewBitmap = myParentWindow.MatrixConvertBitmap(previewBitmap, cMatrix);
+
+            myParentWindow.setTempPicture(previewBitmap);
+        }
+
 
         private void Preview_btn_Click_1(object sender, RoutedEventArgs e)
         {
-            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
-            previewBitmap = myParentWindow.MatrixConvertBitmap(previewBitmap, cMatrix);
-            myParentWindow.setTempPicture(previewBitmap);
+            setTempBitmap();
         }
 
         private void Apply_btn_Click_1(object sender, RoutedEventArgs e)
         {
             setMainBitmap();
             myParentWindow.setMainPicture(myParentWindow.CurrentBitmap);
+            myColorDialog.Close();
         }
 
         private void Cancel_btn_Click_1(object sender, RoutedEventArgs e)
         {
             myParentWindow.setMainPicture(originalBitmapCount);
+            myColorDialog.Close();
         }
 
 
