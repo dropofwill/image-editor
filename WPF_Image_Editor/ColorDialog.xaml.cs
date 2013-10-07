@@ -30,7 +30,6 @@ namespace WPF_Image_Editor
 
             InitializeComponent();
             InitControl();
-            //this.SizeToContent = SizeToContent.WidthAndHeight;
         }
 
         private void InitControl()

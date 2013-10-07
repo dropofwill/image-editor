@@ -82,7 +82,10 @@ namespace WPF_Image_Editor
         {
             // Create 
             ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
-            
+
+            Console.WriteLine(myParentWindow.CurrentBitmap);
+            Console.WriteLine(myParentWindow.BitmapList.Count);
+
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
             
             previewBitmap = myParentWindow.MatrixConvertBitmap(previewBitmap, cMatrix);
@@ -94,10 +97,14 @@ namespace WPF_Image_Editor
         {
             ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
 
+
+            Console.WriteLine(myParentWindow.CurrentBitmap);
+            Console.WriteLine(myParentWindow.BitmapList.Count);
+
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
 
             previewBitmap = myParentWindow.MatrixConvertBitmap(previewBitmap, cMatrix);
-
+            
             myParentWindow.setTempPicture(previewBitmap);
         }
 

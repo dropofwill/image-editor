@@ -29,7 +29,7 @@ namespace WPF_Image_Editor
     {
         private Bitmap originalPicture;
         private List<Bitmap> bitmapList = new List<Bitmap>();
-        private int currentBitmap = -1;
+        private int currentBitmap = 0;
         private ColorMatrix greyscaleConMatrix = new ColorMatrix(
             new float[][]
             {
@@ -69,7 +69,6 @@ namespace WPF_Image_Editor
                 originalPicture = new Bitmap(openFileDialog.FileName);
 
                 addPicture(originalPicture);
-                setMainPicture(currentBitmap);
                 this.Title = openFileDialog.FileName;
             }
         }
@@ -102,9 +101,32 @@ namespace WPF_Image_Editor
         public void addPicture(Bitmap aBitmap)
         {
             bitmapList.Add(aBitmap);
-            currentBitmap++;
+            mainImage.Source = BitmapToBitmapSource(aBitmap);
+            currentBitmap = bitmapList.Count - 1;
+
             Console.WriteLine(currentBitmap);
             Console.WriteLine(bitmapList.Count);
+        }
+
+        public void undoPicture()
+        {
+            if (currentBitmap > 0)
+            {
+                currentBitmap--;
+                setMainPicture(currentBitmap);
+            }
+            Console.WriteLine("undo ran");
+        }
+
+        public void redoPicture()
+        {
+            if (currentBitmap < bitmapList.Count-1)
+            {
+                currentBitmap++;
+                setMainPicture(currentBitmap);
+            }
+
+            Console.WriteLine("redo ran");
         }
 
         /// <summary>
@@ -115,7 +137,11 @@ namespace WPF_Image_Editor
         /// <param name="currentState"></param>
         public void setMainPicture(int currentState)
         {
-            mainImage.Source = BitmapToBitmapSource(bitmapList[currentBitmap]);
+            mainImage.Source = BitmapToBitmapSource(bitmapList[currentState]);
+            currentBitmap = currentState;
+
+            Console.WriteLine(currentBitmap);
+            Console.WriteLine(bitmapList.Count);
         }
 
         /// <summary>
@@ -228,12 +254,12 @@ namespace WPF_Image_Editor
 
         private void Undo_item_Click_1(object sender, RoutedEventArgs e)
         {
-
+            undoPicture();
         }
 
         private void Redo_item_Click_1(object sender, RoutedEventArgs e)
         {
-
+            redoPicture();
         }
 
         /// <summary>
