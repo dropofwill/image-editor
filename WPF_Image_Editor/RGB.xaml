@@ -3,9 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="475" d:DesignWidth="400">
+             mc:Ignorable="d" d:DesignWidth="400" Height="400">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <Slider x:Name="RedSlider" HorizontalAlignment="Left" Margin="40,65,0,0" VerticalAlignment="Top" Width="320" Maximum="100" Minimum="-100" SmallChange="1" TickFrequency="10"/>
+        <Label x:Name="RedLabel" Content="Red" HorizontalAlignment="Left" Margin="40,34,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="RedValue" Content="0" HorizontalAlignment="Right" Margin="0,34,34,0" VerticalAlignment="Top"/>
+        
+        <Slider x:Name="BlueSlider" HorizontalAlignment="Left" Margin="40,165,0,0" VerticalAlignment="Top" Width="320" Maximum="100" Minimum="-100" SmallChange="1" TickFrequency="10"/>
+        <Label x:Name="BlueLabel" Content="Blue" HorizontalAlignment="Left" Margin="40,134,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="BlueValue" Content="0" HorizontalAlignment="Right" Margin="0,134,34,0" VerticalAlignment="Top"/>
+        
+        <Slider x:Name="GreenSlider" HorizontalAlignment="Left" Margin="40,273,0,0" VerticalAlignment="Top" Width="320" Maximum="100" Minimum="-100" SmallChange="1" TickFrequency="10"/>
+        <Label x:Name="GreenLabel" Content="Green" HorizontalAlignment="Left" Margin="40,242,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="GreenValue" Content="0" HorizontalAlignment="Right" Margin="0,242,34,0" VerticalAlignment="Top"/>
+        
+        <Button x:Name="Preview_btn" Content="Preview" HorizontalAlignment="Left" Margin="40,345,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Apply_btn" Content="Apply" HorizontalAlignment="Left" Margin="291,345,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="201,345,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </UserControl>

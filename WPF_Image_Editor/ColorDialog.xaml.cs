@@ -29,12 +29,14 @@ namespace WPF_Image_Editor
 
             InitializeComponent();
             InitControl();
+            this.SizeToContent = SizeToContent.WidthAndHeight;
         }
 
         private void InitControl()
         {
             if (controlType == "RGB")
             {
+                CreateRGB();
                 this.Title = "Red, Green, and Blue Channel Modifier";
             }
             else if (controlType == "BSC")
@@ -55,6 +57,12 @@ namespace WPF_Image_Editor
                 //this.ClientSize = new Size(myCustomMatrixControl.Width + 26, myCustomMatrixControl.Height + 26);
                 this.Title = "Custom Color Matrix Transform";
             }
+        }
+
+        private void CreateRGB()
+        {
+            WPF_Image_Editor.RGB rgbControl = new WPF_Image_Editor.RGB();
+            this.Content = rgbControl;
         }
     }
 }
