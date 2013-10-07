@@ -24,7 +24,9 @@ namespace WPF_Image_Editor
     {
         private MainWindow myParentWindow;
         private ColorDialog myColorDialog;
-        private int originalBitmapCount;
+        private int originalBitmapCount = new int();
+        private Bitmap previewBitmap;
+
         private float redV;
         private float greenV;
         private float blueV;
@@ -36,10 +38,10 @@ namespace WPF_Image_Editor
         /// <param name="cD">A ColorDialog that calls the constructor</param>
         public RGB(MainWindow mPW, ColorDialog cD)
         {
-            originalBitmapCount = myParentWindow.CurrentBitmap;
             myParentWindow = mPW;
             myColorDialog = cD;
             InitializeComponent();
+            originalBitmapCount = myParentWindow.CurrentBitmap;
         }
 
         private void RedSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -78,26 +80,30 @@ namespace WPF_Image_Editor
 
         private void setMainBitmap()
         {
-            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);;
+            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
+            previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
             previewBitmap = myParentWindow.MatrixConvertBitmap(previewBitmap, cMatrix);
 
-            mainParentForm.setMainPicture(previewBitmap);
+            myParentWindow.addPicture(previewBitmap);
         }
 
 
         private void Preview_btn_Click_1(object sender, RoutedEventArgs e)
         {
-
+            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
+            previewBitmap = myParentWindow.MatrixConvertBitmap(previewBitmap, cMatrix);
+            myParentWindow.setTempPicture(previewBitmap);
         }
 
         private void Apply_btn_Click_1(object sender, RoutedEventArgs e)
         {
-
+            setMainBitmap();
+            myParentWindow.setMainPicture(myParentWindow.CurrentBitmap);
         }
 
         private void Cancel_btn_Click_1(object sender, RoutedEventArgs e)
         {
-
+            myParentWindow.setMainPicture(originalBitmapCount);
         }
 
 

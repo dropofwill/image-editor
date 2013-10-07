@@ -99,7 +99,7 @@ namespace WPF_Image_Editor
         }
 
 
-        private void addPicture(Bitmap aBitmap)
+        public void addPicture(Bitmap aBitmap)
         {
             bitmapList.Add(aBitmap);
             currentBitmap++;
@@ -113,9 +113,18 @@ namespace WPF_Image_Editor
         /// to be displayed by WPF
         /// </summary>
         /// <param name="currentState"></param>
-        private void setMainPicture(int currentState)
+        public void setMainPicture(int currentState)
         {
             mainImage.Source = BitmapToBitmapSource(bitmapList[currentBitmap]);
+        }
+
+        /// <summary>
+        /// For non permanent changes to the main image and aren't added to the state
+        /// </summary>
+        /// <param name="aBitmap"></param>
+        public void setTempPicture(Bitmap aBitmap)
+        {
+            mainImage.Source = BitmapToBitmapSource(aBitmap);
         }
 
         /// <summary>
@@ -136,9 +145,9 @@ namespace WPF_Image_Editor
             attr.SetColorMatrix(colorMatrix);
 
             //Uses graphics class to redraw the bitmap with our Color matrix applied
-            g.DrawImage(original,                                               // Bitmap
-                            new Rectangle(0, 0, original.Width, original.Height),   // Contains the image
-                            0,                                                      // x, y, width, and height
+            g.DrawImage(original,                                                                   // Bitmap
+                            new System.Drawing.Rectangle(0, 0, original.Width, original.Height),    // Contains the image
+                            0,                                                                      // x, y, width, and height
                             0,
                             original.Width,
                             original.Height,
