@@ -55,49 +55,6 @@ namespace WPF_Image_Editor
             InitializeComponent();
         }
 
-        private void open_FileDialog(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures);
-            openFileDialog.Filter = "JPEG Compressed Image (*.jpg)|*.jpg|GIF Image(*.gif)|*.gif|Bitmap Image(*.bmp)|*.bmp|PNG Image (*.png)|*.png";
-            openFileDialog.FilterIndex = 1;
-
-            Nullable<bool> result = openFileDialog.ShowDialog();
-
-            if (result == true)
-            {
-                originalPicture = new Bitmap(openFileDialog.FileName);
-
-                addPicture(originalPicture);
-                this.Title = openFileDialog.FileName;
-            }
-        }
-
-        private void Save_item_Click_1(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "JPEG Compressed Image (*.jpg)|*.jpg|GIF Image(*.gif)|*.gif|Bitmap Image(*.bmp)|*.bmp|PNG Image (*.png)|*.png";
-            saveFileDialog.FilterIndex = 1;
-            saveFileDialog.RestoreDirectory = true;
-
-            Nullable<bool> result = saveFileDialog.ShowDialog();
-
-            try
-            {
-                if (result == true)
-                {
-                    Bitmap exportPicture = bitmapList[currentBitmap];
-                    exportPicture.Save(saveFileDialog.FileName);
-                    this.Title = saveFileDialog.FileName;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: Could not write file to disk. Original error: " + ex.Message);
-            }
-        }
-
-
         public void addPicture(Bitmap aBitmap)
         {
             bitmapList.Add(aBitmap);
@@ -184,7 +141,6 @@ namespace WPF_Image_Editor
             return aBitmap;
         }
 
-
         /// <summary>
         /// Bitmap -> BitmapSource
         /// </summary>
@@ -221,6 +177,55 @@ namespace WPF_Image_Editor
             internal static extern bool DeleteObject(IntPtr hObject);
         }
 
+
+
+
+
+
+        #region event_handlers
+
+        private void open_FileDialog(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures);
+            openFileDialog.Filter = "JPEG Compressed Image (*.jpg)|*.jpg|GIF Image(*.gif)|*.gif|Bitmap Image(*.bmp)|*.bmp|PNG Image (*.png)|*.png";
+            openFileDialog.FilterIndex = 1;
+
+            Nullable<bool> result = openFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                originalPicture = new Bitmap(openFileDialog.FileName);
+
+                addPicture(originalPicture);
+                this.Title = openFileDialog.FileName;
+            }
+        }
+
+        private void Save_item_Click_1(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "JPEG Compressed Image (*.jpg)|*.jpg|GIF Image(*.gif)|*.gif|Bitmap Image(*.bmp)|*.bmp|PNG Image (*.png)|*.png";
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.RestoreDirectory = true;
+
+            Nullable<bool> result = saveFileDialog.ShowDialog();
+
+            try
+            {
+                if (result == true)
+                {
+                    Bitmap exportPicture = bitmapList[currentBitmap];
+                    exportPicture.Save(saveFileDialog.FileName);
+                    this.Title = saveFileDialog.FileName;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Could not write file to disk. Original error: " + ex.Message);
+            }
+        }
+
         private void RGB_item_Click_1(object sender, RoutedEventArgs e)
         {
             WPF_Image_Editor.ColorDialog rgbWindow = new WPF_Image_Editor.ColorDialog(this, "RGB");
@@ -229,7 +234,8 @@ namespace WPF_Image_Editor
 
         private void BSC_item_Click_1(object sender, RoutedEventArgs e)
         {
-
+            WPF_Image_Editor.ColorDialog bscWindow = new WPF_Image_Editor.ColorDialog(this, "BSC");
+            bscWindow.Show();
         }
 
         private void Grey_item_Click_1(object sender, RoutedEventArgs e)
@@ -282,6 +288,13 @@ namespace WPF_Image_Editor
             Environment.Exit(0);
         }
 
+        #endregion
+
+
+
+
+
+        #region field_getters_setters
 
         public List<Bitmap> BitmapList
         {
@@ -295,6 +308,6 @@ namespace WPF_Image_Editor
             set { currentBitmap = value; }
         }
 
-
+        #endregion
     }
 }

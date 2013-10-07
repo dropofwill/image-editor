@@ -54,12 +54,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BSC.xaml.cs">
+      <DependentUpon>BSC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RGB.xaml.cs">
       <DependentUpon>RGB.xaml</DependentUpon>
     </Compile>
     <Page Include="ColorDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BSC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

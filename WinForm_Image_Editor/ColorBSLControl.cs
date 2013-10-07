@@ -37,6 +37,8 @@ namespace WinForm_Image_Editor
             anImage = mainParentForm.CurrentPicture;
             controlBitmap = new Bitmap(anImage);
             InitializeComponent();
+
+
         }
 
         private void brightTrackBar_Scroll(object sender, EventArgs e)
@@ -214,8 +216,7 @@ namespace WinForm_Image_Editor
 
         private void cancel_btn_Click(object sender, EventArgs e)
         {
-            mainParentForm.currentState();
-           // mainParentForm.setMainPicture(controlBitmap);
+           mainParentForm.currentState();
            parentForm.Dispose();
         }
 

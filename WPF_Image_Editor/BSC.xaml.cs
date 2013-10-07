@@ -18,51 +18,89 @@ using System.Windows.Shapes;
 namespace WPF_Image_Editor
 {
     /// <summary>
-    /// Interaction logic for RGB.xaml
+    /// Interaction logic for BSC.xaml
     /// </summary>
-    public partial class RGB : UserControl
+    public partial class BSC : UserControl
     {
         private MainWindow myParentWindow;
         private ColorDialog myColorDialog;
         private int originalBitmapCount = new int();
         private Bitmap previewBitmap;
 
-        private float redV;
-        private float greenV;
-        private float blueV;
+        private float brightV = 0f;
+        private float satV = 1f;
+        private float conV =1f;
 
         /// <summary>
         /// RGB Channel modifier control
         /// </summary>
         /// <param name="mPW">A MainWindow</param>
         /// <param name="cD">A ColorDialog that calls the constructor</param>
-        public RGB(MainWindow mPW, ColorDialog cD)
+        public BSC(MainWindow mPW, ColorDialog cD)
         {
             myParentWindow = mPW;
             myColorDialog = cD;
             InitializeComponent();
             originalBitmapCount = myParentWindow.CurrentBitmap;
+
+            CSlider.Value = 100;
         }
 
         /// <summary>
-        /// Creates a color matrix offset by the parameters for each channel
+        /// It's faster to take the cross product of the three matricies together
+        /// than to apply each separately. I've left the other three functions 
+        /// below to help with understanding.
         /// </summary>
-        /// <param name="rV">Red float, generally from -1 to 1</param>
-        /// <param name="gV">Green float, generally from -1 to 1</param>
-        /// <param name="bV">Blue float, generally from -1 to 1</param>
-        /// <returns>A color matrix with the channels offset by the parameter values</returns>
-        private ColorMatrix createColorMatrix(float rV, float gV, float bV)
+        /// <param name="bV"></param>
+        /// <param name="sV"></param>
+        /// <param name="cV"></param>
+        /// <returns>Returns a ColorMatrix that change Brightness, Contrast, and Saturation</returns>
+        private ColorMatrix createTransformMatrix(float bV, float sV, float cV)
         {
-            ColorMatrix cMatrix = new ColorMatrix(
+            float lumR, lumG, lumB, sR, sG, sB, tV;
+
+            if (HighRed.IsChecked == true)
+            {
+                lumR = 0.3086f;
+            }
+            else
+            {
+                lumR = 0.2125f;
+            }
+
+            if (HighGreen.IsChecked == true)
+            {
+                lumG = 0.7154f;
+            }
+            else
+            {
+                lumG = 0.6094f;
+            }
+
+            if (HighBlue.IsChecked == true)
+            {
+                lumB = 0.0820f;
+            }
+            else
+            {
+                lumB = 0.0721f;
+            }
+
+            sR = (1 - sV) * lumR;
+            sG = (1 - sV) * lumG;
+            sB = (1 - sV) * lumB;
+            tV = (float)((1.0 - cV) / 2.0);
+
+            ColorMatrix sMatrix = new ColorMatrix(
                 new float[][]
                 {
-                    new float[] {1, 0, 0, 0, 0},
-                    new float[] {0, 1, 0, 0, 0},
-                    new float[] {0, 0, 1, 0, 0},
-                    new float[] {0, 0, 0, 1, 0},
-                    new float[] {rV, gV, bV, 0, 1}
+                    new float[] { cV*(sR+sV),  cV*(sR),    cV*(sR),    0, 0},
+                    new float[] {  cV*(sG),   cV*(sG+sV),  cV*(sG),    0, 0},
+                    new float[] {  cV*(sB),     cV*(sB),  cV*(sB+sV),  0, 0},
+                    new float[] {      0,          0,          0,      1, 0},
+                    new float[] {    bV+tV,      bV+tV,      bV+tV,    0, 1}
                 });
-            return cMatrix;
+            return sMatrix;
         }
 
         /// <summary>
@@ -73,7 +111,7 @@ namespace WPF_Image_Editor
         private void setMainBitmap()
         {
             // Create the appropriate matrix
-            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
+            ColorMatrix cMatrix = createTransformMatrix(brightV, satV, conV);
 
             Console.WriteLine(myParentWindow.CurrentBitmap);
             Console.WriteLine(myParentWindow.BitmapList.Count);
@@ -96,7 +134,7 @@ namespace WPF_Image_Editor
         private void setTempBitmap()
         {
             // Create the appropriate matrix
-            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
+            ColorMatrix cMatrix = createTransformMatrix(brightV, satV, conV);
 
             Console.WriteLine(myParentWindow.CurrentBitmap);
             Console.WriteLine(myParentWindow.BitmapList.Count);
@@ -131,23 +169,22 @@ namespace WPF_Image_Editor
             myColorDialog.Close();
         }
 
-
-        private void RedSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void BrightSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            redV = ((float)RedSlider.Value / (float)100);
-            RedValue.Content = "" + redV;
+            brightV = ((float)BrightSlider.Value / (float)100);
+            BrightValue.Content = "" + brightV;
         }
 
-        private void BlueSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void CSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            blueV = ((float)BlueSlider.Value / (float)100);
-            BlueValue.Content = "" + blueV;
+            conV = ((float)CSlider.Value / (float)100);
+            CValue.Content = "" + conV;
         }
 
-        private void GreenSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void SatSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            greenV = ((float)GreenSlider.Value / (float)100);
-            GreenValue.Content = "" + greenV;
+            satV = ((float)SatSlider.Value / (float)100);
+            SatValue.Content = "" + satV;
         }
 
         #endregion

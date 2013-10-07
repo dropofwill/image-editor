@@ -7,17 +7,18 @@
                 <MenuItem Header="File" >
                     <MenuItem x:Name="Open_item" Header="Open" Click="open_FileDialog"/>
                     <MenuItem x:Name="Save_item" Header="Save" Click="Save_item_Click_1" />
-                    <MenuItem x:Name="Discard_item" Header="Discard Changes" Click="Discard_item_Click_1" />
                     <Separator/>
                     <MenuItem x:Name="Quit_item" Header="Quit" Click="Quit_item_Click_1" />
                 </MenuItem>
 
-            <MenuItem Header="Edit">
-                <MenuItem x:Name="Undo_item" Header="Undo" Click="Undo_item_Click_1"/>
-                <MenuItem x:Name="Redo_item" Header="Redo" Click="Redo_item_Click_1" />
-            </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem x:Name="Undo_item" Header="Undo" Click="Undo_item_Click_1"/>
+                    <MenuItem x:Name="Redo_item" Header="Redo" Click="Redo_item_Click_1" />
+                    <Separator/>
+                    <MenuItem x:Name="Discard_item" Header="Discard Changes" Click="Discard_item_Click_1" />
+                </MenuItem>
                 
-            <MenuItem Header="Effects" >
+                <MenuItem Header="Effects" >
                     <MenuItem x:Name="RGB_item" Header="RGB Modifier" Click="RGB_item_Click_1"/>
                     <MenuItem x:Name="BSC_item" Header="BSC Modifier" Click="BSC_item_Click_1" />
                     <MenuItem x:Name="Grey_item" Header="Custom Greyscale" Click="Grey_item_Click_1" />

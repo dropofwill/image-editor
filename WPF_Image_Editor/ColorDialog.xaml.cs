@@ -22,6 +22,7 @@ namespace WPF_Image_Editor
         private MainWindow myParentWindow;
         private String controlType;
         private RGB rgbControl;
+        private BSC bscControl;
 
         public ColorDialog(MainWindow parentWindow, String cT)
         {
@@ -37,14 +38,15 @@ namespace WPF_Image_Editor
             if (controlType == "RGB")
             {
                 CreateRGB();
-                this.Width = rgbControl.Width;
+                this.Width = rgbControl.Width + 26;
                 this.Height = rgbControl.Height + 26;
                 this.Title = "Red, Green, and Blue Channel Modifier";
             }
             else if (controlType == "BSC")
             {
-                //CreateColorBSL();
-                //this.ClientSize = new Size(myColorBSLControl.Width + 26, myColorBSLControl.Height + 26);
+                CreateColorBSC();
+                this.Width = bscControl.Width + 26;
+                this.Height = bscControl.Height + 26;
                 this.Title = "Brightness, Saturation, and Contrast Modifier";
             }
             else if (controlType == "Grey")
@@ -59,6 +61,12 @@ namespace WPF_Image_Editor
                 //this.ClientSize = new Size(myCustomMatrixControl.Width + 26, myCustomMatrixControl.Height + 26);
                 this.Title = "Custom Color Matrix Transform";
             }
+        }
+
+        private void CreateColorBSC()
+        {
+            bscControl = new WPF_Image_Editor.BSC(myParentWindow, this);
+            this.Content = bscControl;
         }
 
         private void CreateRGB()
