@@ -272,9 +272,9 @@ namespace WPF_Image_Editor
             {
                 if (bitmapList.Count > 0)
                 {
-                WPF_Image_Editor.ColorDialog greyWindow = new WPF_Image_Editor.ColorDialog(this, "Grey");
-                greyWindow.Show();
-            }
+                    WPF_Image_Editor.ColorDialog greyWindow = new WPF_Image_Editor.ColorDialog(this, "Grey");
+                    greyWindow.Show();
+                }
                 else
                 {
                     MessageBox.Show("No Picture, please open a a picture to edit it");
@@ -292,6 +292,8 @@ namespace WPF_Image_Editor
             {
                 if (bitmapList.Count > 0)
                 {
+                    WPF_Image_Editor.ColorDialog customWindow = new WPF_Image_Editor.ColorDialog(this, "Matrix");
+                    customWindow.Show();
                 }  
                 else
                 {
@@ -310,6 +312,7 @@ namespace WPF_Image_Editor
             {
                 if (bitmapList.Count > 0)
                 {
+                    currentPicture = bitmapList[currentBitmap];
                     currentPicture = MatrixConvertBitmap(currentPicture, greyscaleConMatrix);
                     addPicture(currentPicture);
                 }
@@ -330,7 +333,9 @@ namespace WPF_Image_Editor
             {
                 if (bitmapList.Count > 0)
                 {
-
+                    currentPicture = bitmapList[currentBitmap];
+                    currentPicture = MatrixConvertBitmap(currentPicture, invertConMatrix);
+                    addPicture(currentPicture);
                 }
                 else
                 {

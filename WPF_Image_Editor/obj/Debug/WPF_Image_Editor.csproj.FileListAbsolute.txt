@@ -11,3 +11,26 @@
 \\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.g.resources
 \\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.Properties.Resources.resources
 \\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.csproj.GenerateResource.Cache
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\bin\Debug\WPF_Image_Editor.exe.config
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\bin\Debug\WPF_Image_Editor.exe
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\bin\Debug\WPF_Image_Editor.pdb
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\ColorDialog.baml
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\BSC.baml
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\GreyCustom.baml
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\MainWindow.baml
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\RGB.baml
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\ColorDialog.g.cs
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\BSC.g.cs
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\GreyCustom.g.cs
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\MainWindow.g.cs
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\RGB.g.cs
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\App.g.cs
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor_MarkupCompile.cache
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.g.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.Properties.Resources.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.csproj.GenerateResource.Cache
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.exe
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.pdb
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.csprojResolveAssemblyReference.cache
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\CustomMatrix.baml
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\CustomMatrix.g.cs

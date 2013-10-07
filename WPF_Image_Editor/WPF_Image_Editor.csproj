@@ -57,6 +57,9 @@
     <Compile Include="BSC.xaml.cs">
       <DependentUpon>BSC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomMatrix.xaml.cs">
+      <DependentUpon>CustomMatrix.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GreyCustom.xaml.cs">
       <DependentUpon>GreyCustom.xaml</DependentUpon>
     </Compile>
@@ -68,6 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BSC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomMatrix.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

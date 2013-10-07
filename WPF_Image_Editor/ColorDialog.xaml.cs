@@ -24,6 +24,7 @@ namespace WPF_Image_Editor
         private RGB rgbControl;
         private BSC bscControl;
         private GreyCustom greyControl;
+        private CustomMatrix customControl;
 
         /// <summary>
         /// Initialize a Color Dialog
@@ -65,10 +66,17 @@ namespace WPF_Image_Editor
             }
             else if (controlType == "Matrix")
             {
-                //CreateCustomMatrix();
-                //this.ClientSize = new Size(myCustomMatrixControl.Width + 26, myCustomMatrixControl.Height + 26);
+                CreateCustomMatrix();
+                this.Width = customControl.Width + 26;
+                this.Height = customControl.Height + 26;
                 this.Title = "Custom Color Matrix Transform";
             }
+        }
+
+        private void CreateCustomMatrix()
+        {
+            customControl = new WPF_Image_Editor.CustomMatrix(myParentWindow, this);
+            this.Content = customControl;
         }
 
         private void CreateColorBSC()
