@@ -12,3 +12,21 @@
 \\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.Image_Editor_Main.resources
 \\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.Properties.Resources.resources
 \\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.csproj.GenerateResource.Cache
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\bin\Debug\WinForm_Image_Editor.exe.config
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\bin\Debug\WinForm_Image_Editor.exe.manifest
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\bin\Debug\WinForm_Image_Editor.application
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\bin\Debug\WinForm_Image_Editor.exe
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\bin\Debug\WinForm_Image_Editor.pdb
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.ColorRGBDialog.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.ColorRGBControl.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.ColorBSLControl.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.CustomMatrixControl.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.CustomGreyControl.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.Image_Editor_Main.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.Properties.Resources.resources
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.csproj.GenerateResource.Cache
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.exe.manifest
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.application
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.exe
+C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WinForm_Image_Editor\obj\Debug\WinForm_Image_Editor.pdb

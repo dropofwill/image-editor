@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="WinForm_Image_Editor.exe" version="1.0.0.0" publicKeyToken="36a27054ee774bbd" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="WinForm_Image_Editor" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="WinForm_Image_Editor.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WinForm_Image_Editor.exe" size="54784">
+      <assemblyIdentity name="WinForm_Image_Editor" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>PENXs/f7W782dspQ2IN25NZlZwsUuaxbf4nT7OoJ88A=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Xceed.Wpf.Toolkit.dll" size="900608">
+      <assemblyIdentity name="Xceed.Wpf.Toolkit" version="2.0.0.0" publicKeyToken="3E4669D2F30244F4" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Nj27IMEG8mHe7xQ1xNUsy+1wLsdBDw3l2usFhdEY9YQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="WinForm_Image_Editor.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=VISUAL-STUDIOS\wpnev_000" issuerKeyHash="b1085811f8f1e16329245590a7e17c543b88d796" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>8xGOgW4Bqd/GI23mC+DGMiFI9va6Y7125+/2TEgzvKM=</DigestValue></Reference></SignedInfo><SignatureValue>pwRr0dm6L4Z9sF7kBjx7EJxRROaBgEh1x3oNhaFZM1TyL7uCBFu8Y70WpedrDrG7xTmtMEXGEBQYmgYbOWbytjGrcBaAlpf+EUcjR1QTvalJ8W4EvAsqC8GojP0QEYywj318jYkyNk1Wa7eI/mMq4dTcT+QesOgcgirUUXnTEPA=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>3alHNNHLiuj8JbxXuSTV1SBs9SSq4NtgBVIBoMjALlOxnaO5SkC3lBW8uLY2HfR+uWkCS+gHYW0k/VtpGzqTHeDPY2y6iR1t8+mh9zAjTus8EeZcfPsHv/VOM/mu+PR/p+ba2CnBe43AOZpRqiji361WcAoUuMUu35akufUuITU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a3bc33484cf6efe776bd63baf6f6482132c6e00be66d23c6dfa9016e818e11f3" Description="" Url=""><as:assemblyIdentity name="WinForm_Image_Editor.exe" version="1.0.0.0" publicKeyToken="36a27054ee774bbd" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=VISUAL-STUDIOS\wpnev_000</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>lG3LsBir2wS0Ty4wjD1LFIYDhcX6sRJ7xKPgKcIIJBs=</DigestValue></Reference></SignedInfo><SignatureValue>x009eR93sd0vIL4Gzk6aHGnTm8mDkiaVwWQFOe6nFpcvWcViNk3dvWsl3lyJ7EFEc60a6f7Lcbmxg5HNNEPwA/5vllWlizjkAfOLaNt6HwqVrch+pvGuCjQ7JVIRQxES7QjE1O+aHrkJP2XHfuxEB/0cmieQlIjB4iK6A3iZ9ps=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>3alHNNHLiuj8JbxXuSTV1SBs9SSq4NtgBVIBoMjALlOxnaO5SkC3lBW8uLY2HfR+uWkCS+gHYW0k/VtpGzqTHeDPY2y6iR1t8+mh9zAjTus8EeZcfPsHv/VOM/mu+PR/p+ba2CnBe43AOZpRqiji361WcAoUuMUu35akufUuITU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB+TCCAWKgAwIBAgIQFd0RVFIL5ZlNd8ucHd3wNjANBgkqhkiG9w0BAQsFADA7MTkwNwYDVQQDHjAAVgBJAFMAVQBBAEwALQBTAFQAVQBEAEkATwBTAFwAdwBwAG4AZQB2AF8AMAAwADAwHhcNMTMxMDA4MDIzMjMwWhcNMTQxMDA4MDgzMjMwWjA7MTkwNwYDVQQDHjAAVgBJAFMAVQBBAEwALQBTAFQAVQBEAEkATwBTAFwAdwBwAG4AZQB2AF8AMAAwADAwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAN2pRzTRy4ro/CW8V7kk1dUgbPUkquDbYAVSAaDIwC5TsZ2juUpAt5QVvLi2Nh30frlpAkvoB2FtJP1baRs6kx3gz2NsuokdbfPpofcwI07rPBHmXHz7B7/1TjP5rvj0f6fm2tgpwXuNwDmaUaoo4t+tVnAKFLjFLt+WpLn1LiE1AgMBAAEwDQYJKoZIhvcNAQELBQADgYEAiHSrPyizlIJIfqMVW/+J0la0gQnS5ZktHGeicgFsUDIgB6mzbhPuquefjwgDTiPkx7JnVT2tT2ijHPeQSzHv0R9fFVUcc7EuDR2Yt2jWSxN4hK3AykdnAXJCAGj3rXriGGMvel2/mK/WvKEfjhGDcZKcGWdIy7bR/sDXVoiEXds=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
