@@ -15,9 +15,9 @@ namespace WinForm_Image_Editor
     {
         private Image_Editor_Main mainParentForm;
         private ColorRGBDialog parentForm;
-        private Bitmap controlBitmap;
         private Bitmap previewBitmap;
-        private Image anImage;
+
+        private int originalBitmapCount = new int();
         private float brightV = 0f;
         private float satV = 1f;
         private float conV = 1f;
@@ -34,11 +34,8 @@ namespace WinForm_Image_Editor
         {
             mainParentForm = mPF;
             parentForm = pF;
-            anImage = mainParentForm.CurrentPicture;
-            controlBitmap = new Bitmap(anImage);
             InitializeComponent();
-
-
+            originalBitmapCount = mainParentForm.CurrentBitmap;
         }
 
         private void brightTrackBar_Scroll(object sender, EventArgs e)
@@ -211,42 +208,59 @@ namespace WinForm_Image_Editor
         private void apply_btn_Click(object sender, EventArgs e)
         {
             setMainBitmap();
+            mainParentForm.setMainPicture(mainParentForm.CurrentBitmap);
             parentForm.Dispose();
         }
 
         private void cancel_btn_Click(object sender, EventArgs e)
         {
-           mainParentForm.currentState();
-           parentForm.Dispose();
+            mainParentForm.setMainPicture(originalBitmapCount);
+            parentForm.Dispose();
         }
 
         private void preview_btn_Click(object sender, EventArgs e)
         {
-            setMainBitmap(false);
-         }
-
-        private void setMainBitmap(Boolean keepChanges=true)
-        {
-            ColorMatrix tMatrix = createTransformMatrix(brightV, satV, conV);
-            
-            previewBitmap = deepCopyBitmap(controlBitmap);
-
-            previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, tMatrix);
-
-            mainParentForm.setMainPicture(previewBitmap, keepChanges);
+            setTempBitmap();
         }
 
-        private Bitmap deepCopyBitmap(Bitmap aBitmap)
+        /// <summary>
+        /// Sets the main Bitmap permanently with the current user settings
+        /// Use only for changes that will be saved into state, i.e. the Apply
+        /// Button.
+        /// </summary>
+        private void setMainBitmap()
         {
-            Bitmap copy = new Bitmap(aBitmap.Width, aBitmap.Height);
+            // Create the appropriate matrix
+            ColorMatrix cMatrix = createTransformMatrix(brightV, satV, conV);
 
-            using (Graphics graphics = Graphics.FromImage(copy))
-            {
-                Rectangle imageRectangle = new Rectangle(0, 0, copy.Width, copy.Height);
-                graphics.DrawImage(aBitmap, imageRectangle, imageRectangle, GraphicsUnit.Pixel);
-            }
+            // Get the current bitmap to edit
+            previewBitmap = mainParentForm.BitmapList[mainParentForm.CurrentBitmap];
 
-            return copy;
+            // Apply the matrix to the bitmap
+            previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
+
+            // Display the bitmap in the main window, add it to BitmapList, and increment the counter
+            mainParentForm.addPicture(previewBitmap);
+        }
+
+        /// <summary>
+        /// Sets the main Bitmap temporarily with the current user settings
+        /// Use only for previews of effects, as it isn't added to the BitmapList,
+        /// and goes away when this window is closed.
+        /// </summary>
+        private void setTempBitmap()
+        {
+            // Create the appropriate matrix
+            ColorMatrix cMatrix = createTransformMatrix(brightV, satV, conV);
+
+            // Get the current bitmap to edit
+            previewBitmap = mainParentForm.BitmapList[mainParentForm.CurrentBitmap];
+
+            // Apply the matrix to the bitmap
+            previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
+
+            // Display the bitmap temporarily
+            mainParentForm.setTempPicture(previewBitmap);
         }
 
     }

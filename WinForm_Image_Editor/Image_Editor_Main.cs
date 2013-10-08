@@ -17,8 +17,8 @@ namespace WinForm_Image_Editor
 
         private Bitmap originalPicture;
         private Bitmap currentPicture;
-        private List<Bitmap> previousStatesList = new List<Bitmap>();
-        private int currentStateCounter;
+        private List<Bitmap> bitmapList = new List<Bitmap>();
+        private int currentBitmap = 0;
 
 
         private ColorMatrix greyscaleConMatrix = new ColorMatrix(
@@ -57,8 +57,7 @@ namespace WinForm_Image_Editor
             {
                 originalPicture = new Bitmap(openFileDialog.FileName);
                 currentPicture = new Bitmap(openFileDialog.FileName);
-                resetState();
-                setMainPicture(currentPicture);
+                addPicture(currentPicture);
 
                 this.Text = openFileDialog.FileName;
             }
@@ -74,8 +73,8 @@ namespace WinForm_Image_Editor
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    originalPicture = new Bitmap(mainPictureBox.Image);
-                    mainPictureBox.Image.Save(saveFileDialog.FileName);
+                    Bitmap exportPicture = bitmapList[currentBitmap];
+                    exportPicture.Save(saveFileDialog.FileName);
                     this.Text = saveFileDialog.FileName;
                 }
             }
@@ -85,86 +84,133 @@ namespace WinForm_Image_Editor
             }
         }
 
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+
+        public void addPicture(Bitmap aBitmap)
         {
-            if (currentStateCounter > 0)
-                previousState();
+            bitmapList.Add(aBitmap);
+            mainPictureBox.Image = aBitmap;
+            currentBitmap = bitmapList.Count - 1;
+
+            Console.WriteLine(currentBitmap);
+            Console.WriteLine(bitmapList.Count);
         }
 
-        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (currentStateCounter <= previousStatesList.Count)
-                nextState();
-        }
 
-        public void resetState(Bitmap aBitmap=null)
+        /// <summary>
+        /// This changes the main image to a bitmap from the array of bitmaps
+        /// Bitmap class for manipulation needs to be converted to bitmap source
+        /// to be displayed by WPF
+        /// </summary>
+        /// <param name="currentState"></param>
+        public void setMainPicture(int currentState)
         {
-            previousStatesList.Clear();
-            currentStateCounter = -1;
-            previousStatesList.Add(aBitmap);
+            mainPictureBox.Image = bitmapList[currentState];
+            currentBitmap = currentState;
 
-            Console.WriteLine(currentStateCounter);
-        }
-
-        public void addState(Bitmap aBitmap)
-        {
-            previousStatesList.Add(aBitmap);
-            currentStateCounter++;
-            Console.WriteLine(currentStateCounter);
-        }
-
-        public void previousState()
-        {
-            try
-            {
-                setMainPicture(previousStatesList[currentStateCounter--]);
-                currentStateCounter--;
-            }
-            catch (Exception except)
-            {
-                MessageBox.Show(except.Message);
-            }
-            Console.WriteLine(currentStateCounter);
-        }
-
-        public void currentState()
-        {
-            try
-            {
-                setMainPicture(previousStatesList[currentStateCounter]);
-            }
-            catch (Exception except)
-            {
-                MessageBox.Show(except.Message);
-            }
-            Console.WriteLine(currentStateCounter);
-        }
-
-        public void nextState()
-        {
-            try
-            {
-                setMainPicture(previousStatesList[currentStateCounter++]);
-                currentStateCounter++;
-            }
-            catch (Exception except)
-            {
-                MessageBox.Show(except.Message);
-            }
-            Console.WriteLine(currentStateCounter);
+            Console.WriteLine(currentBitmap);
+            Console.WriteLine(bitmapList.Count);
         }
 
         /// <summary>
-        /// Set the main picture from outside
+        /// For non permanent changes to the main image and aren't added to the state
         /// </summary>
-        /// <param name="aBitmap">a Bitmap object that will be displayed</param>
-        public void setMainPicture(Bitmap aBitmap, Boolean keepChange = true)
+        /// <param name="aBitmap"></param>
+        public void setTempPicture(Bitmap aBitmap)
         {
             mainPictureBox.Image = aBitmap;
-
-            if (keepChange)
-                addState(aBitmap);
         }
+
+        public void undoPicture()
+        {
+            if (currentBitmap > 0)
+            {
+                currentBitmap--;
+                setMainPicture(currentBitmap);
+            }
+            Console.WriteLine("undo ran");
+        }
+
+        public void redoPicture()
+        {
+            if (currentBitmap < bitmapList.Count - 1)
+            {
+                currentBitmap++;
+                setMainPicture(currentBitmap);
+            }
+
+            Console.WriteLine("redo ran");
+        }
+
+         
+    //
+    //    public void resetState(Bitmap aBitmap=null)
+    //    {
+    //        previousStatesList.Clear();
+    //        currentStateCounter = -1;
+    //        previousStatesList.Add(aBitmap);
+    //
+    //        Console.WriteLine(currentStateCounter);
+    //    }
+    //
+    //    public void addState(Bitmap aBitmap)
+    //    {
+    //        previousStatesList.Add(aBitmap);
+    //        currentStateCounter++;
+    //        Console.WriteLine(currentStateCounter);
+    //    }
+    //
+    //    public void previousState()
+    //    {
+    //        try
+    //        {
+    //            setMainPicture(previousStatesList[currentStateCounter--]);
+    //            currentStateCounter--;
+    //        }
+    //        catch (Exception except)
+    //        {
+    //            MessageBox.Show(except.Message);
+    //        }
+    //        Console.WriteLine(currentStateCounter);
+    //    }
+    //
+    //    public void currentState()
+    //    {
+    //        try
+    //        {
+    //            setMainPicture(previousStatesList[currentStateCounter]);
+    //        }
+    //        catch (Exception except)
+    //        {
+    //            MessageBox.Show(except.Message);
+    //        }
+    //        Console.WriteLine(currentStateCounter);
+    //    }
+    //
+    //    public void nextState()
+    //    {
+    //        try
+    //        {
+    //            setMainPicture(previousStatesList[currentStateCounter++]);
+    //            currentStateCounter++;
+    //        }
+    //        catch (Exception except)
+    //        {
+    //            MessageBox.Show(except.Message);
+    //        }
+    //        Console.WriteLine(currentStateCounter);
+    //    }
+    //
+    //    /// <summary>
+    //    /// Set the main picture from outside
+    //    /// </summary>
+    //    /// <param name="aBitmap">a Bitmap object that will be displayed</param>
+    //    public void setMainPicture(Bitmap aBitmap, Boolean keepChange = true)
+    //    {
+    //        mainPictureBox.Image = aBitmap;
+    //
+    //        if (keepChange)
+    //            addState(aBitmap);
+    //    }
 
         /// <summary>
         /// Applies a color matrix to the pixels of a bitmap
@@ -199,8 +245,7 @@ namespace WinForm_Image_Editor
 
         private void discardChangesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setMainPicture(originalPicture);
-            currentPicture = originalPicture;   
+            setMainPicture(0);  
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -212,12 +257,20 @@ namespace WinForm_Image_Editor
         {
             try
             {
-                currentPicture = MatrixConvertBitmap(currentPicture, invertConMatrix);
-                setMainPicture(currentPicture);
+                if (bitmapList.Count > 0)
+                {
+                    currentPicture = bitmapList[currentBitmap];
+                    currentPicture = MatrixConvertBitmap(currentPicture, invertConMatrix);
+                    addPicture(currentPicture);
+                }
+                else
+                {
+                    MessageBox.Show("No Picture, please open a a picture to edit it");
+                }
             }
-            catch (Exception)
+            catch (Exception except)
             {
-                MessageBox.Show("No Picture, please open a a picture to edit it");
+                MessageBox.Show(except.Message);
             }
         }
 
@@ -225,12 +278,20 @@ namespace WinForm_Image_Editor
         {
             try
             {
-                currentPicture = MatrixConvertBitmap(currentPicture, greyscaleConMatrix);
-                setMainPicture(currentPicture);
+                if (bitmapList.Count > 0)
+                {
+                    currentPicture = bitmapList[currentBitmap];
+                    currentPicture = MatrixConvertBitmap(currentPicture, greyscaleConMatrix);
+                    addPicture(currentPicture);
+                }
+                else
+                {
+                    MessageBox.Show("No Picture, please open a a picture to edit it");
+                }
             }
-            catch (Exception)
+            catch (Exception except)
             {
-                MessageBox.Show("No Picture, please open a a picture to edit it");
+                MessageBox.Show(except.Message);
             }
         }
 
@@ -286,21 +347,32 @@ namespace WinForm_Image_Editor
             }
         }
 
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            undoPicture();
+        }
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            redoPicture();
+        }
+
 
         public Bitmap CurrentPicture
         {
             get { return currentPicture; }
             set { currentPicture = value; }
         }
-        public List<Bitmap> PreviousStatesList
+        public int CurrentBitmap
         {
-            get { return previousStatesList; }
-            set { previousStatesList = value; }
+            get { return currentBitmap; }
+            set { currentBitmap = value; }
         }
-        public int CurrentStateCounter
+        public List<Bitmap> BitmapList
         {
-            get { return currentStateCounter; }
-            set { currentStateCounter = value; }
+            get { return bitmapList; }
+            set { bitmapList = value; }
         }
+
     }
 }

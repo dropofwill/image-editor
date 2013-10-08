@@ -15,9 +15,8 @@ namespace WinForm_Image_Editor
     {
         private Image_Editor_Main mainParentForm;
         private ColorRGBDialog parentForm;
-        private Bitmap controlBitmap;
         private Bitmap previewBitmap;
-        private Image anImage;
+        private int originalBitmapCount = new int();
         private float redV = 0.22f;
         private float greenV = 0.59f;
         private float blueV = 0.11f;
@@ -31,9 +30,8 @@ namespace WinForm_Image_Editor
         {
             mainParentForm = mPF;
             parentForm = pF;
-            anImage = mainParentForm.CurrentPicture;
-            controlBitmap = new Bitmap(anImage);
             InitializeComponent();
+            originalBitmapCount = mainParentForm.CurrentBitmap;
         }
 
         private void redTrackBar_Scroll(object sender, EventArgs e)
@@ -71,41 +69,59 @@ namespace WinForm_Image_Editor
         private void apply_btn_Click(object sender, EventArgs e)
         {
             setMainBitmap();
+            mainParentForm.setMainPicture(mainParentForm.CurrentBitmap);
             parentForm.Dispose();
         }
 
         private void cancel_btn_Click(object sender, EventArgs e)
         {
-            mainParentForm.setMainPicture(controlBitmap);
+            mainParentForm.setMainPicture(originalBitmapCount);
             parentForm.Dispose();
         }
 
         private void preview_btn_Click(object sender, EventArgs e)
         {
-            setMainBitmap();
+            setTempBitmap();
          }
 
+        /// <summary>
+        /// Sets the main Bitmap permanently with the current user settings
+        /// Use only for changes that will be saved into state, i.e. the Apply
+        /// Button.
+        /// </summary>
         private void setMainBitmap()
         {
+            // Create the appropriate matrix
             ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
-            previewBitmap = deepCopyBitmap(controlBitmap);
+
+            // Get the current bitmap to edit
+            previewBitmap = mainParentForm.BitmapList[mainParentForm.CurrentBitmap];
+
+            // Apply the matrix to the bitmap
             previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
 
-            mainParentForm.setMainPicture(previewBitmap);
+            // Display the bitmap in the main window, add it to BitmapList, and increment the counter
+            mainParentForm.addPicture(previewBitmap);
         }
 
-        private Bitmap deepCopyBitmap(Bitmap aBitmap)
+        /// <summary>
+        /// Sets the main Bitmap temporarily with the current user settings
+        /// Use only for previews of effects, as it isn't added to the BitmapList,
+        /// and goes away when this window is closed.
+        /// </summary>
+        private void setTempBitmap()
         {
-            Bitmap copy = new Bitmap(aBitmap.Width, aBitmap.Height);
+            // Create the appropriate matrix
+            ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
 
-            using (Graphics graphics = Graphics.FromImage(copy))
-            {
-                Rectangle imageRectangle = new Rectangle(0, 0, copy.Width, copy.Height);
-                graphics.DrawImage(aBitmap, imageRectangle, imageRectangle, GraphicsUnit.Pixel);
-            }
+            // Get the current bitmap to edit
+            previewBitmap = mainParentForm.BitmapList[mainParentForm.CurrentBitmap];
 
-            return copy;
+            // Apply the matrix to the bitmap
+            previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
+
+            // Display the bitmap temporarily
+            mainParentForm.setTempPicture(previewBitmap);
         }
-
     }
 }
