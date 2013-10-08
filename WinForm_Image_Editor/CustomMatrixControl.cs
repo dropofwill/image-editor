@@ -231,27 +231,6 @@ namespace WinForm_Image_Editor
             mainParentForm.setTempPicture(previewBitmap);
         }
 
-   //     /// <summary>
-   //     /// Creates a color matrix (using createColorMatrix() ) and applies it to the main
-   //     /// window
-   //     /// </summary>
-   //     private void setMainBitmap()
-   //     {
-   //         try
-   //         {
-   //             ColorMatrix cMatrix = createColorMatrix();
-   //             previewBitmap = deepCopyBitmap(controlBitmap);
-   //             previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
-   //
-   //             mainParentForm.setMainPicture(previewBitmap);
-   //         }
-   //         catch (Exception except)
-   //         {
-   //             MessageBox.Show(except.Message);
-   //         }
-   //     }
-   //
-
         #region event_handlers
 
         /// <summary>
