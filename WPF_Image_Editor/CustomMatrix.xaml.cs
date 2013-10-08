@@ -109,9 +109,9 @@ namespace WPF_Image_Editor
             },
             {"Brighten", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
+                               {   new float[] {1, 0, 0, 0, 0},
                                    new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 1, 0, 0},
                                    new float[] {0, 0, 0, 1, 0},
                                    new float[] {0.5f, 0.5f, 0.5f, 0, 1}})
             },

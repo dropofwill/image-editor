@@ -21,7 +21,6 @@ namespace WinForm_Image_Editor
 
         private int originalBitmapCount = new int();
         private Bitmap previewBitmap;
-        private Image anImage;
 
         //individual values for the custom matrix, start with the identity matrix
         private float   v00=1, v01=0, v02=0, v03=0, v04=0,
@@ -101,9 +100,9 @@ namespace WinForm_Image_Editor
             },
             {"Brighten", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
+                               {   new float[] {1, 0, 0, 0, 0},
                                    new float[] {0, 1, 0, 0, 0},
+                                   new float[] {0, 0, 1, 0, 0},
                                    new float[] {0, 0, 0, 1, 0},
                                    new float[] {0.5f, 0.5f, 0.5f, 0, 1}})
             },
