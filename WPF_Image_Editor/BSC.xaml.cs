@@ -51,9 +51,9 @@ namespace WPF_Image_Editor
         /// than to apply each separately. I've left the other three functions 
         /// below to help with understanding.
         /// </summary>
-        /// <param name="bV"></param>
-        /// <param name="sV"></param>
-        /// <param name="cV"></param>
+        /// <param name="bV">Brightness</param>
+        /// <param name="sV">Saturation</param>
+        /// <param name="cV">Contrast</param>
         /// <returns>Returns a ColorMatrix that change Brightness, Contrast, and Saturation</returns>
         private ColorMatrix createTransformMatrix(float bV, float sV, float cV)
         {
@@ -113,9 +113,6 @@ namespace WPF_Image_Editor
             // Create the appropriate matrix
             ColorMatrix cMatrix = createTransformMatrix(brightV, satV, conV);
 
-            Console.WriteLine(myParentWindow.CurrentBitmap);
-            Console.WriteLine(myParentWindow.BitmapList.Count);
-
             // Get the current bitmap to edit
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
             
@@ -135,9 +132,6 @@ namespace WPF_Image_Editor
         {
             // Create the appropriate matrix
             ColorMatrix cMatrix = createTransformMatrix(brightV, satV, conV);
-
-            Console.WriteLine(myParentWindow.CurrentBitmap);
-            Console.WriteLine(myParentWindow.BitmapList.Count);
 
             // Get the current bitmap to edit
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];

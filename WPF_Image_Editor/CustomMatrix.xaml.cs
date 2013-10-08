@@ -209,9 +209,6 @@ namespace WPF_Image_Editor
             // Create the appropriate matrix
             ColorMatrix cMatrix = createColorMatrix();
 
-            Console.WriteLine(myParentWindow.CurrentBitmap);
-            Console.WriteLine(myParentWindow.BitmapList.Count);
-
             // Get the current bitmap to edit
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
             
@@ -231,9 +228,6 @@ namespace WPF_Image_Editor
         {
             // Create the appropriate matrix
             ColorMatrix cMatrix = createColorMatrix();
-
-            Console.WriteLine(myParentWindow.CurrentBitmap);
-            Console.WriteLine(myParentWindow.BitmapList.Count);
 
             // Get the current bitmap to edit
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];

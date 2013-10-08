@@ -75,9 +75,6 @@ namespace WPF_Image_Editor
             // Create the appropriate matrix
             ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
 
-            Console.WriteLine(myParentWindow.CurrentBitmap);
-            Console.WriteLine(myParentWindow.BitmapList.Count);
-
             // Get the current bitmap to edit
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
             
@@ -97,9 +94,6 @@ namespace WPF_Image_Editor
         {
             // Create the appropriate matrix
             ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
-
-            Console.WriteLine(myParentWindow.CurrentBitmap);
-            Console.WriteLine(myParentWindow.BitmapList.Count);
 
             // Get the current bitmap to edit
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
@@ -130,7 +124,6 @@ namespace WPF_Image_Editor
             myParentWindow.setMainPicture(originalBitmapCount);
             myColorDialog.Close();
         }
-
 
         private void RedSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {

@@ -75,9 +75,6 @@ namespace WPF_Image_Editor
             // Create the appropriate matrix
             ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
 
-            Console.WriteLine(myParentWindow.CurrentBitmap);
-            Console.WriteLine(myParentWindow.BitmapList.Count);
-
             // Get the current bitmap to edit
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
             
@@ -97,9 +94,6 @@ namespace WPF_Image_Editor
         {
             // Create the appropriate matrix
             ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
-
-            Console.WriteLine(myParentWindow.CurrentBitmap);
-            Console.WriteLine(myParentWindow.BitmapList.Count);
 
             // Get the current bitmap to edit
             previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
@@ -139,10 +133,7 @@ namespace WPF_Image_Editor
                 RedValue.Content = redV;
             }
             catch
-            {
-            }
-            //redV = ((float)RedSlider.Value / (float)100);
-            //RedValue.Content = "" + redV;
+            {}
         }
 
         private void BlueSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -152,10 +143,7 @@ namespace WPF_Image_Editor
                 BlueValue.Content = blueV;
             }
             catch
-            { 
-            }
-            //blueV = ((float)BlueSlider.Value / (float)100);
-            //BlueValue.Content = "" + blueV;
+            {}
         }
 
         private void GreenSlider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -165,10 +153,7 @@ namespace WPF_Image_Editor
                 GreenValue.Content = greenV;
             }
             catch
-            {
-            }
-            //greenV = ((float)GreenSlider.Value / (float)100);
-            //GreenValue.Content = greenV;
+            {}
         }
 
         #endregion

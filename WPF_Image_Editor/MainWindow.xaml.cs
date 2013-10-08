@@ -72,7 +72,6 @@ namespace WPF_Image_Editor
                 currentBitmap--;
                 setMainPicture(currentBitmap);
             }
-            Console.WriteLine("undo ran");
         }
 
         public void redoPicture()
@@ -82,8 +81,6 @@ namespace WPF_Image_Editor
                 currentBitmap++;
                 setMainPicture(currentBitmap);
             }
-
-            Console.WriteLine("redo ran");
         }
 
         /// <summary>
@@ -96,9 +93,6 @@ namespace WPF_Image_Editor
         {
             mainImage.Source = BitmapToBitmapSource(bitmapList[currentState]);
             currentBitmap = currentState;
-
-            Console.WriteLine(currentBitmap);
-            Console.WriteLine(bitmapList.Count);
         }
 
         /// <summary>
@@ -176,9 +170,6 @@ namespace WPF_Image_Editor
             [return: MarshalAs(UnmanagedType.Bool)]
             internal static extern bool DeleteObject(IntPtr hObject);
         }
-
-
-
 
 
 
@@ -382,8 +373,6 @@ namespace WPF_Image_Editor
 
 
 
-
-
         #region field_getters_setters
 
         public List<Bitmap> BitmapList
@@ -397,7 +386,6 @@ namespace WPF_Image_Editor
             get { return currentBitmap; }
             set { currentBitmap = value; }
         }
-
         #endregion
     }
 }
