@@ -14,14 +14,10 @@ namespace WinForm_Image_Editor
 {
     public partial class Image_Editor_Main : Form
     {
-
         private Bitmap originalPicture;
         private Bitmap currentPicture;
         private List<Bitmap> bitmapList = new List<Bitmap>();
-        private int currentBitmap = 0;
-
-
-        private ColorMatrix greyscaleConMatrix = new ColorMatrix(
+        private int currentBitmap = 0;private ColorMatrix greyscaleConMatrix = new ColorMatrix(
             new float[][]
             {
                 new float[] {.22f,.22f,.22f, 0, 0},
@@ -46,6 +42,96 @@ namespace WinForm_Image_Editor
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Takes a new bitmap and adds it to the list permanently, as well
+        /// as displaying it in the picturebox.
+        /// </summary>
+        /// <param name="aBitmap">A bitmap to add permanently to the stack</param>
+        public void addPicture(Bitmap aBitmap)
+        {
+            bitmapList.Add(aBitmap);
+            mainPictureBox.Image = aBitmap;
+            currentBitmap = bitmapList.Count - 1;
+        }
+
+        /// <summary>
+        /// This changes the main image to a bitmap from the array of bitmaps
+        /// Bitmap class for manipulation needs to be converted to bitmap source
+        /// to be displayed by WPF
+        /// </summary>
+        /// <param name="currentState"></param>
+        public void setMainPicture(int currentState)
+        {
+            mainPictureBox.Image = bitmapList[currentState];
+            currentBitmap = currentState;
+        }
+
+        /// <summary>
+        /// For non permanent changes to the main image and aren't added to the state
+        /// </summary>
+        /// <param name="aBitmap"></param>
+        public void setTempPicture(Bitmap aBitmap)
+        {
+            mainPictureBox.Image = aBitmap;
+        }
+
+        /// <summary>
+        /// Sends the picturebox back one permanent state
+        /// </summary>
+        public void undoPicture()
+        {
+            if (currentBitmap > 0)
+            {
+                currentBitmap--;
+                setMainPicture(currentBitmap);
+            }
+        }
+
+        /// <summary>
+        /// Sends the picturebox forward one permanent state
+        /// </summary>
+        public void redoPicture()
+        {
+            if (currentBitmap < bitmapList.Count - 1)
+            {
+                currentBitmap++;
+                setMainPicture(currentBitmap);
+            }
+        }
+
+        /// <summary>
+        /// Applies a color matrix to the pixels of a bitmap
+        /// </summary>
+        /// <param name="original">Bitmap to be converted</param>
+        /// <param name="cM">ColorMatrix which does the changing</param>
+        /// <returns>Converted Bitmap</returns>
+        public Bitmap MatrixConvertBitmap(Bitmap original, ColorMatrix cM)
+        {
+            Bitmap aBitmap = new Bitmap(original.Width, original.Height);
+            Graphics g = Graphics.FromImage(aBitmap);
+
+            ColorMatrix colorMatrix = cM;
+
+            // Set an image attribute to our color matrix so that we can apply it to a bitmap
+            ImageAttributes attr = new ImageAttributes();
+            attr.SetColorMatrix(colorMatrix);
+
+            //Uses graphics class to redraw the bitmap with our Color matrix applied
+            g.DrawImage(    original,                                               // Bitmap
+                            new Rectangle(0, 0, original.Width, original.Height),   // Contains the image
+                            0,                                                      // x, y, width, and height
+                            0,
+                            original.Width,
+                            original.Height,
+                            GraphicsUnit.Pixel,                                     // Unit of measure
+                            attr);                                                  // Our ColorMatrix being applied
+            g.Dispose();
+
+            return aBitmap;
+        }
+
+        #region event_handlers
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -82,165 +168,6 @@ namespace WinForm_Image_Editor
             {
                 MessageBox.Show("Error: Could not write file to disk. Original error: " + ex.Message);
             }
-        }
-
-
-        public void addPicture(Bitmap aBitmap)
-        {
-            bitmapList.Add(aBitmap);
-            mainPictureBox.Image = aBitmap;
-            currentBitmap = bitmapList.Count - 1;
-
-            Console.WriteLine(currentBitmap);
-            Console.WriteLine(bitmapList.Count);
-        }
-
-
-        /// <summary>
-        /// This changes the main image to a bitmap from the array of bitmaps
-        /// Bitmap class for manipulation needs to be converted to bitmap source
-        /// to be displayed by WPF
-        /// </summary>
-        /// <param name="currentState"></param>
-        public void setMainPicture(int currentState)
-        {
-            mainPictureBox.Image = bitmapList[currentState];
-            currentBitmap = currentState;
-
-            Console.WriteLine(currentBitmap);
-            Console.WriteLine(bitmapList.Count);
-        }
-
-        /// <summary>
-        /// For non permanent changes to the main image and aren't added to the state
-        /// </summary>
-        /// <param name="aBitmap"></param>
-        public void setTempPicture(Bitmap aBitmap)
-        {
-            mainPictureBox.Image = aBitmap;
-        }
-
-        public void undoPicture()
-        {
-            if (currentBitmap > 0)
-            {
-                currentBitmap--;
-                setMainPicture(currentBitmap);
-            }
-            Console.WriteLine("undo ran");
-        }
-
-        public void redoPicture()
-        {
-            if (currentBitmap < bitmapList.Count - 1)
-            {
-                currentBitmap++;
-                setMainPicture(currentBitmap);
-            }
-
-            Console.WriteLine("redo ran");
-        }
-
-         
-    //
-    //    public void resetState(Bitmap aBitmap=null)
-    //    {
-    //        previousStatesList.Clear();
-    //        currentStateCounter = -1;
-    //        previousStatesList.Add(aBitmap);
-    //
-    //        Console.WriteLine(currentStateCounter);
-    //    }
-    //
-    //    public void addState(Bitmap aBitmap)
-    //    {
-    //        previousStatesList.Add(aBitmap);
-    //        currentStateCounter++;
-    //        Console.WriteLine(currentStateCounter);
-    //    }
-    //
-    //    public void previousState()
-    //    {
-    //        try
-    //        {
-    //            setMainPicture(previousStatesList[currentStateCounter--]);
-    //            currentStateCounter--;
-    //        }
-    //        catch (Exception except)
-    //        {
-    //            MessageBox.Show(except.Message);
-    //        }
-    //        Console.WriteLine(currentStateCounter);
-    //    }
-    //
-    //    public void currentState()
-    //    {
-    //        try
-    //        {
-    //            setMainPicture(previousStatesList[currentStateCounter]);
-    //        }
-    //        catch (Exception except)
-    //        {
-    //            MessageBox.Show(except.Message);
-    //        }
-    //        Console.WriteLine(currentStateCounter);
-    //    }
-    //
-    //    public void nextState()
-    //    {
-    //        try
-    //        {
-    //            setMainPicture(previousStatesList[currentStateCounter++]);
-    //            currentStateCounter++;
-    //        }
-    //        catch (Exception except)
-    //        {
-    //            MessageBox.Show(except.Message);
-    //        }
-    //        Console.WriteLine(currentStateCounter);
-    //    }
-    //
-    //    /// <summary>
-    //    /// Set the main picture from outside
-    //    /// </summary>
-    //    /// <param name="aBitmap">a Bitmap object that will be displayed</param>
-    //    public void setMainPicture(Bitmap aBitmap, Boolean keepChange = true)
-    //    {
-    //        mainPictureBox.Image = aBitmap;
-    //
-    //        if (keepChange)
-    //            addState(aBitmap);
-    //    }
-
-        /// <summary>
-        /// Applies a color matrix to the pixels of a bitmap
-        /// </summary>
-        /// <param name="original">Bitmap to be converted</param>
-        /// <param name="cM">ColorMatrix which does the changing</param>
-        /// <returns>Converted Bitmap</returns>
-        public Bitmap MatrixConvertBitmap(Bitmap original, ColorMatrix cM)
-        {
-            Bitmap aBitmap = new Bitmap(original.Width, original.Height);
-            Graphics g = Graphics.FromImage(aBitmap);
-
-            ColorMatrix colorMatrix = cM;
-
-            // Set an image attribute to our color matrix so that we can apply it to a bitmap
-            ImageAttributes attr = new ImageAttributes();
-            attr.SetColorMatrix(colorMatrix);
-
-            //Uses graphics class to redraw the bitmap with our Color matrix applied
-            g.DrawImage(    original,                                               // Bitmap
-                            new Rectangle(0, 0, original.Width, original.Height),   // Contains the image
-                            0,                                                      // x, y, width, and height
-                            0,
-                            original.Width,
-                            original.Height,
-                            GraphicsUnit.Pixel,                                     // Unit of measure
-                            attr);                                                  // Our ColorMatrix being applied
-            g.Dispose();
-
-            return aBitmap;
         }
 
         private void discardChangesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -356,8 +283,9 @@ namespace WinForm_Image_Editor
         {
             redoPicture();
         }
+        #endregion
 
-
+        #region fields
         public Bitmap CurrentPicture
         {
             get { return currentPicture; }
@@ -373,6 +301,6 @@ namespace WinForm_Image_Editor
             get { return bitmapList; }
             set { bitmapList = value; }
         }
-
+        #endregion
     }
 }

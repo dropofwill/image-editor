@@ -18,7 +18,6 @@ namespace WinForm_Image_Editor
 
         private Image_Editor_Main mainParentForm;
         private ColorRGBDialog parentForm;
-
         private int originalBitmapCount = new int();
         private Bitmap previewBitmap;
 
@@ -176,6 +175,10 @@ namespace WinForm_Image_Editor
             }
         }
 
+        /// <summary>
+        /// Creates a color matrix based on the values for each numeric updown box
+        /// </summary>
+        /// <returns>A color matrix</returns>
         private ColorMatrix createColorMatrix()
         {
             ColorMatrix cMatrix = new ColorMatrix(
@@ -192,7 +195,7 @@ namespace WinForm_Image_Editor
 
 
         /// <summary>
-        /// Sets the main Bitmap permanently with the current user settings
+        /// Sets the main Bitmap permanently with the current user settingss
         /// Use only for changes that will be saved into state, i.e. the Apply
         /// Button.
         /// </summary>

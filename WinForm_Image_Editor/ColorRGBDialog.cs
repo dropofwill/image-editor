@@ -20,7 +20,9 @@ namespace WinForm_Image_Editor
         private CustomMatrixControl myCustomMatrixControl;
 
         /// <summary>
-        /// 
+        /// Dialog window that builds a user control for a specific manipulation
+        /// Pass in a reference to the form that spawns it and a string with the 
+        /// name of the control required.
         /// </summary>
         /// <param name="pf">Current Form</param>
         /// <param name="tOC">Accepted Values "ColorRGB", "ColorBSL", "CustomGrey", "CustomMatrix"</param>

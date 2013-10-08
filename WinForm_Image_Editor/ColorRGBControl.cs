@@ -124,29 +124,5 @@ namespace WinForm_Image_Editor
             // Display the bitmap temporarily
             mainParentForm.setTempPicture(previewBitmap);
         }
-        
-
-     //   private void setMainBitmap()
-     //   {
-     //       ColorMatrix cMatrix = createColorMatrix(redV, greenV, blueV);
-     //       previewBitmap = deepCopyBitmap(controlBitmap);
-     //       previewBitmap = mainParentForm.MatrixConvertBitmap(previewBitmap, cMatrix);
-     //
-     //       mainParentForm.setMainPicture(previewBitmap);
-     //   }
-
-    //    private Bitmap deepCopyBitmap(Bitmap aBitmap)
-    //    {
-    //        Bitmap copy = new Bitmap(aBitmap.Width, aBitmap.Height);
-    //
-    //        using (Graphics graphics = Graphics.FromImage(copy))
-    //        {
-    //            Rectangle imageRectangle = new Rectangle(0, 0, copy.Width, copy.Height);
-    //            graphics.DrawImage(aBitmap, imageRectangle, imageRectangle, GraphicsUnit.Pixel);
-    //        }
-    //
-    //        return copy;
-    //    }
-
     }
 }
