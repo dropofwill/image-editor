@@ -133,27 +133,27 @@ namespace WPF_Image_Editor
             },
             {"Desaturate", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
-                                   new float[] {0, 1, 0, 0, 0},
+                               {   new float[] {-.37f,.463f,.463f, 0, 0},
+                                   new float[] {.914f,.414f, .914f, 0, 0},
+                                   new float[] {.123f, .123f, -.377f, 0, 0},
                                    new float[] {0, 0, 0, 1, 0},
                                    new float[] {0, 0, 0, 0, 1}})
             },
             {"Add Contrast", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
-                                   new float[] {0, 1, 0, 0, 0},
+                               {   new float[] {1.5f, 0, 0, 0, 0},
+                                   new float[] {0, 1.5f, 0, 0, 0},
+                                   new float[] {0, 0, 1.5f, 0, 0},
                                    new float[] {0, 0, 0, 1, 0},
-                                   new float[] {0, 0, 0, 0, 1}})
+                                   new float[] {-0.25f, -0.25f, -0.25f, 0, 1}})
             },
             {"Remove Contrast", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
-                                   new float[] {0, 1, 0, 0, 0},
+                               {   new float[] {.5f, 0, 0, 0, 0},
+                                   new float[] {0, .5f, 0, 0, 0},
+                                   new float[] {0, 0, .5f, 0, 0},
                                    new float[] {0, 0, 0, 1, 0},
-                                   new float[] {0, 0, 0, 0, 1}})
+                                   new float[] {.25f, .25f, .25f, 0, 1}})
             }
         };
 
@@ -264,8 +264,6 @@ namespace WPF_Image_Editor
             myParentWindow.setMainPicture(originalBitmapCount);
             myColorDialog.Close();
         }
-
-        #endregion
 
         private void iV00_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
@@ -391,5 +389,51 @@ namespace WPF_Image_Editor
         {
             v44 = (float)iV44.Value;
         }
+
+        private void PresetsComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                String selected = PresetsComboBox.SelectedItem.ToString();
+                ColorMatrix cMatrix = matrixDict[selected];
+
+                // Get the current bitmap to edit
+                previewBitmap = myParentWindow.BitmapList[myParentWindow.CurrentBitmap];
+                previewBitmap = myParentWindow.MatrixConvertBitmap(previewBitmap, cMatrix);
+
+                myParentWindow.setTempPicture(previewBitmap);
+
+                iV00.Value = cMatrix.Matrix00;
+                iV01.Value = cMatrix.Matrix01;
+                iV02.Value = cMatrix.Matrix02;
+                iV03.Value = cMatrix.Matrix03;
+                iV04.Value = cMatrix.Matrix04;
+                iV10.Value = cMatrix.Matrix10;
+                iV11.Value = cMatrix.Matrix11;
+                iV12.Value = cMatrix.Matrix12;
+                iV13.Value = cMatrix.Matrix13;
+                iV14.Value = cMatrix.Matrix14;
+                iV20.Value = cMatrix.Matrix20;
+                iV21.Value = cMatrix.Matrix21;
+                iV22.Value = cMatrix.Matrix22;
+                iV23.Value = cMatrix.Matrix23;
+                iV24.Value = cMatrix.Matrix24;
+                iV30.Value = cMatrix.Matrix30;
+                iV31.Value = cMatrix.Matrix31;
+                iV32.Value = cMatrix.Matrix32;
+                iV33.Value = cMatrix.Matrix33;
+                iV34.Value = cMatrix.Matrix34;
+                iV40.Value = cMatrix.Matrix40;
+                iV41.Value = cMatrix.Matrix41;
+                iV42.Value = cMatrix.Matrix42;
+                iV43.Value = cMatrix.Matrix43;
+                iV44.Value = cMatrix.Matrix44;
+            }
+            catch (Exception except)
+            {
+                System.Windows.MessageBox.Show(except.Message);
+            }
+        }
+        #endregion
     }
 }

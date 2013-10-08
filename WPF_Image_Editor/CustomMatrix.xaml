@@ -11,7 +11,7 @@
         <Button x:Name="Apply_btn" Click="Apply_btn_Click_1" Content="Apply" HorizontalAlignment="Left" Margin="291,242,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Cancel_btn" Click="Cancel_btn_Click_1" Content="Cancel" HorizontalAlignment="Left" Margin="201,242,0,0" VerticalAlignment="Top" Width="75"/>
         
-        <ComboBox x:Name="PresetsComboBox" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top" Width="189" Text="&lt;Select a Preset Effect&gt;"/>
+        <ComboBox x:Name="PresetsComboBox" SelectionChanged="PresetsComboBox_SelectionChanged_1" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top" Width="189" Text="&lt;Select a Preset Effect&gt;"/>
         <Grid HorizontalAlignment="Left" Height="225" Margin="65,76,0,0" VerticalAlignment="Top" Width="301">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="267*"/>

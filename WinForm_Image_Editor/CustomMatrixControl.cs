@@ -124,27 +124,27 @@ namespace WinForm_Image_Editor
             },
             {"Desaturate", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
-                                   new float[] {0, 1, 0, 0, 0},
+                               {   new float[] {-.37f,.463f,.463f, 0, 0},
+                                   new float[] {.914f,.414f, .914f, 0, 0},
+                                   new float[] {.123f, .123f, -.377f, 0, 0},
                                    new float[] {0, 0, 0, 1, 0},
                                    new float[] {0, 0, 0, 0, 1}})
             },
             {"Add Contrast", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
-                                   new float[] {0, 1, 0, 0, 0},
+                               {   new float[] {1.5f, 0, 0, 0, 0},
+                                   new float[] {0, 1.5f, 0, 0, 0},
+                                   new float[] {0, 0, 1.5f, 0, 0},
                                    new float[] {0, 0, 0, 1, 0},
-                                   new float[] {0, 0, 0, 0, 1}})
+                                   new float[] {-0.25f, -0.25f, -0.25f, 0, 1}})
             },
             {"Remove Contrast", new ColorMatrix(
                                new float[][]
-                               {   new float[] {0, 0, 1, 0, 0},
-                                   new float[] {1, 0, 0, 0, 0},
-                                   new float[] {0, 1, 0, 0, 0},
+                               {   new float[] {.5f, 0, 0, 0, 0},
+                                   new float[] {0, .5f, 0, 0, 0},
+                                   new float[] {0, 0, .5f, 0, 0},
                                    new float[] {0, 0, 0, 1, 0},
-                                   new float[] {0, 0, 0, 0, 1}})
+                                   new float[] {.25f, .25f, .25f, 0, 1}})
             }
         };
 
