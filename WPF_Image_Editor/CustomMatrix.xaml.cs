@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit;
 
 namespace WPF_Image_Editor
 {
@@ -265,5 +266,130 @@ namespace WPF_Image_Editor
         }
 
         #endregion
+
+        private void iV00_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v00 = (float)iV00.Value;
+        }
+
+        private void iV10_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v10 = (float)iV10.Value;
+        }
+
+        private void iV20_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v20 = (float)iV20.Value;
+        }
+
+        private void iV30_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v30 = (float)iV30.Value;
+        }
+
+        private void iV40_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v40 = (float)iV40.Value;
+        }
+
+        private void iV01_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v01 = (float)iV01.Value;
+        }
+
+        private void iV11_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v11 = (float)iV11.Value;
+        }
+
+        private void iV21_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v21 = (float)iV21.Value;
+        }
+
+        private void iV31_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v31 = (float)iV31.Value;
+        }
+
+        private void iV41_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v41 = (float)iV41.Value;
+        }
+
+        private void iV02_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v02 = (float)iV02.Value;
+        }
+
+        private void iV12_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v12 = (float)iV12.Value;
+        }
+
+        private void iV22_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v22 = (float)iV22.Value;
+        }
+
+        private void iV32_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v32 = (float)iV32.Value;
+        }
+
+        private void iV42_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v42 = (float)iV42.Value;
+        }
+
+        private void iV03_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v03 = (float)iV03.Value;
+        }
+
+        private void iV04_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v04 = (float)iV04.Value;
+        }
+
+        private void iV23_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v23 = (float)iV23.Value;
+        }
+
+        private void iV33_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v33 = (float)iV33.Value;
+        }
+
+        private void iV13_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v13 = (float)iV13.Value;
+        }
+
+        private void iV43_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v43 = (float)iV43.Value;
+        }
+
+        private void iV14_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v14 = (float)iV14.Value;
+        }
+
+        private void iV24_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v24 = (float)iV24.Value;
+        }
+
+        private void iV34_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v34 = (float)iV34.Value;
+        }
+
+        private void iV44_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            v44 = (float)iV44.Value;
+        }
     }
 }
