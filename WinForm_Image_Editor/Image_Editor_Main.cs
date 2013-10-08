@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace WinForm_Image_Editor
 
         private Bitmap originalPicture;
         private Bitmap currentPicture;
+        private List<Bitmap> previousStatesList = new List<Bitmap>();
+        private int currentStateCounter;
+
 
         private ColorMatrix greyscaleConMatrix = new ColorMatrix(
             new float[][]
@@ -37,10 +41,14 @@ namespace WinForm_Image_Editor
                 new float[] {  1,   1,   1,  0,  1}
             });
 
+
+
         public Image_Editor_Main()
         {
             InitializeComponent();
         }
+
+
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -53,6 +61,7 @@ namespace WinForm_Image_Editor
                 originalPicture = new Bitmap(openFileDialog.FileName);
                 currentPicture = new Bitmap(openFileDialog.FileName);
                 setMainPicture(currentPicture);
+                resetState();
 
                 this.Text = openFileDialog.FileName;
             }
@@ -80,7 +89,51 @@ namespace WinForm_Image_Editor
         }
 
 
+        public void resetState(Bitmap aBitmap = null)
+        {
+            previousStatesList.Clear();
+            currentStateCounter = 0;
 
+         //  if (aBitmap != null)
+         //      previousStatesList.Add(aBitmap);
+
+            Console.WriteLine(currentStateCounter);
+        }
+
+        public void addState(Bitmap aBitmap)
+        {
+            previousStatesList.Add(aBitmap);
+            currentStateCounter++;
+            Console.WriteLine(currentStateCounter);
+        }
+
+        public void previousState()
+        {
+            try
+            {
+                setMainPicture(previousStatesList[currentStateCounter--]);
+                currentStateCounter--;
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
+            Console.WriteLine(currentStateCounter);
+        }
+
+        public void nextState()
+        {
+            try
+            {
+                setMainPicture(previousStatesList[currentStateCounter++]);
+                currentStateCounter++;
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message);
+            }
+            Console.WriteLine(currentStateCounter);
+        }
 
         /// <summary>
         /// Applies a color matrix to the pixels of a bitmap
@@ -117,17 +170,19 @@ namespace WinForm_Image_Editor
         /// Set the main picture from outside
         /// </summary>
         /// <param name="aBitmap">a Bitmap object that will be displayed</param>
-        public void setMainPicture(Bitmap aBitmap)
+        public void setMainPicture(Bitmap aBitmap, Boolean keepChange=true)
         {
             mainPictureBox.Image = aBitmap;
+            
+            if (keepChange)
+                addState(aBitmap);
         }
 
 
         private void discardChangesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             setMainPicture(originalPicture);
-            currentPicture = originalPicture;
-            
+            currentPicture = originalPicture;   
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -213,12 +268,32 @@ namespace WinForm_Image_Editor
             }
         }
 
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            previousState();
+        }
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nextState();
+        }
+
 
 
         public Bitmap CurrentPicture
         {
             get { return currentPicture; }
             set { currentPicture = value; }
+        }
+        public List<Bitmap> PreviousStatesList
+        {
+            get { return previousStatesList; }
+            set { previousStatesList = value; }
+        }
+        public int CurrentStateCounter
+        {
+            get { return currentStateCounter; }
+            set { currentStateCounter = value; }
         }
     }
 }

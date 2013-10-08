@@ -11,3 +11,16 @@ C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\De
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.csproj.GenerateResource.Cache
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.exe
 C:\Users\wpnev_000\Dropbox\RIT\1 Algorithms\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.pdb
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\bin\Debug\WPF_Image_Editor.exe.config
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.exe
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.pdb
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\bin\Debug\WPF_Image_Editor.exe
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\bin\Debug\WPF_Image_Editor.pdb
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.csprojResolveAssemblyReference.cache
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\MainWindow.baml
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\MainWindow.g.cs
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\App.g.cs
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor_MarkupCompile.cache
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.g.resources
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.Properties.Resources.resources
+\\banner.main.ad.rit.edu\students\whp3652\IGMProfile\Desktop\GitHub\Image_Editor\WPF_Image_Editor\obj\Debug\WPF_Image_Editor.csproj.GenerateResource.Cache
